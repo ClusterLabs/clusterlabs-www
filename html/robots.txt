@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /mediawiki/
+Disallow: /mwiki/
+Disallow: /rpm
+Disallow: /wiki/Special
+Disallow: /wiki/Commons
+Disallow: /*.rpm
+Disallow: /*?
+Disallow: /*&
