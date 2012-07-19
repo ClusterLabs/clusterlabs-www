@@ -21,7 +21,7 @@ echo '
 	    </ul>
 	  </li>
           <li><a href="http://oss.clusterlabs.org/mailman/listinfo/pacemaker">Ask a Question</a></li>
-          <li><a href="http://developerbugs.linux-foundation.org/enter_bug.cgi?product=Pacemaker">Report a Problem</a></li>
+          <li><a href="http://bugs.clusterlabs.org/">Report a Problem</a></li>
           <li class="dir"><a href="#">Developers</a>
 	    <ul>
               <li><a href="http://build.clusterlabs.org:8010/one_box_per_builder">Buildbot Status</a></li>
@@ -29,6 +29,7 @@ echo '
               <li><a href="http://www.clusterlabs.org/coverity/pacemaker/">Coverity Defect Reports</a></li>
               <li><a href="http://www.clusterlabs.org/global/pacemaker/">Indexed Source Code</a></li>
               <li><a href="http://www.clusterlabs.org/doxygen/pacemaker/">API Documentation</a></li>
+              <li><a href="http://www.clusterlabs.org/abi/">ABI Compatability</a></li>
 	    </ul>
 	  </li>
         </ul>
