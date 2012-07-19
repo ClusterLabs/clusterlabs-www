@@ -3,7 +3,7 @@
 	<link href="/stylesheets/getpacemaker.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <?php include '/banner-small.php' ?>
+  <?php include '../../banner-small.php' ?>
   <div id="inner-body" style="text-align: left;">
      <div class="coda-slider" style="padding: 20px; width: 800px;">
 	<h2>Annotated Pacemaker Sources</h2>
