@@ -4,6 +4,7 @@ Disallow: /mwiki/
 Disallow: /rpm
 Disallow: /wiki/Special
 Disallow: /wiki/Commons
+Disallow: /wiki/beekhof
 Disallow: /*.rpm
 Disallow: /*?
 Disallow: /*&
