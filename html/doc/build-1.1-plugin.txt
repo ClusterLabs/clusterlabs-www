@@ -1,0 +1,2 @@
+The last version featuring <b>Corosync 1.x</b> and the Pacemaker plugins<br/>
+Generated on Thu Oct 6 10:59:21 EST 2011 from version: a02c0f1  (HEAD)
