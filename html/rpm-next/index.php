@@ -14,8 +14,7 @@ Binary packages for current Fedora, OpenSUSE and EPEL compatible distributions (
 
 $sets = array();
 $sets[] = "Fedora";
-$sets[] = "openSUSE";
-$sets[] = "EPEL";
+$sets[] = "RHEL";
 
 echo "<ul>";
 
@@ -40,46 +39,63 @@ echo "</ul>";
 ?>
 <h2>More information</h2>
 <p>
-You can find a <a href=http://www.clusterlabs.org/mediawiki/images/5/56/Cluster_from_Scratch_-_Fedora_12.pdf>getting started guide<a/>, <a href="http://www.clusterlabs.org/wiki/Documentation">additional documentation</a> and details about the Pacemaker project at <a href="http://www.clusterlabs.org">http://www.clusterlabs.org</a>
+You can find a <a href=http://www.clusterlabs.org/doc>getting started guide<a/>, <a href="http://www.clusterlabs.org/wiki/Documentation">additional documentation</a> and details about the Pacemaker project at <a href="http://www.clusterlabs.org">http://www.clusterlabs.org</a>
 </p>
 <h2>How to Use this Page</h2>
 <p>
-Simply browse for your distribution and install the repository file.<br/>
-Once installed, you can decide which cluster stack to use at runtime simply by starting either 
-<pre>service heartbeat start</pre> or <pre>service corosync start</pre>
-You can also choose to <b>only</b> install the stack you plan to use.
+    Simply browse for your distribution, download the repository file and install the relevant packages.<br/>
 </p>
-<h3>Installation - Fedora</h3>
+<h3>Fedora 17</h3>
 <p>
 Installation is as simple as:
 </p>
 <pre>
- wget -O /etc/yum.repos.d/pacemaker.repo http://clusterlabs.org/rpm-next/fedora-11/clusterlabs.repo 
- yum install -y pacemaker corosync heartbeat
+ wget -O /etc/yum.repos.d/pacemaker.repo http://clusterlabs.org/rpm-next/fedora-17/clusterlabs.repo 
+ yum install -y pacemaker corosync
 </pre>
-<h3>Installation - openSUSE</h3>
-<p>
-openSUSE uses zypper instead of yum, but the procedure is much the same:
-</p>
+<h3>RHEL 6</h3>
+    <p>
+    To minimize the difference to a 'standard' RHCS cluster, Pacemaker is only built to support cman as the membership and quorum provider.
+    You'll want to look at the CMAN section of our <a href=http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/pdf/Clusters_from_Scratch/Pacemaker-1.1-Clusters_from_Scratch-en-US.pdf>Clusters from Scratch</a> document.
+    </p>
+    <p>
+    Installation is as simple as:
+    </p>
+    <pre>
+ wget -O /etc/yum.repos.d/pacemaker.repo http://clusterlabs.org/rpm-next/rhel-6/clusterlabs.repo 
+ yum install -y pacemaker cman
+    </pre>
+    <p>
+    Although the code is well tested, the builds have not been.
+    Please report any problems immediately.
+    </p>
+    <p>
+    Minimal effort will be made to keep up with bug-fix updates of Pacemaker's <b>pre-requisits not in RHEL</b> (such as libqb).
+    If you're affected by a bug in libqb etc, you'll need to obtain/patch and rebuild those packages yourself.
+    A big deal is made about ABI compatibility within distro versions, so the pacemaker packages should continue to function.
+    </p>
+<h3>RHEL 5</h3>
+    <p>
+    Due to the packages available on RHEL-5, Pacemaker is only built to support the (deprecated) pacemaker/corosync plugin as the membership and quorum provider.
+    You'll want to look at our <a href=http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/pdf/Clusters_from_Scratch/Pacemaker-1.1-Clusters_from_Scratch-en-US.pdf>Clusters from Scratch</a> document up uptil the point it talks about CMAN and GFS2.
+    Neither of those technologies are supported by these builds of Pacemaker.
+    </p>
+    <p>
+    Installation is as simple as:
+    </p>
 <pre>
- zypper ar http://clusterlabs.org/rpm-next/opensuse-11.1/clusterlabs.repo
- zypper refresh
- zypper in pacemaker corosync heartbeat
+ wget -O /etc/yum.repos.d/pacemaker.repo http://clusterlabs.org/rpm-next/rhel-5/clusterlabs.repo 
+ yum install -y pacemaker corosync
 </pre>
-<h3>Installation - EPEL</h3>
-<p>
-The Pacemaker packages in the EPEL directories build against some additional packages that don't exist on vanilla RHEL/CentOS installs. For more information on EPEL, see <a href=http://fedoraproject.org/wiki/EPEL/FAQ>http://fedoraproject.org/wiki/EPEL/FAQ</a>
-So before installing Pacemaker, you will first need to tell the machine how to find the EPEL packages Pacemaker depends on. To do this, download and install the EPEL package that matches your RHEL/CentOS version.
-</p>
-<p>
-For example to install on RHEL5.3 for i386, you'd first add the EPEL repository:
-<pre> su -c 'rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-3.noarch.rpm'</pre>
-And then add the Cluster Labs repository and install Pacemaker:
-<pre>
- wget -O /etc/yum.repos.d/pacemaker.repo http://clusterlabs.org/rpm-next/epel-5/clusterlabs.repo
- yum install -y pacemaker corosync heartbeat
-</pre>
-</p>
+    <p>
+    Although the code is well tested, the builds have not been.
+    Please report any problems immediately.
+    </p>
+    <p>
+    Minimal effort will be made to keep up with bug-fix updates of Pacemaker's <b>pre-requisits not in RHEL</b> (such as libqb).
+    If you're affected by a bug in libqb etc, you'll need to obtain/patch and rebuild those packages yourself.
+    A big deal is made about ABI compatibility within distro versions, so the pacemaker packages should continue to function.
+    </p>
 </div>
 </div>
 <script type="text/javascript">
