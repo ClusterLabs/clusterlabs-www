@@ -24,46 +24,53 @@ Again, be sure to read the edition appropriate for your software version.
  function get_versions($base) {
    $versions = array();
    foreach (glob("$base/*/Pacemaker/*") as $item)
-     if ($item != '.' && $item != '..' && is_dir($item))
-       $versions[] = basename($item);
+      if ($item != '.' && $item != '..' && is_dir($item) && !is_link($item))
+         $versions[] = basename($item);
 
    return array_unique($versions);
  }
 
  function docs_for_version($base, $version) {
-   echo "<br/><li>Version: $version<br/>";
+   echo "<br/><li>Version: $version<br/><br/>";
    foreach (glob("build-$version.txt") as $filename) {
       readfile($filename);
    }
    echo "<ul>";
+   echo "<br/>";
 
+   $langs = array();
    foreach (glob("$base/*/Pacemaker/$version") as $item) {
-     $lang = basename(dirname(dirname($item)));
-
-     $books = array();
-     foreach (glob("$base/$lang/Pacemaker/$version/pdf/*") as $filename) {
+       $langs[] = basename(dirname(dirname($item)));
+   }
+   
+   $books = array();
+   foreach (glob("$base/en-US/Pacemaker/$version/pdf/*") as $filename) {
        $books[] = basename($filename);
-     }
-     
-     foreach ($books as $b) {
-       echo "<li>".str_replace("_", " ", $b)." ($lang)";
-       foreach (glob("$base/$lang/Pacemaker/$version/epub/$b/*.epub") as $filename) {
-	 echo " [<a href=$filename>epub</a>]";
+   }
+
+   foreach ($books as $b) {
+       foreach ($langs as $lang) {
+           if (glob("$base/$lang/Pacemaker/$version/pdf/$b/*-$lang.pdf")) {
+               echo "<li>".str_replace("_", " ", $b)." ($lang)";
+
+               foreach (glob("$base/$lang/Pacemaker/$version/epub/$b/*.epub") as $filename) {
+                   echo " [<a href=$filename>epub</a>]";
+               }
+               foreach (glob("$base/$lang/Pacemaker/$version/pdf/$b/*.pdf") as $filename) {
+                   echo " [<a href=$filename>pdf</a>]";
+               }
+               foreach (glob("$base/$lang/Pacemaker/$version/html/$b/index.html") as $filename) {
+                   echo " [<a href=$filename>html</a>]";
+               }
+               foreach (glob("$base/$lang/Pacemaker/$version/html-single/$b/index.html") as $filename) {
+                   echo " [<a href=$filename>html-single</a>]";
+               }
+               foreach (glob("$base/$lang/Pacemaker/$version/txt/$b/*.txt") as $filename) {
+                   echo " [<a href=$filename>txt</a>]";
+               }
+           }
        }
-       foreach (glob("$base/$lang/Pacemaker/$version/pdf/$b/*.pdf") as $filename) {
-	 echo " [<a href=$filename>pdf</a>]";
-       }
-       foreach (glob("$base/$lang/Pacemaker/$version/html/$b/index.html") as $filename) {
-	 echo " [<a href=$filename>html</a>]";
-       }
-       foreach (glob("$base/$lang/Pacemaker/$version/html-single/$b/index.html") as $filename) {
-	 echo " [<a href=$filename>html-single</a>]";
-       }
-       foreach (glob("$base/$lang/Pacemaker/$version/txt/$b/*.txt") as $filename) {
-	 echo " [<a href=$filename>txt</a>]";
-       }
-     }
-     echo "</li><br/>";
+       echo "</li><br/>";
    }
    echo "</ul>";
  }
