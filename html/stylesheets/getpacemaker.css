@@ -21,6 +21,7 @@ body {
   background: #2c4081;
   color: #1a006d;
 }
+.publican-doc { font-size: 14px; }
 #demo-menu { border-bottom: 3px solid #732f2f; }
 #banner {
   background: white url(../images/gradiant.png) 0 0 repeat-x;

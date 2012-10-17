@@ -35,8 +35,7 @@ Again, be sure to read the edition appropriate for your software version.
    foreach (glob("build-$version.txt") as $filename) {
       readfile($filename);
    }
-   echo "<ul>";
-   echo "<br/>";
+   echo "<ul><br/>";
 
    $langs = array();
    foreach (glob("$base/*/Pacemaker/$version") as $item) {
@@ -48,11 +47,13 @@ Again, be sure to read the edition appropriate for your software version.
        $books[] = basename($filename);
    }
 
+   echo '<table class="publican-doc">';
    foreach ($books as $b) {
        foreach ($langs as $lang) {
            if (glob("$base/$lang/Pacemaker/$version/pdf/$b/*-$lang.pdf")) {
-               echo "<li>".str_replace("_", " ", $b)." ($lang)";
+               echo '<tr><td>'.str_replace("_", " ", $b)." ($lang)</td>";
 
+               echo '<td>';
                foreach (glob("$base/$lang/Pacemaker/$version/epub/$b/*.epub") as $filename) {
                    echo " [<a href=$filename>epub</a>]";
                }
@@ -68,10 +69,12 @@ Again, be sure to read the edition appropriate for your software version.
                foreach (glob("$base/$lang/Pacemaker/$version/txt/$b/*.txt") as $filename) {
                    echo " [<a href=$filename>txt</a>]";
                }
+               echo "</td></tr>";
            }
        }
-       echo "</li><br/>";
+       echo "<tr><td/><td/></tr>";
    }
+   echo "</table>";
    echo "</ul>";
  }
 
