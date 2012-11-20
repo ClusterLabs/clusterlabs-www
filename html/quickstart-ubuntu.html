@@ -12,13 +12,7 @@
 	<!--#include virtual="/banner.html" -->	
 
 	<section id="main">
-	  <p>
-	    All examples assume two nodes that are reachable by their short name and IP address:
-	    <ul>
-	      <li>node1 - 192.168.1.1</li>
-	      <li>node2 - 192.168.1.2</li>
-	    </ul>
-	  </p>
+	  <!--#include virtual="/quickstart-common.html" -->	
 
 	  <h1>Ubuntu</h1>
 	  <p>
@@ -31,7 +25,7 @@
 	    necessary packages we will need:
 	  </p>
 	  <p class="command">
-# aptitude install pacemaker cman fence-agents
+[ALL] # aptitude install pacemaker cman fence-agents
 	  </p>
 
 	  <h2>Configure Cluster Membership and Messaging</h2>
@@ -41,7 +35,7 @@
 	    manually:
           </p>
          <p class="command">
-# cat <<EOF > /etc/cluster/cluster.conf
+[ALL] # cat <<EOF > /etc/cluster/cluster.conf
 &lt;?xml version="1.0"?>
 &lt;cluster config_version="1" name="pacemaker1">
   &lt;logging debug="off"/>
@@ -76,7 +70,7 @@ EOF
 	    this behavior:
 	  </p>
           <p class="command">
-# echo "CMAN_QUORUM_TIMEOUT=0" >> /etc/default/cman
+[ALL] # echo "CMAN_QUORUM_TIMEOUT=0" >> /etc/default/cman
 	  </p>
 
 	  <h2>Start the Cluster</h2>
@@ -84,8 +78,8 @@ EOF
 	    On each machine, run:
 	  </p>
 	  <p class="command">
-# service cman start
-# service pacemaker start
+[ALL] # service cman start
+[ALL] # service pacemaker start
 	  </p>
 
 	  <h2>Set Cluster Options</h2>
@@ -95,7 +89,7 @@ EOF
 	    For now we will disable it.
 	  </p>
 	  <p class="command">
-# crm configure property stonith-enabled=false
+[ONE] # crm configure property stonith-enabled=false
 	  </p>
 	  <p>
 	    One of the most common ways to deploy Pacemaker is in a
@@ -105,14 +99,14 @@ EOF
 	    it too.
 	  </p>
 	  <p class="command">
-# crm configure property no-quorum-policy=ignore
+[ONE] # crm configure property no-quorum-policy=ignore
 	  </p>
 	  <p>
 	    For demonstration purposes, we will force the cluster to
 	    move services after a single failure:
 	  </p>
 	  <p class="command">
-# crm configure property migration-threshold=1
+[ONE] # crm configure property migration-threshold=1
 	  </p>
 
 	  <h2>Add a Resource</h2>
@@ -122,7 +116,7 @@ EOF
 	    things easy.  Here's the command:
 	  </p>
 	  <p class="command">
-# crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
+[ONE] # crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
 	  </p>
 	  <p>
 	    "<strong>my_first_svc</strong>" is the name the service
@@ -146,7 +140,7 @@ EOF
 	    You should now be able to see the service running using:
 	  </p>
           <p class="command">
-# crm_mon -1
+[ONE] # crm_mon -1
 	  </p>
 
 	  <h2>Simulate a Service Failure</h2>
@@ -155,7 +149,7 @@ EOF
 	    directly (without telling the cluster):
 	  </p>
 	  <p class="command">
-# crm_resource --resource my_first_svc --force-stop
+[ONE] # crm_resource --resource my_first_svc --force-stop
 	  </p>
 	  <p>
 	    If you now run <strong>crm_mon</strong> in interactive

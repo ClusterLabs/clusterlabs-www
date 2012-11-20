@@ -12,13 +12,7 @@
 	<!--#include virtual="/banner.html" -->	
 
 	<section id="main">
-	  <p>
-	    All examples assume two nodes that are reachable by their short name and IP address:
-	    <ul>
-	      <li>node1 - 192.168.1.1</li>
-	      <li>node2 - 192.168.1.2</li>
-	    </ul>
-	  </p>
+	  <!--#include virtual="/quickstart-common.html" -->	
 
 	  <h1>SLES 11</h1>
 	  <h2>Install</h2>
@@ -40,7 +34,7 @@
 	    manually:
 	  </p>
 	  <p class="command">
-# cat <<EOF > /etc/corosync/corosync.conf
+[ALL] # cat <<EOF > /etc/corosync/corosync.conf
 # Please read the corosync.conf.5 manual page
 compatibility: whitetank
  
@@ -129,7 +123,7 @@ EOF
 	    On each machine, run:
 	  </p>
 	  <p class="command">
-# rcopenais start
+[ALL] # rcopenais start
 	  </p>
 
 	  <h2>Set Cluster Options</h2>
@@ -139,7 +133,7 @@ EOF
 	    For now we will disable it.
 	  </p>
 	  <p class="command">
-# crm configure property stonith-enabled=false
+[ONE] # crm configure property stonith-enabled=false
 	  </p>
 	  <p>
 	    One of the most common ways to deploy Pacemaker is in a
@@ -149,14 +143,14 @@ EOF
 	    it too.
 	  </p>
 	  <p class="command">
-# crm configure property no-quorum-policy=ignore
+[ONE] # crm configure property no-quorum-policy=ignore
 	  </p>
 	  <p>
 	    For demonstration purposes, we will force the cluster to
 	    move services after a single failure:
 	  </p>
 	  <p class="command">
-# crm configure property migration-threshold=1
+[ONE] # crm configure property migration-threshold=1
 	  </p>
 
 	  <h2>Add a Resource</h2>
@@ -166,7 +160,7 @@ EOF
 	    things easy.  Here's the command:
 	  </p>
 	  <p class="command">
-# crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
+[ONE] # crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
 	  </p>
 	  <p>
 	    "<strong>my_first_svc</strong>" is the name the service
@@ -190,7 +184,7 @@ EOF
 	    You should now be able to see the service running using:
 	  </p>
           <p class="command">
-# crm_mon -1
+[ONE] # crm_mon -1
 	  </p>
 
 	  <h2>Simulate a Service Failure</h2>
@@ -199,7 +193,7 @@ EOF
 	    directly (without telling the cluster):
 	  </p>
 	  <p class="command">
-# crm_resource --resource my_first_svc --force-stop
+[ONE] # crm_resource --resource my_first_svc --force-stop
 	  </p>
 	  <p>
 	    If you now run <strong>crm_mon</strong> in interactive
