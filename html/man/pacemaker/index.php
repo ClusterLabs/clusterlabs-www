@@ -65,12 +65,9 @@ foreach ($mans as $m) {
      <h2>The Right Tool for the Job</h2>
      <p>
      Pacemaker ships with a comprehensive set of tools that assist you
-     in managing your cluster from the command line. This chapter
-     introduces the tools needed for managing the cluster
-     configuration in the CIB and the cluster resources.  Other
-     command line tools for managing resource agents or tools used for
-     debugging and troubleshooting your setup are covered in ??? and
-     ???.
+     in managing your cluster from the command line. Here we introduce
+     the tools needed for managing the cluster configuration in the
+     CIB and the cluster resources.
      </p>
      <p>
        The following list presents several tasks related to cluster
