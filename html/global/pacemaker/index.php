@@ -1,11 +1,17 @@
-<html>
-<head>
-	<link href="/stylesheets/getpacemaker.css" media="screen, projection" rel="stylesheet" type="text/css" />
-</head>
-<body>
-  <?php include '../../banner-small.php' ?>
-  <div id="inner-body" style="text-align: left;">
-     <div class="coda-slider" style="padding: 20px; width: 800px;">
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+<?php include "../../header.html" ?>
+        <title>Cluster Labs - Packages for Pacemaker 1.0.x</title>
+        <meta name="description" content="">
+     </head>
+     <body>
+<?php include "../../banner.html" ?>
+
+     <section id="main">
 	<h2>Annotated Pacemaker Sources</h2>
         <?php
 
@@ -41,11 +47,8 @@ foreach ($runs as $hash) {
 
 echo "</ul>";
 	?>
-      </p>
-      <div align="center">
-        <object type="image/svg+xml" width="50" height="30" data="http://php.logfish.net/svgCounter.php"></object>
-      </div>
-    </div>
-  </div>
-</body>
+     </section>	
+     
+<?php include "../../footer.html" ?>
+    </body>
 </html>

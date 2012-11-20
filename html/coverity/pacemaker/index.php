@@ -1,12 +1,18 @@
-<html>
-<head>
-	<link href="/stylesheets/getpacemaker.css" media="screen, projection" rel="stylesheet" type="text/css" />
-</head>
-<body>
-  <?php include '../../banner-small.php' ?>
-  <div id="inner-body" style="text-align: left;">
-     <div class="coda-slider" style="padding: 20px; width: 800px;">
-	<h2>Results of Coverity Runs against Pacemaker</h2>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+<?php include "../../header.html" ?>
+        <title>Cluster Labs - Packages for Pacemaker 1.0.x</title>
+        <meta name="description" content="">
+     </head>
+     <body>
+<?php include "../../banner.html" ?>
+
+     <section id="main">
+        <h2>Results of Coverity Runs against Pacemaker</h2>
         <?php
 
 echo "<ul>";
@@ -19,14 +25,14 @@ $lpc = 0;
 
 foreach ($runs as $hash) {
     if(strstr($hash, "index")) {
-	continue;
+        continue;
     }
     $total++;
 }
 
 foreach ($runs as $hash) {
     if(strstr($hash, "index")) {
-	continue;
+        continue;
     }
 
     $run = $total - $lpc;
@@ -35,13 +41,13 @@ foreach ($runs as $hash) {
     $errors = 0;
     $file_handle = fopen("$hash/summary.html", "r");
     while (!feof($file_handle)) {
-	$line = fgetss($file_handle);
-	if(strstr($line, "Total")) {
-	    $next = 1;
-	} else if($next) {
-	    $errors = $line;
-	    break;
-	}
+        $line = fgetss($file_handle);
+        if(strstr($line, "Total")) {
+            $next = 1;
+        } else if($next) {
+            $errors = $line;
+            break;
+        }
     }
     fclose($file_handle);    
 
@@ -54,12 +60,9 @@ foreach ($runs as $hash) {
 }
 
 echo "</ul>";
-	?>
-      </p>
-      <div align="center">
-        <object type="image/svg+xml" width="50" height="30" data="http://php.logfish.net/svgCounter.php"></object>
-      </div>
-    </div>
-  </div>
-</body>
+        ?>
+     </section>	
+     
+<?php include "../../footer.html" ?>
+    </body>
 </html>

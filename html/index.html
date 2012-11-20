@@ -1,355 +1,312 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	<!--#include virtual="/header.html" -->
+        <title>Cluster Labs - The Home of Pacemaker</title>
+        <meta name="description" content="">
+    </head>
+    <body>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
 
-<head>
+	<!-- Logo is SVG to look nice on Retina displays. Here's how you do that with a PNG fallback for IE8 -->
+	<!--#include virtual="/banner.html" -->	
 
-  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-  <title>Get Pacemaker</title>
-  <meta http-equiv="Content-Language" content="en-us" />
-  
-  <!-- 	<link href="stylesheets/reset.css" media="screen, projection" rel="stylesheet" type="text/css" /> -->
-  <!--[if IE 6]><link href="../../stylesheets/ie6.css" media="screen, projection" rel="stylesheet" type="text/css" /><![endif]-->	
-  <link rel="stylesheet" type="text/css" href="stylesheets/jquery.fancybox-1.3.0.css" media="screen" />
-  
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <link href="stylesheets/getpacemaker.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  
-  <!-- Begin JavaScript -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
-  <!--script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script-->
-  
-  <script type="text/javascript" src="javascripts/jquery.easing.1.3.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.coda-slider-2.0.js"></script>
-  
-  <script type="text/javascript" src="javascripts/jquery.fancybox-1.3.0.pack.js"></script>
-  <script type="text/javascript">
-            $(document).ready(function() {
-	        $("#accordion").accordion({ 
-	            autoHeight: false,
-	        });
-                $('#coda-slider-1').codaSlider({
-                    autoSlide: false,
-		    dynamicArrows: false,
-                    firstPanelToLoad: 2,
-	            autoHeight: 1,
-                });
-                $('#coda-slider-2').codaSlider({
-                    autoSlide: true,
-                    dynamicTabs: false,
-                    dynamicArrows: false,
-                    autoSlideInterval: 300000,
-                });
-				$("a.iframe").fancybox({
-					'zoomSpeedIn'		:	500,
-					'zoomSpeedOut'		:	250,
-					'overlayOpacity'	:	0.7,
-					'overlayColor'		:	'white',
-					'overlayShow'		:	true,
-					'titlePosition'		:	'over',
-					'transitionIn'		:	'elastic',
-					'transitionOut'		:	'elastic',
-					'scrolling'		:	'no',
-					'height'		:	400,
-					'width'			:	600,
-				});
-				/* height/width ignored for images */
-				$("a[rel=deployment-styles]").fancybox({
-					'zoomSpeedIn'		:	500,
-					'zoomSpeedOut'		:	250,
-					'overlayOpacity'	:	0.7,
-					'overlayColor'		:	'white',
-					'overlayShow'		:	true,
-					'titlePosition'		:	'inside', /* 'over' for black version, change span id below too */
-					'transitionIn'		:	'elastic',
-					'transitionOut'		:	'elastic',
-					'scrolling'		:	'no',
-					'cyclic'		:	true,
-					'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
-					    return '<span id="fancybox-title-inside">Image ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' - ' + title + '</span>';
-					}
-				});
-            });
-  </script>
-  <!-- End JavaScript -->
-		
-</head>
+	<section id="boxes">
+	  <aside>
+	    <h2>Deploy</h2>
+	    <a href="img/Deploy.20121116.png"><img src="img/Deploy-small.20121116.png"></a>
+	    <p>
+	      Pacemaker supports many deployment scenarios, from the simplest 2-node
+	      standby cluster to a 16-node active/active configuration.
 
-<body>
+	      Pacemaker can also dramatically reduce hardware costs by allowing
+	      several active/passive clusters to be combined and share a common
+	      backup node.
+	    </p>
+	  </aside>
 
-<div id="header">
-  <div id="demo-menu">
-    <ul id="nav" class="dropdown dropdown-horizontal">
-      <li class="dir">clusterlabs menu
-        <ul>
-          <li><a href="http://www.clusterlabs.org/">Home</a></li>
-          <li><a href="http://www.clusterlabs.org/wiki">Wiki</a></li>
-          <li class="dir"><a href="http://www.clusterlabs.org/doc">Documentation</a>
-	    <ul>
-	      <li><a href="http://www.clusterlabs.org/doc">Full Listing</a></li>
-	      <li><a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained">Reference v1.1</a></li>
-	      <li><a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained">Reference v1.0</a></li>
-	      <li><a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Clusters_from_Scratch">Clusters from Scratch</a></li>
-	    </ul>
-    	  </li>
-          <li class="dir"><a href="http://www.clusterlabs.org/rpm/">Pre-built Packages</a>
-	    <ul>
-              <li><a href="http://www.clusterlabs.org/rpm-next/">1.1 (recommended)</a></li>
-              <li><a href="http://www.clusterlabs.org/rpm/">1.0</a></li>
-	    </ul>
-	  </li>
-          <li><a href="http://oss.clusterlabs.org/mailman/listinfo/pacemaker">Ask a Question</a></li>
-          <li><a href="http://bugs.clusterlabs.org/">Report a Problem</a></li>
-          <li class="dir"><a href="#">Developers</a>
-	    <ul>
-              <li><a href="http://github.com/ClusterLabs/pacemaker">Source Code</a></li>
-              <li><a href="http://build.clusterlabs.org:8010/one_box_per_builder">Buildbot Status</a></li>
-              <li><a href="http://build.clusterlabs.org/buildbot/">Buildbot Results</a></li>
-              <li><a href="http://www.clusterlabs.org/coverity/pacemaker/">Coverity Defect Reports</a></li>
-              <li><a href="http://www.clusterlabs.org/global/pacemaker/">Indexed Source Code</a></li>
-              <li><a href="http://www.clusterlabs.org/doxygen/pacemaker/">API Documentation</a></li>
-              <li><a href="http://www.clusterlabs.org/abi/">ABI Compatability</a></li>
-              <li><a href="https://community.dev.fedoraproject.org/packages/pacemaker/overview/">Pacemaker @ Fedora</a></li>
-	    </ul>
-	  </li>
-        </ul>
-      </li>
-    </ul>
-    <div id="search-box">
-      <form action="http://www.clusterlabs.org/wiki/Special:Search" id="searchform">
-	<div id="search-button">site-search:</div> 
-	<!--input id="search-button" type='submit' name="fulltext" value="site-search" title="Search the wiki for this text"/-->
-	<input id="search-input" name="search" type="text" title="Search Cluster Labs [f]" accesskey="f" value=""/>
-      </form>     
-    </div>
-  </div><!-- #demo-menu -->
-  <div id="banner" style="overflow: hidden; margin-bottom: 15px; float: left;">
-    <img src="images/GetPacemakerBanner.png" width="1424px" />
-  </div>
-</div>
+	  <aside>
+	    <h2>Monitor</h2>
+	    <a href="img/Monitor.20121116.png"><img src="img/Monitor-small.20121116.png"></a>
+	    <p>
+	      Pacemaker monitors the system for both hardware and software failures.
 
-<div id="inner-body">
-  <noscript>
-    <div>
-      <p>Unfortunately your browser does not have JavaScript capabilities which are required to exploit full functionality of our site. This could be the result of two possible scenarios:
-	<ol>
-          <li>You are using an old web browser, in which case you should upgrade it to a newer version. We recommend the latest version of <a href="http://www.getfirefox.com">Firefox</a>.</li>
-          <li>You have disabled JavaScript in you browser, in which case you will have to enable it to properly use our site. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a>.</li>
-	</ol>
-      </p>
-    </div>
-  </noscript>
-  <div id="slider-group" style="margin: 0 auto; width: 1008px">
-    <div id="box-left" style="width: 600px; float: left;">
-      <div class="coda-slider-wrapper">
-        <div class="coda-slider preload" id="coda-slider-1">
-          <div class="panel">
-            <div class="panel-wrapper">
-	      <h2 class="title">The Team</h2>
-	      <p>
-		Commercially, Pacemaker is primarily a collaborative effort between <a href="http://www.redhat.com">Red Hat</a> and <a href="http://www.novell.com">Novell</a>, however we also receive considerable help and support from the folks at <a href="http://www.linbit.com">LinBit</a> and the community in general.
-	      </p>
-	      <p>
-		The core Pacemaker team is made up of full-time developers from Australia, Austria, Germany, and China.
-		Contributions to the code or documentation are always welcome.
-	      </p>
-	      <p>
-		Currently <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a> is the Pacemaker project lead.
-	      </p>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-wrapper">
-	      <h2 class="title">Overview</h2>
-	      <p>
-		Pacemaker is an <a href="http://en.wikipedia.org/wiki/Open_source">Open Source</a>, <a href="http://en.wikipedia.org/wiki/High_availability">High Availability</a> resource manager suitable for both small and large <a href="http://en.wikipedia.org/wiki/Cluster_(computing)">clusters</a>.
-	      </p>
-	      <p>
-		Hardware and application failures can result in prolonged downtime and impact your bottom line.
-	      </p>
-	      <p>
-		In the event of a failure, resource managers like Pacemaker automatically initiate recovery and make sure your application is available from one of the remaning machines in the cluster.
-	      </p>
-	      <p>
-		Your users may never even know there was a problem.
-	      </p>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-wrapper">
-              <h2 class="title">Features</h2>
-              <ul class="pcmk-list">
-        	<li>Detection and recovery of machine and application-level failures</li>
-        	<li>Unified and scriptable shell for cluster administration</li>
-		<!--         	            <li>Supports practically any <a href="http://en.wikipedia.org/wiki/High-availability_cluster#Node_configurations">redundancy configuration</a></li> -->
-        	<li>Supports both <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorate</a> and <a href="http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
-        	<li>Configurable <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-cluster-options.html#id36137161">strategies</a> for dealing with <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple machines fail)</li>
-        	<li>Supports application <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-resource-ordering.html">startup/shutdown ordering</a>, regardless machine(s) the applications are on</li>
-        	<li>Supports applications that must/must-not run on the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-resource-colocation.html">same machine</a></li>
-        	<li>Supports applications which need to be active on <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-resource-clone.html">multiple machines</a></li>
-        	<li>Supports applications with multiple modes (eg. <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.0/html/Pacemaker_Explained/s-resource-multistate.html">master/slave</a>)<br/><br/></li>
-        	<li>Provably correct response to any failure or cluster state.<br/>
-		  The cluster's response to any stimuli can be tested offline <strong><i>before</i></strong> the condition exists
-		</li>
-	      </ul>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-wrapper">
-              <h2 class="title">FAQ</h2>
-              <div id="accordion">
-		<h3><a href="#">Can I rely on Pacemaker?</a></h3>
-		<div>
-		  <p>
-		    If you've flown in Europe in the last few years, chances are you already have.
-		  </p>
-		  <p>
-		    Deutsche Flugsicherung GmbH (<a href="http://www.dfs.de/dfs/internet_2008/portal/english/start/index.html">DFS</a>) uses Pacemaker with Heartbeat to ensure its <a href="http://www.novell.com/success/dfs.html">air traffic control systems</a> are always available.
-		  </p>
-		  <p>
-		    DFS trusts Pacemaker with peoples' lives, so can you.
-		  </p>
-		</div>
-		<h3><a href="#">What kind of applications can I manage with Pacemaker?</a></h3>
-		<div>
-		  <p>Pacemaker is resource agnostic, meaning anything that can be scripted can be made highly available (provided the script conforms to either the LSB or OCF standards)</p>
-		</div>
-		<h3><a href="#">Do I need shared storage?</a></h3>
-		<div>
-		  <p>Only if your applications or design require it, Pacemaker itself has no need for shared storage</p>
-		</div>
-		<h3><a href="#">Which cluster filesystems does Pacemaker support?</a></h3>
-		<div>
-		  <p>
-		    Pacemaker supports the popular <a href="http://oss.oracle.com/projects/ocfs2/">OCFS2</a> and <a href="http://www.redhat.com/gfs/">GFS2</a> filesystems.
-		    As you'd expect, you can use them on top of real disks or network block devices like <a href="http://www.linbit.com/en/products-services/drbd/">DRBD</a>.
-		  </p>
-		</div>
-		<h3><a href="#">How can I prevent data corruption?</a></h3>
-		<div>
-		  <p>Pacemaker supports <a href="http://en.wikipedia.org/wiki/STONITH">STONITH</a> for ensuring data integrity and ensuring applications are only active on one host</p>
-		</div>
-		<h3><a href="#">Where can I find Pacemaker?</a></h3>
-		<div>
-		  <p>
-		    Pacemaker ships as part of all recent <a href="http://fedoraproject.org/">Fedora</a>, <a href="http://opensuse.org/">openSUSE</a>, and <a href="http://www.novell.com/linux">SLES</a> releases.
-		  </p>
-		  <p>
-		    The project also makes the latest binaries available for Fedora, openSUSE, and <a href="http://fedoraproject.org/wiki/EPEL">EPEL</a>-compatible distributions (<a href="http://fedoraproject.org/wiki/Red_Hat_Enterprise_Linux">RHEL</a>, <a href="http://www.centos.org/">CentOS</a>, Scientific Linux, etc).
-		  </p>
-		  <p>
-		    See our <a href="http://www.clusterlabs.org/wiki/Install">install page</a> for more details.
-		  </p>
-		</div>
-		<h3><a href="#">How do I synchronize the cluster configuration?</a></h3>
-		<div>
-       		  <p>
-       	            Any changes to Pacemaker's configuration are automatically replicated to other machines.
-       	            The configuration is also versioned, so any offline machines will be updated when they return. 
-       		  </p>
-		</div>
-	      </div>
-            </div>
-            </div>
-            <!--div class="panel" style="text-align: center;">
-            <div class="panel-wrapper">
-	      <h2 class="title">Installation</h2>
-	      Please select your distribution:<br/><br/>
-	      <div class="install-row">
-  		<a class="iframe" title="openSUSE" href="opensuse.html"><img src="images/geeko-logo.jpg" height="60"/></a>
-		<a class="iframe" title="Red Hat Enterprise Linux" href="epel.html"><img src="images/redhat-logo.jpg" height="60"/></a>
-		<a class="iframe" title="Fedora" href="fedora.html"><img src="images/fedora-logo.png" height="70"/></a>
-	      </div>
-	      <div class="install-row">
-		<a class="iframe" title="Debian" href="debian.html"><img src="images/debian-logo.png" height="55"/> <img src="images/debian.png" height="40"/></a>
-		<a class="iframe" title="Ubuntu" href="debian.html"><img src="images/ubuntu-logo.png" height="60"/></a>
-	      </div>
-	      <div class="install-row">
-		<a class="iframe" title="Community ENTerprise Operating System - CentOS" href="epel.html"><img src="images/centos-logo.png" height="60"/></a>
-		<a class="iframe" title="Extra Packages for Enterprise Linux - EPEL" href="epel.html"><img src="images/epel-logo.png" height="60"/></a>
-	      </div>
-            </div>
-            </div-->
-            <div class="panel">
-              <div class="panel-wrapper">
-		<h2 class="title">Explore</h2>
-		<ul>
-		  <li>Chat to the developers on <a href="irc://irc.freenode.org#linux-cluster">irc</a></li>
-		  <li>Report problems via <a target="_parent" href="http://bugs.clusterlabs.org/">Bugzilla</a></li>
-		  <li>Browse or sign-up for our
-		    <ul>
-		      <!--li><a target="_parent" href="http://twitter.com/beekhof">Twitter feed</a></li-->
-		      <li><a target="_parent" href="http://theclusterguy.clusterlabs.org/">News feed</a></li>
-		      <li><a target="_parent" href="http://www.clusterlabs.org/wiki/Mailing_lists">Mailing list(s)</a></li>
-		      <li><a target="_parent" href="http://www.clusterlabs.org/wiki/Special:RecentChanges">Site updates</a></li>
-		    </ul>
-		  </li>
-		  <li>Get started with the <a target="_parent" href="http://www.clusterlabs.org/doc/Cluster_from_Scratch.pdf">Clusters from Scratch</a> guide, or check out our:
-		  <ul>
-		    <li><a target="_parent" href="http://www.clusterlabs.org/wiki">Wiki</a></li>
-		    <li><a target="_parent" href="http://www.clusterlabs.org/wiki/Category:Help:Examples">Examples</a></li>
-		    <li><a target="_parent" href="http://www.clusterlabs.org/wiki/Category:Help:Howto">Howto Guides</a></li>
-		    <li><a target="_parent" href="http://www.clusterlabs.org/doc/">Reference Documentation</a></li>
-		  </ul>
-		  <li><a target="_parent" href="http://www.clusterlabs.org/wiki/Install">Installation</a></li>
-		  <li><a href="http://github.com/ClusterLabs/pacemaker">Source Code</a></li>
-		</li>
-	      </ul>
-            </div>
-          </div>
-        </div><!-- .coda-slider -->
-      </div><!-- .coda-slider-wrapper -->
-    </div>
-    <div id="box-right" style="width: 400px; float: left;">
-      <div class="coda-slider-wrapper" title="Deployment">
-	<div style="text-align: center; color: #ebebeb; font-size: 16px; padding: 3px;">Deployment Examples</div>
-
-	<div class="coda-slider preload" id="coda-slider-2">
-	  <div id="coda-nav-left-2" class="coda-nav-left custom-nav" style="float: left; left: -2px;"><a href="#"><img src="../images/fancy_nav_left.png"/></a></div>
+	      In the event of a failure, Pacemaker will automatically recover your
+	      application and make sure it is available from one of the remaning
+	      machines in the cluster.
+	    </p>
+	  </aside>
 	  
-          <div class="panel">
-            <div class="panel-wrapper">
-	      <a rel="deployment-styles" title="Active/Passive" href="images/pcmk-active-passive.png"><img src="images/pcmk-active-passive-small.png" height="250" alt="" /></a>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-wrapper">
-	      <a rel="deployment-styles" title="N Plus 1" href="images/pcmk-shared-failover.png"><img src="images/pcmk-shared-failover-small.png" height="250" alt="" /></a>
-            </div>
-          </div>
-          <div class="panel">
-            <!-- style="background: url(images/Pacemaker-n-to-n.png) height: 190px;" -->
-            <div class="panel-wrapper">
- 	      <a rel="deployment-styles" title="N to N" href="images/pcmk-active-active.png"><img src="images/pcmk-active-active-small.png" height="250" alt="" /></a>
-	    </div>
+	  <aside>
+	    <h2>Recover</h2>
+	    <a href="img/Recover.20121116.png"><img src="img/Recover-small.20121116.png"></a>
+	    <p>
+	      After a failure, Pacemaker uses advanced algorithms to quickly
+	      determine the optimum locations for services based on relative node
+	      preferences and/or requirements to run with other cluster services (we
+	      call these "constraints").
+	    </p>
+	  </aside>
+	</section>
 
-          </div>
-	  <!--  	<div style="color: #cbcbcb; padding: 5px; text-align: center;">Common Deployment Styles</div> -->
-	  <div id="coda-nav-right-2" class="coda-nav-right custom-nav" style="float: right; right: -2px;"><a href="#"><img src="../images/fancy_nav_right.png"/></a></div>
-	</div><!-- .coda-slider -->
-	<div style="text-align: center; color: #ebebeb; font-size: 10px; text-decoration: none;">Click image to enlarge</div>
-	
-      </div><!-- .coda-slider-wrapper -->
-    </div>
-    <br style="clear: left" />
-  </div>
-</div>
-<div align="center" id="body-bottom">
-  <small>Find out more about Pacemaker on <a href="http://www.clusterlabs.org/wiki">our wiki</a></small><br/>
-  <small><sub>Send <b>site</b> feedback to the project <a href="mailto:pacemaker@oss.clusterlabs.org">mailing list</a> or maintainer: <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a></sub></small>
-</div>
-  
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try{
-var pageTracker = _gat._getTracker("UA-8156370-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-</body>
+	<section id="main">
+	  <a id="info"> </a>
+	  
+	  <!--h1><a id="info">About Pacemaker</a></h1>
+	      <figure>
+		<img src="img/ethercycle.jpg">
+		<figcaption>This is an image caption. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</figcaption>
+		<h2>Background</h2>
+</figure-->
+	  
+	  <p>
+	    <b>Pacemaker</b> is an <a href="http://en.wikipedia.org/wiki/Open_source">Open Source</a>,
+	    <a href="http://en.wikipedia.org/wiki/High_availability">High Availability</a>
+	    resource manager suitable for both small and large <a href="http://en.wikipedia.org/wiki/Cluster_(computing)">clusters</a>.
+	  </p>
+	  <q>"Someone said something awesome about Pacemaker here." - Anon</q>
+	  <h2>Background</h2>
+	  <a class="ohloh" href="https://www.ohloh.net/p/pacemaker?ref=sample">
+	    <img alt="Ohloh project report for pacemaker" border="0" src="https://www.ohloh.net/p/pacemaker/widgets/project_partner_badge.gif">
+	  </a>
+	  <p>
+	    Pacemaker has been around
+	    since <a href="https://www.ohloh.net/p/pacemaker/analyses/latest/languages_summary">2004</a>
+	    and is primarily a collaborative effort
+	    between <a href="http://www.redhat.com">Red Hat</a>
+	    and <a href="http://www.novell.com">Novell</a>, however we also
+	    receive considerable help and support from the folks
+	    at <a href="http://www.linbit.com">LinBit</a> and the community in
+	    general.
+	  </p>
+	  <p>
+	    The core Pacemaker team is made up of full-time developers from
+	    Australia, USA, Austria, Germany, and China.  Contributions to the code or
+	    documentation are always welcome.
+	  </p>
+	  <p>
+	    Pacemaker ships with most modern enterprise distributions and has been
+	    deployed in many critical environments including Deutsche
+	    Flugsicherung GmbH
+	    (<a href="http://www.dfs.de/dfs/internet_2008/portal/english/start/index.html">DFS</a>)
+	    which uses Pacemaker with Heartbeat to ensure
+	    its <a href="http://www.novell.com/success/dfs.html">air traffic
+	      control systems</a> are always available
+	  </p>
+	  <p>
+	    Currently <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a> is
+	    the project lead for Pacemaker.
+	  </p>
 
+	  <h2>Features</h2>
+	  <ul>
+            <li>Detection and recovery of machine and application-level failures</li>
+	    <li>Supports practically any <a href="/wiki/ClusterTypes">redundancy configuration</a></li>
+            <li>Supports both <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorate</a> and <a href="http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
+            <li>Configurable <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-cluster-options.html#id36137161">strategies</a> for dealing with <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple machines fail)</li>
+            <li>Supports application <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-ordering.html">startup/shutdown ordering</a>, regardless machine(s) the applications are on</li>
+            <li>Supports applications that must/must-not run on the <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-colocation.html">same machine</a></li>
+            <li>Supports applications which need to be active on <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-clone.html">multiple machines</a></li>
+            <li>Supports applications with multiple modes (eg. <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-multistate.html">master/slave</a>)<br/><br/></li>
+            <li>Provably correct response to any failure or cluster state.<br/>
+	      The cluster's response to any stimuli can be tested offline <strong><i>before</i></strong> the condition exists
+	    </li>
+	  </ul>
+
+	  <h2>FAQ</h2>
+	  <p class="question">Q: Where can I get Pacemaker?</p>
+	  <p class="answer">A: Pacemaker ships as part of most modern
+	    distributions, so you can usually just launch your
+	    favorite package manager on:
+	    <ul>
+	      <li>openSUSE and SLES,</li>
+	      <li>Fedora and derivatives such as RHEL and CentOS</li>
+	      <li>Debian and derivatives such as Ubuntu</li>
+	      <li>Gentoo</li>
+	    </ul>
+	  </p>
+	  <p class="answer">
+	    The project also provides
+	    up-to-date <a href="/rpm-next">packages for RHEL5 and
+	    RHEL6</a>.  If all else fails, you can try installing
+	    from <a href="http://github.com/ClusterLabs/pacemaker">source</a>.
+	  </p>
+
+	  <p class="question">Q: Is there any documentation?</p>
+	  <p class="answer">A: Yes. You can find the set relevant to
+	    your version in our <a href="/doc">documentation
+	    index</a>.
+	  </p>
+
+	  <p class="question">Q: Where should I ask questions?</p>
+	  <p class="answer">A: Often basic questions can be answered
+	    on <a href="irc://irc.freenode.org#linux-cluster">irc</a>,
+	    but sending them to the relevant
+	    <a href="/wiki/Mailing_lists">mailing list(s)</a> is
+	      always a good idea so that everyone can benefit from the
+	      answer.  Don't worry if you pick the wrong one, many of
+	      us are on multiple lists and someone will suggest a more
+	      appropriate list if necessary.
+	  </p>
+
+	  <p class="question">Q: Do I need shared storage?</p>
+	  <p class="answer">A: No.  We can help manage it if you have
+	    some, but Pacemaker itself has no need for shared storage.
+	  </p>
+
+	  <p class="question">Q: Which cluster filesystems does Pacemaker support?</p>
+	  <p class="answer">A: Pacemaker supports the
+	    popular <a href="http://oss.oracle.com/projects/ocfs2/">OCFS2</a>
+	    and <a href="http://www.redhat.com/gfs/">GFS2</a>
+	    filesystems.  As you'd expect, you can use them on top of
+	    real disks or network block devices
+	    like <a href="http://www.linbit.com/en/products-services/drbd/">DRBD</a>.
+	  </p>
+
+	  <p class="question">Q: What kind of applications can I manage with Pacemaker?</p>
+	  <p class="answer">A: Pacemaker is application agnostic, meaning
+	    anything that can be scripted can be made highly available
+	    - provided the script conforms to one of the supported
+	    standards:
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_linux_standard_base.html">LSB</a>,
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>, 
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_systemd.html">Systemd</a>,
+	    or <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
+	  </p>
+
+	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
+	  <p class="answer">A: Yes. Pacemaker started off life as part
+	  of the Heartbeat project and continues to support it as an
+	  alternative to Corosync. See
+	  this <a href="http://www.linux-ha.org/wiki/Configuration">documentation</a> for more details</p>
+
+	  <p class="question">Q: Can I use Pacemaker with CMAN?</p>
+	  <p class="answer">A: Yes. Pacemaker added support for CMAN
+	  in version 1.1.5 to better integrate with distros shipping
+	  the RHCS cluster stack.  This is particularly relevant for
+	  those looking to use GFS2 or OCFS2. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a> for more details</p>
+
+	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
+	  <p class="answer">A: Yes. You will need to configure
+	  Corosync to load Pacemaker's custom plugin to provide the
+	  membership and quorum information we require. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
+
+	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
+	  <p class="answer">A: Yes. Pacemaker can obtain the
+	  membership and quorum information it requires directly from
+	  Corosync in this configuration. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
+
+	  <p class="question">Q: Do I need a fencing device?</p>
+	  <p class="answer">A: Yes.  Fencing is the only 100% reliable
+	    way to ensure the integrity of your data and that
+	    applications are only active on one host.  Although
+	    Pacemaker is technically able to function without Fencing,
+	    there are a good reasons SUSE and Red Hat will not support
+	    such a configuration.
+	  </p>
+
+	  <p class="question">Q: Do I need to know XML to configure Pacemaker?</p>
+	  <p class="answer">A: No. Although Pacemaker uses XML as its
+	    native configuration format, there
+	    exist <a href="#addons">2 CLIs and at least 4 GUIs</a>
+	    that present the configuration in a human friendly format.
+	  </p>
+
+	  <p class="question">Q: How do I synchronize the cluster configuration?</p>
+	  <p class="answer">A: Any changes to Pacemaker's
+       	    configuration are automatically replicated to other
+       	    machines.  The configuration is also versioned, so any
+       	    offline machines will be updated when they return.
+	  </p>
+
+	  <p class="question">Q: Should I choose pcs or crmsh?</p>
+	  <p class="answer">A: Arguably the best advice is to use
+	    whichever one comes with your distro.  This is the one
+	    that will be tailored to that environment, receive regular
+	    bugfixes and feature in the documentation.
+	  </p>
+	  <p class="answer">
+	    Of course, for years people have been side-loading all of
+	    Pacemaker onto enterprise distros that didn't ship it, so
+	    doing the same for just a configuration tool should be
+	    easy if your favorite distro does not ship your favorite
+	    tool.
+	  </p>
+
+	  <p class="question">Q: What if my question isn't here?</p>
+	  <p class="answer">A: See the <a href="#contact">getting help</a> section and let us know!</p>
+
+	  <!--p class="question">Q: ?</p>
+	      <p class="answer">A: </p-->
+
+	  <h1>Conifguration Tools</h1>
+	  <a id="addons"> </a>
+	  <p>
+	    Pacemaker's internal configuration format is XML, which is
+	    great for machines but terrible for humans.
+	    
+	    The community's best minds have created GUIs and Shells to
+	    hide the XML and allow the configuration to be viewed and
+	    updated in a more human friendly format.
+	  </p>
+	  <h2>Command Line Interfaces (Shells)</h2>
+	  <p><a href="https://savannah.nongnu.org/projects/crmsh/">crmsh</a>
+	    - The original configuration shell for Pacemaker. Written
+	    and maintained by SUSE, it may be used either as an
+	    interactive shell with tab completion, for single commands
+	    directly on the shell's command line or as batch mode
+	    scripting tool.
+	  </p>
+	  <p><a href="https://github.com/feist/pcs">pcs</a> - An
+	    alternate vision for a full cluster lifecycle
+	    configuration shell and web based GUI. Handles everything
+	    from cluster installation through to resource
+	    configuration and status.</p>
+	  <h2>GUI Tools</h2>
+	  <p><a href="https://github.com/ClusterLabs/pacemaker-mgmt">pygui</a>
+	    - The original GUI for Pacemaker written in Python by IBM
+	    China.  Mostly deprecated on SLES in favor of Hawk</p>
+	  <p><a href="https://github.com/ClusterLabs/hawk">hawk</a> -
+	    Hawk is a web-based GUI for managing and monitoring
+	    Pacemaker HA clusters. It is generally intended to be run
+	    on every node in the cluster, so that you can just point
+	    your web browser at any node to access it.  It is
+	    documented as part of the
+	    <a href="http://www.suse.com/documentation/sle_ha/book_sleha/?page=/documentation/sle_ha/book_sleha/data/cha_ha_configuration_hawk.html">
+	      SUSE Linux Enterprise High Availability
+	      Extension documentation</a></p>
+	  <p><a href="http://lcmc.sf.net">LCMC</a> - The Linux Cluster
+	    Management Console (LCMC) is a GUI with an inovative
+	    approach for representing the status of and relationships
+	    between cluster services.  It uses SSH to let you install,
+	    configure and manage clusters from your desktop.</p>
+	  <p><a href="https://github.com/feist/pcs">pcs</a> - An
+	    alternate vision for a full cluster lifecycle
+	    configuration shell and web based GUI. Handles everything
+	    from cluster installation through to resource
+	    configuration and status.</p>
+
+	  <h1>Other Add-ons</h1>
+	  <p><a href="https://github.com/ClusterLabs/booth">booth</a>
+	    - The Booth cluster ticket manager extends Pacemaker to
+	    support geographically distributed clustering.  It does
+	    this by managing the granting and revoking of 'tickets'
+	    which authorizes one of the cluster sites, potentially
+	    located in geographically dispersed locations, to run
+	    certain resources.
+	  </p>
+	</section>	
+
+	<!--#include virtual="/footer.html" -->
+
+    </body>
 </html>

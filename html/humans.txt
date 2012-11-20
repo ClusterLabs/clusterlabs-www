@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Andrew Beekhof -- Project Lead -- @beekhof
+
+# THANKS
+
+    David Vossel, Madison Kelly, Lon Hohberger
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Modernizr

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	<!--#include virtual="/header.html" -->
+        <title>Cluster Labs - The Home of Pacemaker</title>
+        <meta name="description" content="">
+    </head>
+    <body>
+	<!--#include virtual="/banner.html" -->	
+
+	<section id="main">
+	  <p>
+	    All examples assume two nodes that are reachable by their short name and IP address:
+	    <ul>
+	      <li>node1 - 192.168.1.1</li>
+	      <li>node2 - 192.168.1.2</li>
+	    </ul>
+	  </p>
+
+	  <h1>Ubuntu</h1>
+	  <p>
+	    Ubuntu has shipped the Red Hat Cluster Suite (RHCS) stack
+	    for many years, so we will use that here because it is a
+	    variation that upstream tests regularly.
+	  </p>
+	  <p>
+	    We use aptitude to install pacemaker and some other
+	    necessary packages we will need:
+	  </p>
+	  <p class="command">
+# aptitude install pacemaker cman fence-agents
+	  </p>
+
+	  <h2>Configure Cluster Membership and Messaging</h2>
+	  <p>
+	    Since the ccs tool from RHEL does not exist on Ubuntu, we
+	    well create the CMAN configuration file on both machines
+	    manually:
+          </p>
+         <p class="command">
+# cat <<EOF > /etc/cluster/cluster.conf
+&lt;?xml version="1.0"?>
+&lt;cluster config_version="1" name="pacemaker1">
+  &lt;logging debug="off"/>
+  &lt;clusternodes>
+    &lt;clusternode name="node1" nodeid="1">
+      &lt;fence>
+        &lt;method name="pcmk-redirect">
+          &lt;device name="pcmk" port="node1"/>
+        &lt;/method>
+      &lt;/fence>
+    &lt;/clusternode>
+    &lt;clusternode name="node2" nodeid="2">
+      &lt;fence>
+        &lt;method name="pcmk-redirect">
+          &lt;device name="pcmk" port="node2"/>
+        &lt;/method>
+      &lt;/fence>
+    &lt;/clusternode>
+  &lt;/clusternodes>
+  &lt;fencedevices>
+    &lt;fencedevice name="pcmk" agent="fence_pcmk"/>
+  &lt;/fencedevices>
+&lt;/cluster>
+EOF
+          </p>
+
+	  <p>
+	    CMAN was originally written for rgmanager and assumes the
+	    cluster should not start until the node has
+	    <a href="http://en.wikipedia.org/wiki/Quorum">quorum</a>,
+	    so before we try to start the cluster, we need to disable
+	    this behavior:
+	  </p>
+          <p class="command">
+# echo "CMAN_QUORUM_TIMEOUT=0" >> /etc/default/cman
+	  </p>
+
+	  <h2>Start the Cluster</h2>
+	  <p>
+	    On each machine, run:
+	  </p>
+	  <p class="command">
+# service cman start
+# service pacemaker start
+	  </p>
+
+	  <h2>Set Cluster Options</h2>
+	  <p>
+	    With so many devices and possible topologies, it is nearly
+	    impossible to include Fencing in a document like this.
+	    For now we will disable it.
+	  </p>
+	  <p class="command">
+# crm configure property stonith-enabled=false
+	  </p>
+	  <p>
+	    One of the most common ways to deploy Pacemaker is in a
+	    2-node configuration.  However quorum as a concept makes
+	    no sense in this scenario (because you only have it when
+	    more than half the nodes are available), so we'll disable
+	    it too.
+	  </p>
+	  <p class="command">
+# crm configure property no-quorum-policy=ignore
+	  </p>
+	  <p>
+	    For demonstration purposes, we will force the cluster to
+	    move services after a single failure:
+	  </p>
+	  <p class="command">
+# crm configure property migration-threshold=1
+	  </p>
+
+	  <h2>Add a Resource</h2>
+	  <p>
+	    Lets add a cluster service, we'll choose one doesn't
+	    require any configuration and works everywhere to make
+	    things easy.  Here's the command:
+	  </p>
+	  <p class="command">
+# crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
+	  </p>
+	  <p>
+	    "<strong>my_first_svc</strong>" is the name the service
+	    will be known as.
+	  </p>
+	  <p>
+	    "<strong>ocf:pacemaker:Dummy</strong>" tells Pacemaker
+	    which script to use
+	    (<a href="https://github.com/ClusterLabs/pacemaker/blob/master/extra/resources/Dummy">Dummy</a>
+	    - an agent that's useful as a template and for guides like
+	    this one), which namespace it is in (pacemaker) and what
+	    standard it conforms to
+	    (<a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>).
+	  </p>
+	  <p>
+	    "<strong>op monitor interval=120s</strong>" tells Pacemaker to
+	    check the health of this service every 2 minutes by
+	    calling the agent's <strong>monitor</strong> action.
+	  </p>
+	  <p>
+	    You should now be able to see the service running using:
+	  </p>
+          <p class="command">
+# crm_mon -1
+	  </p>
+
+	  <h2>Simulate a Service Failure</h2>
+	  <p>
+	    We can simulate an error by telling the service stop
+	    directly (without telling the cluster):
+	  </p>
+	  <p class="command">
+# crm_resource --resource my_first_svc --force-stop
+	  </p>
+	  <p>
+	    If you now run <strong>crm_mon</strong> in interactive
+	    mode (the default), you should see (within the monitor
+	    interval - 2 minutes) the cluster notice
+	    that <strong>my_first_svc</strong> failed and move it to
+	    another node.
+	  </p>
+	  <h2>Next Steps</h2>
+	  <p>
+	    <ul>
+	      <li>Configure <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/ch09.html">Fencing</a></li>
+	      <li>Add more services - see <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/ch06.html">Clusters from Scratch</a> for examples of how to add IP address, Apache and DRBD to a cluster</li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_specifying_a_preferred_location.html">prefer a specific host</a></li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_ensuring_resources_run_on_the_same_host.html">run on the same host</a></li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_controlling_resource_start_stop_ordering.html">start and stop</a> in a specific order</li>
+	      <li>Find out what else Pacemaker can do - see <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/index.html">Pacemaker Explained</a> for an comprehensive list of concepts and options</li>
+	    </ul>
+	  </p>
+
+	</section>	
+
+	<!--#include virtual="/footer.html" -->
+    </body>
+</html>
