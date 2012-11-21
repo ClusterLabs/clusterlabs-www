@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	<!--#include virtual="/header.html" -->
+        <title>Cluster Labs - Frequently Asked Questions</title>
+        <meta name="description" content="">
+    </head>
+    <body>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+	<!-- Logo is SVG to look nice on Retina displays. Here's how you do that with a PNG fallback for IE8 -->
+	<!--#include virtual="/banner.html" -->	
+
+	<section id="main">
+
+	  <h2>FAQ</h2>
+	  <p class="question">Q: Where can I get Pacemaker?</p>
+	  <p class="answer">A: Pacemaker ships as part of most modern
+	    distributions, so you can usually just launch your
+	    favorite package manager on:
+	    <ul>
+	      <li>openSUSE and SLES,</li>
+	      <li>Fedora and derivatives such as RHEL and CentOS</li>
+	      <li>Debian and derivatives such as Ubuntu</li>
+	      <li>Gentoo</li>
+	    </ul>
+	  </p>
+	  <p class="answer">
+	    The project also provides
+	    up-to-date <a href="/rpm-next">packages for RHEL5 and
+	    RHEL6</a>.  If all else fails, you can try installing
+	    from <a href="http://github.com/ClusterLabs/pacemaker">source</a>.
+	  </p>
+
+	  <p class="question">Q: Is there any documentation?</p>
+	  <p class="answer">A: Yes. You can find the set relevant to
+	    your version in our <a href="/doc">documentation
+	    index</a>.
+	  </p>
+
+	  <p class="question">Q: Where should I ask questions?</p>
+	  <p class="answer">A: Often basic questions can be answered
+	    on <a href="irc://irc.freenode.org#linux-cluster">irc</a>,
+	    but sending them to the relevant
+	    <a href="/wiki/Mailing_lists">mailing list(s)</a> is
+	      always a good idea so that everyone can benefit from the
+	      answer.  Don't worry if you pick the wrong one, many of
+	      us are on multiple lists and someone will suggest a more
+	      appropriate list if necessary.
+	  </p>
+
+	  <p class="question">Q: Do I need shared storage?</p>
+	  <p class="answer">A: No.  We can help manage it if you have
+	    some, but Pacemaker itself has no need for shared storage.
+	  </p>
+
+	  <p class="question">Q: Which cluster filesystems does Pacemaker support?</p>
+	  <p class="answer">A: Pacemaker supports the
+	    popular <a href="http://oss.oracle.com/projects/ocfs2/">OCFS2</a>
+	    and <a href="http://www.redhat.com/gfs/">GFS2</a>
+	    filesystems.  As you'd expect, you can use them on top of
+	    real disks or network block devices
+	    like <a href="http://www.linbit.com/en/products-services/drbd/">DRBD</a>.
+	  </p>
+
+	  <p class="question">Q: What kind of applications can I manage with Pacemaker?</p>
+	  <p class="answer">A: Pacemaker is application agnostic, meaning
+	    anything that can be scripted can be made highly available
+	    - provided the script conforms to one of the supported
+	    standards:
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_linux_standard_base.html">LSB</a>,
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>, 
+	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_systemd.html">Systemd</a>,
+	    or <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
+	  </p>
+
+	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
+	  <p class="answer">A: Yes. Pacemaker started off life as part
+	  of the Heartbeat project and continues to support it as an
+	  alternative to Corosync. See
+	  this <a href="http://www.linux-ha.org/wiki/Configuration">documentation</a> for more details</p>
+
+	  <p class="question">Q: Can I use Pacemaker with CMAN?</p>
+	  <p class="answer">A: Yes. Pacemaker added support for CMAN
+	  in version 1.1.5 to better integrate with distros shipping
+	  the RHCS cluster stack.  This is particularly relevant for
+	  those looking to use GFS2 or OCFS2. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a> for more details</p>
+
+	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
+	  <p class="answer">A: Yes. You will need to configure
+	  Corosync to load Pacemaker's custom plugin to provide the
+	  membership and quorum information we require. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
+
+	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
+	  <p class="answer">A: Yes. Pacemaker can obtain the
+	  membership and quorum information it requires directly from
+	  Corosync in this configuration. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
+
+	  <p class="question">Q: Do I need a fencing device?</p>
+	  <p class="answer">A: Yes.  Fencing is the only 100% reliable
+	    way to ensure the integrity of your data and that
+	    applications are only active on one host.  Although
+	    Pacemaker is technically able to function without Fencing,
+	    there are a good reasons SUSE and Red Hat will not support
+	    such a configuration.
+	  </p>
+
+	  <p class="question">Q: Do I need to know XML to configure Pacemaker?</p>
+	  <p class="answer">A: No. Although Pacemaker uses XML as its
+	    native configuration format, there
+	    exist <a href="/#addons">2 CLIs and at least 4 GUIs</a>
+	    that present the configuration in a human friendly format.
+	  </p>
+
+	  <p class="question">Q: How do I synchronize the cluster configuration?</p>
+	  <p class="answer">A: Any changes to Pacemaker's
+       	    configuration are automatically replicated to other
+       	    machines.  The configuration is also versioned, so any
+       	    offline machines will be updated when they return.
+	  </p>
+
+	  <p class="question">Q: Should I choose pcs or crmsh?</p>
+	  <p class="answer">A: Arguably the best advice is to use
+	    whichever one comes with your distro.  This is the one
+	    that will be tailored to that environment, receive regular
+	    bugfixes and feature in the documentation.
+	  </p>
+	  <p class="answer">
+	    Of course, for years people have been side-loading all of
+	    Pacemaker onto enterprise distros that didn't ship it, so
+	    doing the same for just a configuration tool should be
+	    easy if your favorite distro does not ship your favorite
+	    tool.
+	  </p>
+
+	  <p class="question">Q: What if my question isn't here?</p>
+	  <p class="answer">A: See the <a href="help.html">getting help</a> section and let us know!</p>
+
+	  <!--p class="question">Q: ?</p>
+	      <p class="answer">A: </p-->
+
+	</section>	
+
+	<!--#include virtual="/footer.html" -->
+
+    </body>
+</html>
