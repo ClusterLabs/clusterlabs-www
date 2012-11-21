@@ -60,7 +60,8 @@ function Timeline(paper, datesAndVersions) {
       {date: (new Date(2009, 0, 1)), version: "2009"},
       {date: (new Date(2010, 0, 1)), version: "2010"},
       {date: (new Date(2011, 0, 1)), version: "2011"},
-      {date: (new Date(2012, 0, 1)), version: "2012"}
+      {date: (new Date(2012, 0, 1)), version: "2012"},
+      {date: (new Date(2013, 0, 1)), version: "2013"},
     ], this.drawYear, graphWidth, startTime, timeRange, radius);
   };
 
@@ -91,7 +92,7 @@ function Timeline(paper, datesAndVersions) {
       "fill-opacity": 1.0
     });
     if (obj.version.match(/^\d\.\d\.0/)) {
-      dot.attr({ fill: "#d92027", r: radius });
+      dot.attr({ fill: "#732F2F", r: radius });
     }
 
     label = paper.text(xOffset, yOffset, obj.version);
@@ -153,7 +154,8 @@ function Timeline(paper, datesAndVersions) {
       {date:"08/31/2011", version:"1.1.6"},
       {date:"11/24/2011", version:"1.0.12"},
       {date:"03/29/2012", version:"1.1.7"},
-      {date:"08/22/2012", version:"1.2.0 ?"},
+      {date:"11/20/2012", version:"1.1.8"},
+      {date:"02/01/2013", version:"2.0.0 ?"},
     ]);
 
   });
