@@ -60,10 +60,35 @@ If the distribution you're using is:
 <ul>
 <li>RHEL6: 1.1-plugin (look for CMAN in the index)</li>
 <li>SLES11: 1.1-plugin</li>
+<li>Fedora <= 17: 1.1-crmsh</li>
 <li>Fedora 18+: 1.1-pcs</li>
 <li>Ubuntu: 1.1-plugin (look for CMAN in the index)</li>
 </ul>
 </p>
+
+<h1>Unversioned documentation</h1>
+<section class="docset">
+  <h3 class='docversion'>General Concepts</h3>
+  <table class="publican-doc">
+    <tr>
+      <td>Ordering Explained</td>
+      <td>[<a class="doclink" href="Ordering_Explained.pdf">pdf</a>] [<a class="doclink" href="Ordering_Explained_White.pdf">print</a>]</td>
+    </tr>
+    <tr>
+      <td>Colocation Explained</td>
+      <td>[<a class="doclink" href="Colocation_Explained.pdf">pdf</a>] [<a class="doclink" href="Colocation_Explained_White.pdf">print</a>]</td>
+    </tr>
+    <tr>
+      <td>Configuring Fencing with crmsh</td>
+      <td>[<a class="doclink" href="crm_fencing.html">html</a>]</td>
+    </tr>
+    <tr>
+      <td>ACL Guide</td>
+      <td>[<a class="doclink" href="acls.html">html</a>]</td>
+    </tr>
+  </table>
+</section>
+
 <?php
 
  function get_versions($base) {
@@ -140,29 +165,23 @@ foreach(get_versions(".") as $v) {
   docs_for_version(".", $v);
 }
 
-echo "<h1>Unversioned documentation (Current for 1.1.x)</h1>";
-echo "<section class='docset'>";
-echo "<ul>";
-
-foreach(array_unique($docs) as $doc) {
-  echo "<li>$doc";
-  foreach (glob("$doc.pdf") as $filename) {
-    echo " [<a class='doclink' href=$filename>pdf</a>]";
-  }
-  foreach (glob("$doc.html") as $filename) {
-    echo " [<a class='doclink' href=$filename>html</a>]";
-  }
-  foreach (glob("$doc.txt") as $filename) {
-    echo " [<a class='doclink' href=$filename>txt</a>]";
-  }
-  echo "</li>";
-}
-
-echo "</ul>";
-echo "</section>";
 ?>
-</section>	
 
+<h1>Deprecated Documentation</h1>
+<section class="docset">
+  <h3 class='docversion'>Pacemaker 1.0 with OpenAIS</h3>
+  <table class="publican-doc">
+    <tr>
+      <td>Clusters from Scratch - Pacemaker 1.0 & GFS2</td>
+      <td>[<a class="doclink" href="Clusters_from_Scratch-1.0-GFS2.pdf">pdf</a>]</td>
+    </tr>
+    <tr>
+      <td>Clusters from Scratch - Pacemaker 1.0 & OCFS2</td>
+      <td>[<a class="doclink" href="Clusters_from_Scratch-1.0-OCFS2.pdf">pdf</a>]</td>
+    </tr>
+  </table>
+</section>
+		</section>	
 	<?php include "../footer.html" ?>
     </body>
 </html>
