@@ -72,11 +72,13 @@ If the distribution you're using is:
   <table class="publican-doc">
     <tr>
       <td>Ordering Explained</td>
-      <td>[<a class="doclink" href="Ordering_Explained.pdf">pdf</a>] [<a class="doclink" href="Ordering_Explained_White.pdf">print</a>]</td>
+      <td>[<a class="doclink" href="Ordering_Explained.pdf">pdf</a>]</td>
+      <td>[<a class="doclink" href="Ordering_Explained_White.pdf">print</a>]</td>
     </tr>
     <tr>
       <td>Colocation Explained</td>
-      <td>[<a class="doclink" href="Colocation_Explained.pdf">pdf</a>] [<a class="doclink" href="Colocation_Explained_White.pdf">print</a>]</td>
+      <td>[<a class="doclink" href="Colocation_Explained.pdf">pdf</a>]</td>
+      <td>[<a class="doclink" href="Colocation_Explained_White.pdf">print</a>]</td>
     </tr>
     <tr>
       <td>Configuring Fencing with crmsh</td>
@@ -101,7 +103,16 @@ If the distribution you're using is:
  }
 
  function docs_for_version($base, $version) {
-   echo "<section class='docset'><h3 class='docversion'>Version: $version</h3>";
+   echo "<section class='docset'>";
+   echo "<h3 class='docversion'>";
+   foreach (glob("title-$version.txt") as $filename) {
+      readfile($filename);
+   }
+   echo "</h3>";
+   foreach (glob("desc-$version.txt") as $filename) {
+      readfile($filename);
+   }
+   echo "<br/>";
    foreach (glob("build-$version.txt") as $filename) {
       readfile($filename);
    }

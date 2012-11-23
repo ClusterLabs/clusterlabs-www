@@ -220,6 +220,10 @@ aside {
 
 #main p.command { width: 90%; }
 
+#main .docset a {
+    color: black;
+}
+
 .docset { 
     margin: 10px;
     padding: 0px 0px 25px 10px;
