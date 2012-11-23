@@ -82,27 +82,30 @@
 
 	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
 	  <p class="answer">A: Yes. Pacemaker started off life as part
-	  of the Heartbeat project and continues to support it as an
+	  of the <a href="http://linux-ha.org">Heartbeat</a> project and continues to support it as an
 	  alternative to Corosync. See
 	  this <a href="http://www.linux-ha.org/wiki/Configuration">documentation</a> for more details</p>
 
 	  <p class="question">Q: Can I use Pacemaker with CMAN?</p>
-	  <p class="answer">A: Yes. Pacemaker added support for CMAN
-	  in version 1.1.5 to better integrate with distros shipping
-	  the RHCS cluster stack.  This is particularly relevant for
-	  those looking to use GFS2 or OCFS2. See
-	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a> for more details</p>
+	  <p class="answer">A: Yes. Pacemaker added support
+	  for <a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/High_Availability_Add-On_Overview/ch-cman.html">CMAN
+	  v3</a> in version 1.1.5 to better integrate with distros
+	  that have traditionally shipped and/or supported the RHCS
+	  cluster stack instead of Pacemaker.  This is particularly
+	  relevant for those looking to use GFS2 or OCFS2. See
+	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
+	  for more details</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
 	  <p class="answer">A: Yes. You will need to configure
-	  Corosync to load Pacemaker's custom plugin to provide the
+	  <a href="http://corosync.org">Corosync</a> to load Pacemaker's custom plugin to provide the
 	  membership and quorum information we require. See
 	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
 	  <p class="answer">A: Yes. Pacemaker can obtain the
 	  membership and quorum information it requires directly from
-	  Corosync in this configuration. See
+	  <a href="http://corosync.org">Corosync</a> in this configuration. See
 	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Do I need a fencing device?</p>
