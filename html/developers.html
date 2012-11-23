@@ -12,27 +12,73 @@
 	<!--#include virtual="/banner.html" -->	
 
 	<section id="main">
-	  <p>
-	    Various things that developers and/or integrators may find
-	    useful or informative:
-	  </p>
+	  <h2>Source Code</h2>
 	  <p>
 	    <ul>
-	      <li><a href="http://github.com/ClusterLabs/pacemaker">Source Code</a></li>
-	      <li><a href="http://build.clusterlabs.org:8010/one_box_per_builder">Buildbot Status</a></li>
-	      <li><a href="http://build.clusterlabs.org/buildbot/">Buildbot Results</a></li>
-	      <li><a href="/coverity/pacemaker/">Coverity Defect Reports</a></li>
+	      <li><a href="http://github.com/ClusterLabs/pacemaker">Development Branch</a></li>
+	      <li><a href="http://github.com/ClusterLabs/pacemaker/tree/1.1">1.1 Branch</a></li>
+	      <li><a href="http://github.com/ClusterLabs/pacemaker-1.0">1.0 Branch</a></li>
+	    </ul>
+	  </p>
+
+	  <h2>Developer Documentation</h2>
+	  <p>
+	    <ul>
 	      <li><a href="/global/pacemaker/">Indexed Source Code</a></li>
 	      <li><a href="/doxygen/pacemaker/">API Documentation</a></li>
 	      <li><a href="/abi/pacemaker/">ABI Compatability</a></li>
 	      <li><a href="/man/pacemaker/">Man Pages</a></li>
+	    </ul>
+	  </p>
+
+	  <h2>Automated Integration Testing</h2>
+	  <p>
+	    <ul>
 	      <li><a href="/rpm/">1.0 Packages</a></li>
 	      <li><a href="/rpm-next/">1.1 Packages</a></li>
 	    </ul>
 	  </p>
-	  <h3>Release History</h3>
+
+	  <h2>Pre-built Packages</h2>
+	  <p>
+	    <ul>
+	      <li><a href="/rpm/">1.0 Packages</a></li>
+	      <li><a href="/rpm-next/">1.1 Packages</a></li>
+	    </ul>
+	  </p>
+
+	  <h2>Release History</h2>
 	<!--#include virtual="/versions.html" -->	
-	</section>	
+
+	  <h2>Developer FAQ</h2>
+	  <p class="question">Q: What do the prefixes in Changelog mean?</p>
+	  <p class="answer">A: High, Med, Low: These all indicate how
+	  much the end-user/admin should care about the change.</p>
+	  <p class="answer">Dev: These are changes that fix bugs that
+	  don't exist in any released version of the project</p>
+	  <p class="answer">Examples:</p>
+	  <p class="answer">High - Preventing a segfault, implementing
+	  an important new feature or major changes to the behavior of
+	  a feature</p>
+	  <p class="answer">Med - Hard to trigger bugs, bugs with
+	  workarounds, minor functional changes</p>
+	  <p class="answer">Low - Non-functional changes, formatting
+	  or logging changes, changes to test code</p>
+
+	  <p class="question">Q: How do I test a cluster?</p>
+	  <p class="answer">Pacemaker comes with a Cluster Test Suite
+	    (CTS for short) which is an integral part of our release
+	    testing. Traditionally this had been hard to set up and
+	    use however a new tool has been written to simplify the
+	    process.  It can be found at:
+	    http://github.com/ClusterLabs/pacemaker/tree/master/cts/cluster_test
+	    Please give it a try and send feedback via the mailing
+	    list.
+	  </p>
+
+	  <p class="question">Q: What order do I build everything in?</p>
+	  <p class="answer">libqb, corosync, (cluster-glue if desired), pacemaker</p>
+	</section>
 
 	<!--#include virtual="/footer.html" -->
     </body>
