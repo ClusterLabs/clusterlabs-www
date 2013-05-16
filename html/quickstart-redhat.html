@@ -9,12 +9,12 @@
         <meta name="description" content="">
     </head>
     <body>
-	<!--#include virtual="/banner.html" -->	
+	<!--#include virtual="/banner.html" -->
 
 	<section id="main">
-	  <!--#include virtual="/quickstart-common.html" -->	
+	  <!--#include virtual="/quickstart-common.html" -->
 
-	  <h1>RHEL 6</h1>
+	  <h1>RHEL 6.4 onwards</h1>
 	  <h2>Install</h2>
 	  <p>
 	    Pacemaker ships as part of the Red
@@ -38,7 +38,7 @@ EOF
 	    necessary packages we will need:
 	  </p>
 	  <p class="command">
-[ALL] # yum install pacemaker cman ccs resource-agents 
+[ALL] # yum install pacemaker cman ccs resource-agents
 	  </p>
 
 	  <h2>Configure Cluster Membership and Messaging</h2>
@@ -104,7 +104,7 @@ EOF
 	    For now we will disable it.
 	  </p>
 	  <p class="command">
-[ONE] # crm configure property stonith-enabled=false
+[ONE] # pcs property set stonith-enabled=false
 	  </p>
 	  <p>
 	    One of the most common ways to deploy Pacemaker is in a
@@ -114,14 +114,14 @@ EOF
 	    it too.
 	  </p>
 	  <p class="command">
-[ONE] # crm configure property no-quorum-policy=ignore
+[ONE] # pcs property set no-quorum-policy=ignore
 	  </p>
 	  <p>
 	    For demonstration purposes, we will force the cluster to
 	    move services after a single failure:
 	  </p>
 	  <p class="command">
-[ONE] # crm configure property migration-threshold=1
+[ONE] # pcs property set migration-threshold=1
 	  </p>
 
 	  <h2>Add a Resource</h2>
@@ -131,7 +131,7 @@ EOF
 	    things easy.  Here's the command:
 	  </p>
 	  <p class="command">
-[ONE] # crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
+[ONE] # pcs resource create my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
 	  </p>
 	  <p>
 	    "<strong>my_first_svc</strong>" is the name the service
@@ -144,7 +144,7 @@ EOF
 	    - an agent that's useful as a template and for guides like
 	    this one), which namespace it is in (pacemaker) and what
 	    standard it conforms to
-	    (<a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>).
+	    (<a href="/doc/en-US/Pacemaker/1.1-pcs/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>).
 	  </p>
 	  <p>
 	    "<strong>op monitor interval=120s</strong>" tells Pacemaker to
@@ -155,12 +155,18 @@ EOF
 	    You should now be able to see the service running using:
 	  </p>
           <p class="command">
+[ONE] # pcs status
+	  </p>
+	  <p>
+	    or
+	  </p>
+          <p class="command">
 [ONE] # crm_mon -1
 	  </p>
 
 	  <h2>Simulate a Service Failure</h2>
 	  <p>
-	    We can simulate an error by telling the service stop
+	    We can simulate an error by telling the service to stop
 	    directly (without telling the cluster):
 	  </p>
 	  <p class="command">
@@ -176,17 +182,17 @@ EOF
 	  <h2>Next Steps</h2>
 	  <p>
 	    <ul>
-	      <li>Configure <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/ch09.html">Fencing</a></li>
-	      <li>Add more services - see <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/ch06.html">Clusters from Scratch</a> for examples of how to add IP address, Apache and DRBD to a cluster</li>
-	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_specifying_a_preferred_location.html">prefer a specific host</a></li>
-	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_ensuring_resources_run_on_the_same_host.html">run on the same host</a></li>
-	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Clusters_from_Scratch/_controlling_resource_start_stop_ordering.html">start and stop</a> in a specific order</li>
-	      <li>Find out what else Pacemaker can do - see <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/index.html">Pacemaker Explained</a> for an comprehensive list of concepts and options</li>
+	      <li>Configure <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/ch09.html">Fencing</a></li>
+	      <li>Add more services - see <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/ch06.html">Clusters from Scratch</a> for examples of how to add IP address, Apache and DRBD to a cluster</li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_specifying_a_preferred_location.html">prefer a specific host</a></li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_ensuring_resources_run_on_the_same_host.html">run on the same host</a></li>
+	      <li>Learn how to make services <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_controlling_resource_start_stop_ordering.html">start and stop</a> in a specific order</li>
+	      <li>Find out what else Pacemaker can do - see <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Pacemaker_Explained/index.html">Pacemaker Explained</a> for an comprehensive list of concepts and options</li>
 	    </ul>
 	  </p>
 
 
-	</section>	
+	</section>
 
 	<!--#include virtual="/footer.html" -->
     </body>
