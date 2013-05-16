@@ -30,7 +30,7 @@ The reports are generated with the <a href="http://forge.ispras.ru/projects/abi-
   echo "  <th>Report</th>";
   echo " </tr>";
 
-  foreach (glob("*/abi_compat_report.html") as $item) {
+  foreach (glob("*/compat_report.html") as $item) {
      $report = dirname($item);
 
     $status = "<td> </td>";
@@ -49,8 +49,8 @@ The reports are generated with the <a href="http://forge.ispras.ru/projects/abi-
      $v = explode("_", $report);
      if( count($v) == 3) {
        echo " <tr align=center>";
-       echo "  <td> v$v[2] </td>";
-       echo "  <td> v$v[0] </td>";
+       echo "  <td> $v[2] </td>";
+       echo "  <td> $v[0] </td>";
        echo "  $status";
        echo "  <td><a href=$item>report</a></td>";
        echo " </tr>";
