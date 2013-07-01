@@ -78,6 +78,7 @@ yum install -y pacemaker corosync
 $sets = array();
 $sets[] = "Fedora";
 $sets[] = "RHEL";
+$sets[] = "OpenSUSE";
 
 foreach ($sets as $set) {
     echo "<section class='docset'><h3 class='docversion'>$set</h3>";
