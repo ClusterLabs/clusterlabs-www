@@ -155,6 +155,7 @@ function Timeline(paper, datesAndVersions) {
       {date:"11/24/2011", version:"1.0.12"},
       {date:"03/29/2012", version:"1.1.7"},
       {date:"11/20/2012", version:"1.1.8"},
+      {date:"02/13/2013", version:"1.0.13"},
       {date:"03/08/2013", version:"1.1.9"},
     ]);
 
