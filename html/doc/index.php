@@ -59,11 +59,11 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
 If the distribution you're using is:
 </p>
 <ul>
+<li>RHEL7: 1.1-pcs</li>
 <li>RHEL6: 1.1-plugin (look for CMAN in the index)</li>
-<li>SLES11: 1.1-plugin</li>
-<li>Fedora 17 or earlier: 1.1-crmsh</li>
 <li>Fedora 18 or later: 1.1-pcs</li>
 <li>Ubuntu: 1.1-plugin (look for CMAN in the index)</li>
+<li>SLES: 1.1-plugin</li>
 </ul>
 
 <h1>Unversioned documentation</h1>
