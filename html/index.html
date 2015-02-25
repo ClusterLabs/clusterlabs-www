@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 	<!--#include virtual="/header.html" -->
-        <title>Cluster Labs - The Home of Pacemaker</title>
+        <title>Cluster Labs - The Home of Linux Clustering</title>
         <meta name="description" content="">
     </head>
     <body>
@@ -17,67 +17,94 @@
 	<!-- Logo is SVG to look nice on Retina displays. Here's how you do that with a PNG fallback for IE8 -->
 	<!--#include virtual="/banner.html" -->	
 
-	<section id="boxes">
-	  <aside>
-	    <h2>Deploy</h2>
-	    <a href="img/Deploy.20121116.png"><img src="img/Deploy-small.20121116.png"></a>
-	    <p>
-	      Pacemaker supports many deployment scenarios, from the simplest 2-node
-	      standby cluster to a 16-node active/active configuration.
+       <section id="boxes">
+         <aside>
+           <h2>Deploy</h2>
+           <a href="img/Deploy.20121116.png"><img src="img/Deploy-small.20121116.png"></a>
+           <p>
+             We support many deployment scenarios, from the simplest
+             2-node standby cluster to a 32-node active/active
+             configuration.
 
-	      Pacemaker can also dramatically reduce hardware costs by allowing
-	      several active/passive clusters to be combined and share a common
-	      backup node.
-	    </p>
-	  </aside>
+             We can also dramatically reduce hardware costs by allowing
+             several active/passive clusters to be combined and share a common
+             backup node.
+           </p>
+         </aside>
 
-	  <aside>
-	    <h2>Monitor</h2>
-	    <a href="img/Monitor.20121116.png"><img src="img/Monitor-small.20121116.png"></a>
-	    <p>
-	      Pacemaker monitors the system for both hardware and software failures.
+         <aside>
+           <h2>Monitor</h2>
+           <a href="img/Monitor.20121116.png"><img src="img/Monitor-small.20121116.png"></a>
+           <p>
+             We monitor the system for both hardware and software failures.
 
-	      In the event of a failure, Pacemaker will automatically recover your
-	      application and make sure it is available from one of the remaning
-	      machines in the cluster.
-	    </p>
-	  </aside>
-	  
-	  <aside>
-	    <h2>Recover</h2>
-	    <a href="img/Recover.20121116.png"><img src="img/Recover-small.20121116.png"></a>
-	    <p>
-	      After a failure, Pacemaker uses advanced algorithms to quickly
-	      determine the optimum locations for services based on relative node
-	      preferences and/or requirements to run with other cluster services (we
-	      call these "constraints").
-	    </p>
-	  </aside>
-	</section>
+             In the event of a failure, we will automatically recover
+             your application and make sure it is available from one
+             of the remaning machines in the cluster.
+           </p>
+         </aside>
+         
+         <aside>
+           <h2>Recover</h2>
+           <a href="img/Recover.20121116.png"><img src="img/Recover-small.20121116.png"></a>
+           <p>
+             After a failure, we use advanced algorithms to quickly
+             determine the optimum locations for services based on
+             relative node preferences and/or requirements to run with
+             other cluster services (we call these "constraints").
+           </p>
+         </aside>
+       </section>
 
 	<section id="main">
-	  <a id="info"> </a>
-	  
-	  <!--h1><a id="info">About Pacemaker</a></h1>
-	      <figure>
-		<img src="img/ethercycle.jpg">
-		<figcaption>This is an image caption. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</figcaption>
-		<h2>Background</h2>
-</figure-->
+	  <a id="why"> </a>
 	  
 	  <p>
-	    <b>Pacemaker</b> is an <a href="http://en.wikipedia.org/wiki/Open_source">Open Source</a>,
-	    <a href="http://en.wikipedia.org/wiki/High_availability">High Availability</a>
-	    resource manager suitable for both small and large <a href="http://en.wikipedia.org/wiki/Cluster_(computing)">clusters</a>.
+	    At its core, a cluster is a distributed finite state
+	    machine capable of co-ordinating the startup and recovery
+	    of inter-related services across a set of machines.
 	  </p>
-	  <q>"Someone said something awesome about Pacemaker here." - Anon</q>
+	  <p>
+	    Even a distributed and/or replicated application that is
+	    able to survive the failure of one or more components can
+	    benefit from a higher level cluster:
+
+	    <ul>
+              <li>awareness of other applications in the stack</li>
+	      <li>a shared <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> implementation and calculation</li>
+	      <li>data integrity through fencing (a non-responsive process does not imply it is not doing anything)</li>
+	      <li>automated recovery of instances to ensure capacity</li>
+	    </ul>
+
+	  </p>
+	  <q>	    
+	    System HA is possible without a cluster manager, but you save many headaches using one anyway
+	  </q>
+	  <p>
+	    While SYS-V init replacements like systemd can provide
+	    deterministic recovery of a complex stack of services, the
+	    recovery is limited to one machine and lacks the context
+	    of what is happening on other machines - context that is
+	    crucial to determine the difference between a local
+	    failure, clean startup and recovery after a total site
+	    failure.
+	  </p>
 
 	  <a id="features"> </a>
 	  <h2>Features</h2>
+	  <p>
+	    The ClusterLabs stack, incorporating <a href="">Corosync</a>
+	    and <a href="/pacemaker.html">Pacemaker</a> defines
+	    an <a href="http://en.wikipedia.org/wiki/Open_source">Open Source</a>,
+	    <a href="http://en.wikipedia.org/wiki/High_availability">High Availability</a>
+	     <a href="http://en.wikipedia.org/wiki/Cluster_(computing)">cluster</a>
+	     offering suitable for both small and large deployments.
+	  </p>
+
 	  <ul>
             <li>Detection and recovery of machine and application-level failures</li>
 	    <li>Supports practically any <a href="/wiki/ClusterTypes">redundancy configuration</a></li>
-            <li>Supports both <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorate</a> and <a href="http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
+            <li>Supports both <A href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorate</a> and <a href="http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
             <li>Configurable <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-cluster-options.html#id36137161">strategies</a> for dealing with <a href="http://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple machines fail)</li>
             <li>Supports application <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-ordering.html">startup/shutdown ordering</a>, regardless machine(s) the applications are on</li>
             <li>Supports applications that must/must-not run on the <a href="/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-colocation.html">same machine</a></li>
@@ -89,9 +116,6 @@
 	  </ul>
 
 	  <h2>Background</h2>
-	  <a class="ohloh" href="https://www.ohloh.net/p/pacemaker?ref=sample">
-	    <img alt="Ohloh project report for pacemaker" border="0" src="https://www.ohloh.net/p/pacemaker/widgets/project_partner_badge.gif">
-	  </a>
 	  <p>
 	    Pacemaker has been around
 	    since <a href="https://www.ohloh.net/p/pacemaker/analyses/latest/languages_summary">2004</a>
@@ -103,79 +127,26 @@
 	    general.
 	  </p>
 	  <p>
-	    The core Pacemaker team is made up of full-time developers from
-	    Australia, USA, Austria, Germany, and China.  Contributions to the code or
-	    documentation are always welcome.
+	    Corosync also began life in <a href="https://www.ohloh.net/p/corosync/analyses/latest/languages_summary">2004</a>
+	    but was then part of the <a href="https://www.ohloh.net/p/openAIS">OpenAIS project</a>.
+	    It is primarily a <a href="http://www.redhat.com">Red
+	    Hat</a> initiative, however we also receive considerable
+	    help and support from the folks the community.
 	  </p>
 	  <p>
-	    Pacemaker ships with most modern enterprise distributions and has been
-	    deployed in many critical environments including Deutsche
-	    Flugsicherung GmbH
+	    The core ClusterLabs team is made up of full-time
+	    developers from Australia, Austria, China, Czech Repulic,
+	    England, Germany and the USA.  Contributions to the code
+	    or documentation are always welcome.
+	  </p>
+	  <p>
+	    The ClusterLabs stack ships with most modern enterprise
+	    distributions and has been deployed in many critical
+	    environments including Deutsche Flugsicherung GmbH
 	    (<a href="http://www.dfs.de/dfs/internet_2008/portal/english/start/index.html">DFS</a>)
 	    which uses Pacemaker with Heartbeat to ensure
-	    its <a href="http://www.novell.com/success/dfs.html">air traffic
-	      control systems</a> are always available
-	  </p>
-	  <p>
-	    Currently <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a> is
-	    the project lead for Pacemaker.
-	  </p>
-
-	  <a id="addons"> </a>
-	  <h1>Configuration Tools</h1>
-	  <p>
-	    Pacemaker's internal configuration format is XML, which is
-	    great for machines but terrible for humans.
-	    
-	    The community's best minds have created GUIs and Shells to
-	    hide the XML and allow the configuration to be viewed and
-	    updated in a more human friendly format.
-	  </p>
-	  <h2>Command Line Interfaces (Shells)</h2>
-	  <p><a href="https://savannah.nongnu.org/projects/crmsh/">crmsh</a>
-	    - The original configuration shell for Pacemaker. Written
-	    and maintained by SUSE, it may be used either as an
-	    interactive shell with tab completion, for single commands
-	    directly on the shell's command line or as batch mode
-	    scripting tool.
-	  </p>
-	  <p><a href="https://github.com/feist/pcs">pcs</a> - An
-	    alternate vision for a full cluster lifecycle
-	    configuration shell and web based GUI. Handles everything
-	    from cluster installation through to resource
-	    configuration and status.</p>
-	  <h2>GUI Tools</h2>
-	  <p><a href="https://github.com/ClusterLabs/pacemaker-mgmt">pygui</a>
-	    - The original GUI for Pacemaker written in Python by IBM
-	    China.  Mostly deprecated on SLES in favor of Hawk</p>
-	  <p><a href="https://github.com/ClusterLabs/hawk">hawk</a> -
-	    Hawk is a web-based GUI for managing and monitoring
-	    Pacemaker HA clusters. It is generally intended to be run
-	    on every node in the cluster, so that you can just point
-	    your web browser at any node to access it.  It is
-	    documented as part of the
-	    <a href="http://www.suse.com/documentation/sle_ha/book_sleha/?page=/documentation/sle_ha/book_sleha/data/cha_ha_configuration_hawk.html">
-	      SUSE Linux Enterprise High Availability
-	      Extension documentation</a></p>
-	  <p><a href="http://lcmc.sf.net">LCMC</a> - The Linux Cluster
-	    Management Console (LCMC) is a GUI with an inovative
-	    approach for representing the status of and relationships
-	    between cluster services.  It uses SSH to let you install,
-	    configure and manage clusters from your desktop.</p>
-	  <p><a href="https://github.com/feist/pcs">pcs</a> - An
-	    alternate vision for a full cluster lifecycle
-	    configuration shell and web based GUI. Handles everything
-	    from cluster installation through to resource
-	    configuration and status.</p>
-
-	  <h1>Other Add-ons</h1>
-	  <p><a href="https://github.com/ClusterLabs/booth">booth</a>
-	    - The Booth cluster ticket manager extends Pacemaker to
-	    support geographically distributed clustering.  It does
-	    this by managing the granting and revoking of 'tickets'
-	    which authorizes one of the cluster sites, potentially
-	    located in geographically dispersed locations, to run
-	    certain resources.
+	    its <a href="http://www.novell.com/success/dfs.html">air
+	    traffic control systems</a> are always available
 	  </p>
 	</section>	
 
