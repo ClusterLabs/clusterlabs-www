@@ -16,69 +16,58 @@
 
 	  <h1>Ubuntu</h1>
 	  <p>
-	    Ubuntu has shipped the Red Hat Cluster Suite (RHCS) stack
-	    for many years, so we will use that here because it is a
-	    variation that upstream tests regularly.
+	    Ubuntu appears to have switched to Corosync 2 for it's LTS releases.
 	  </p>
 	  <p>
 	    We use aptitude to install pacemaker and some other
 	    necessary packages we will need:
 	  </p>
 	  <p class="command">
-[ALL] # aptitude install pacemaker cman fence-agents
+[ALL] # aptitude install pacemaker corosync fence-agents
 	  </p>
 
 	  <h2>Configure Cluster Membership and Messaging</h2>
 	  <p>
-	    Since the ccs tool from RHEL does not exist on Ubuntu, we
-	    well create the CMAN configuration file on both machines
+	    Since the pcs tool from RHEL does not exist on Ubuntu, we
+	    well create the corosync configuration file on both machines
 	    manually:
           </p>
          <p class="command">
-[ALL] # cat <<EOF > /etc/cluster/cluster.conf
-&lt;?xml version="1.0"?>
-&lt;cluster config_version="1" name="pacemaker1">
-  &lt;logging debug="off"/>
-  &lt;clusternodes>
-    &lt;clusternode name="node1" nodeid="1">
-      &lt;fence>
-        &lt;method name="pcmk-redirect">
-          &lt;device name="pcmk" port="node1"/>
-        &lt;/method>
-      &lt;/fence>
-    &lt;/clusternode>
-    &lt;clusternode name="node2" nodeid="2">
-      &lt;fence>
-        &lt;method name="pcmk-redirect">
-          &lt;device name="pcmk" port="node2"/>
-        &lt;/method>
-      &lt;/fence>
-    &lt;/clusternode>
-  &lt;/clusternodes>
-  &lt;fencedevices>
-    &lt;fencedevice name="pcmk" agent="fence_pcmk"/>
-  &lt;/fencedevices>
-&lt;/cluster>
+[ALL] # cat <<EOF > /etc/corosync/corosync.conf
+totem {
+    version: 2
+    secauth: off
+    cluster_name: pacemaker1
+    transport: udpu
+}
+
+nodelist {
+    node {
+        ring0_addr: node1
+        nodeid: 101
+    }
+    node {
+        ring0_addr: node2
+        nodeid: 102
+    }
+}
+
+quorum {
+   provider: corosync_votequorum
+   two_node: 1
+   wait_for_all: 1
+   last_man_standing: 1
+   auto_tie_breaker: 0
+}
+
 EOF
           </p>
-
-	  <p>
-	    CMAN was originally written for rgmanager and assumes the
-	    cluster should not start until the node has
-	    <a href="http://en.wikipedia.org/wiki/Quorum">quorum</a>,
-	    so before we try to start the cluster, we need to disable
-	    this behavior:
-	  </p>
-          <p class="command">
-[ALL] # echo "CMAN_QUORUM_TIMEOUT=0" >> /etc/default/cman
-	  </p>
 
 	  <h2>Start the Cluster</h2>
 	  <p>
 	    On each machine, run:
 	  </p>
 	  <p class="command">
-[ALL] # service cman start
 [ALL] # service pacemaker start
 	  </p>
 
