@@ -26,7 +26,7 @@
 	  </p>
 	  <p class="command">
 [ALL] # cat <<EOF > /etc/yum.repo.d/centos.repo
-[centos-6-base]
+[centos-7-base]
 name=CentOS-$releasever - Base
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
 #baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
@@ -103,7 +103,7 @@ EOF
 	    things easy.  Here's the command:
 	  </p>
 	  <p class="command">
-[ONE] # pcs resource create my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
+[ONE] # pcs resource create my_first_svc Dummy op monitor interval=120s
 	  </p>
 	  <p>
 	    "<strong>my_first_svc</strong>" is the name the service
@@ -147,7 +147,7 @@ EOF
 	  <p>
 	    If you now run <strong>crm_mon</strong> in interactive
 	    mode (the default), you should see (within the monitor
-	    interval - 2 minutes) the cluster notice
+	    interval of 2 minutes) the cluster notice
 	    that <strong>my_first_svc</strong> failed and move it to
 	    another node.
 	  </p>
