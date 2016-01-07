@@ -25,7 +25,7 @@
 	    If you are already running CentOS or Scientific Linux, you can skip this step.  Otherwise, to teach the machine where to find the CentOS packages, run:
 	  </p>
 	  <p class="command">
-[ALL] # cat <<EOF > /etc/yum.repo.d/centos.repo
+[ALL] # cat <<EOF > /etc/yum.repos.d/centos.repo
 [centos-7-base]
 name=CentOS-$releasever - Base
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
