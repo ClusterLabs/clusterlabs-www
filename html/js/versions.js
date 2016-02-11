@@ -62,6 +62,9 @@ function Timeline(paper, datesAndVersions) {
       {date: (new Date(2011, 0, 1)), version: "2011"},
       {date: (new Date(2012, 0, 1)), version: "2012"},
       {date: (new Date(2013, 0, 1)), version: "2013"},
+      {date: (new Date(2014, 0, 1)), version: "2014"},
+      {date: (new Date(2015, 0, 1)), version: "2015"},
+      {date: (new Date(2016, 0, 1)), version: "2016"},
     ], this.drawYear, graphWidth, startTime, timeRange, radius);
   };
 
@@ -157,6 +160,11 @@ function Timeline(paper, datesAndVersions) {
       {date:"11/20/2012", version:"1.1.8"},
       {date:"02/13/2013", version:"1.0.13"},
       {date:"03/08/2013", version:"1.1.9"},
+      {date:"07/26/2013", version:"1.1.10"},
+      {date:"02/13/2014", version:"1.1.11"},
+      {date:"07/22/2014", version:"1.1.12"},
+      {date:"06/24/2015", version:"1.1.13"},
+      {date:"01/14/2016", version:"1.1.14"},
     ]);
 
   });
