@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /mediawiki/
 Disallow: /mwiki/
-Disallow: /rpm
+Disallow: /rpm-test*
 Disallow: /wiki/Special
 Disallow: /wiki/Commons
 Disallow: /wiki/beekhof5

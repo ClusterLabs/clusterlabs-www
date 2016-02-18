@@ -22,9 +22,7 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
     If you're new to Pacemaker or clustering in general, the best
     place to start is the <b>Clusters from Scratch</b> guide.  This
     document walks you step-by-step through the installation and
-    configuration of a High Availability cluster with Pacemaker.  It
-    even makes the common configuration mistakes so that it can
-    demonstrate how to fix them.
+    configuration of a High Availability cluster with Pacemaker.
 
 </p>
 
@@ -33,16 +31,7 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
     On the otherhand, if you're looking for an exhasutive reference of
     all Pacemaker's options and features, try <b>Pacemaker
     Explained</b>.  It's dry, but should have the answers you're
-    looking for.  Again, be sure to read the edition appropriate for
-    your software version.
-
-</p>
-
-<p>
-
-    Both are version specific (Some things have changed over the
-    years, so be sure to choose the one that matches your software
-    version) and have been translated into several languages.
+    looking for.
 
 </p>
 
@@ -119,7 +108,8 @@ If the distribution you're using is:
    echo "<br/>";
 
    $langs = array();
-   foreach (glob("$base/*/Pacemaker/$version") as $item) {
+   // for now, show only US English; other translations haven't been maintained
+   foreach (glob("$base/en-US/Pacemaker/$version") as $item) {
        $langs[] = basename(dirname(dirname($item)));
    }
    
