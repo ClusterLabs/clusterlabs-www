@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 <?php include "../../header.html" ?>
-        <title>Cluster Labs - Packages for Pacemaker 1.0.x</title>
+        <title>Cluster Labs - Annotated Pacemaker Sources</title>
         <meta name="description" content="">
      </head>
      <body>
@@ -40,7 +40,7 @@ foreach ($runs as $hash) {
 
     echo "<li>Run $run $hash ($when) ";
     echo " [<a href=$hash/index.html>Results</a>]";
-    echo " [<a href=http://hg.clusterlabs.org/pacemaker/devel/rev/$hash>Sources</a>]";
+    echo " [<a href=https://github.com/ClusterLabs/pacemaker/tree/$hash>Sources</a>]";
     echo "</li>";
     $lpc++;
 }
