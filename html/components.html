@@ -106,13 +106,14 @@
 	    updated in a more human friendly format.
 	  </p>
 	  <h2>Command Line Interfaces (Shells)</h2>
-	  <h3><a href="https://savannah.nongnu.org/projects/crmsh/">crmsh</a></h3>
+	  <h3><a href="http://crmsh.github.io/">crmsh</a></h3>
 	  <p>
 	    The original configuration shell for Pacemaker. Written
-	    and maintained by SUSE, it may be used either as an
+	    and actively maintained by SUSE, it may be used either as an
 	    interactive shell with tab completion, for single commands
 	    directly on the shell's command line or as batch mode
-	    scripting tool.
+	    scripting tool. Documentation for crmsh can be
+	    found <a href="http://crmsh.github.io/documentation/">here</a>.
 	  </p>
 	  <h3><a href="https://github.com/feist/pcs">pcs</a></h3>
 	  <p>
@@ -128,20 +129,20 @@
 	    The original GUI for Pacemaker written in Python by IBM
 	    China.  Mostly deprecated on SLES in favor of Hawk
 	  </p>
-	  <h3><a href="https://github.com/ClusterLabs/hawk">hawk</a></h3>
+	  <h3><a href="http://hawk-ui.github.io/">Hawk</a></h3>
 	  <p>
 	    Hawk is a web-based GUI for managing and monitoring
 	    Pacemaker HA clusters. It is generally intended to be run
 	    on every node in the cluster, so that you can just point
-	    your web browser at any node to access it.  It is
+	    your web browser at any node to access it.
+	    There is a usage guide at <a href="http://hawk-guide.readthedocs.org/en/latest/">hawk-guide.readthedocs.org</a>, and it is
 	    documented as part of the
 	    <a href="http://www.suse.com/documentation/sle_ha/book_sleha/?page=/documentation/sle_ha/book_sleha/data/cha_ha_configuration_hawk.html">
-	      SUSE Linux Enterprise High Availability
-	      Extension documentation</a>
+	      SUSE Linux Enterprise High Availability Extension documentation</a>
 	  </p>
 	  <h3><a href="http://lcmc.sf.net">LCMC</a></h3>
 	  <p>
-	    The Linux Clusther Management Console (LCMC) is a GUI with
+	    The Linux Cluster Management Console (LCMC) is a GUI with
 	    an inovative approach for representing the status of and
 	    relationships between cluster services.  It uses SSH to
 	    let you install, configure and manage clusters from your
@@ -153,6 +154,12 @@
 	    configuration shell and web based GUI. Handles everything
 	    from cluster installation through to resource
 	    configuration and status.
+	  </p>
+	  <h3><a href="https://github.com/ClusterLabs/striker">Striker</a></h3>
+	  <p>
+	    Striker is the user interface for the Anvil! (virtual) server
+	    platform and the ScanCore autonomous self-defence and alert
+	    system.
 	  </p>
 	  <h1>Other Add-ons</h1>
 	  <h3><a href="https://github.com/ClusterLabs/booth">booth</a></h3>
@@ -167,7 +174,14 @@
 
 	  <h3><a href="https://github.com/ClusterLabs/sbd">sbd</a></h3>
 	  <p>
-	    storage based death and watchdog based fencing
+	    SBD provides a node fencing mechanism through the
+	    exchange of messages via shared block storage such as for
+	    example a SAN, iSCSI, FCoE. This isolates the fencing
+	    mechanism from changes in firmware version or dependencies on
+	    specific firmware controllers, and it can be used as a STONITH
+	    mechanism in all configurations that have reliable shared
+	    storage. It can also be used as a pure watchdog-based fencing
+	    mechanism.
 	  </p>
 	</section>	
 
