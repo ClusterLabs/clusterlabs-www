@@ -64,6 +64,9 @@
 	    machine capable of co-ordinating the startup and recovery
 	    of inter-related services across a set of machines.
 	  </p>
+	  <blockquote class="pullquote">	    
+	    System HA is possible without a cluster manager, but you save many headaches using one anyway
+	  </blockquote>
 	  <p>
 	    Even a distributed and/or replicated application that is
 	    able to survive the failure of one or more components can
@@ -77,9 +80,6 @@
 	    </ul>
 
 	  </p>
-	  <q>	    
-	    System HA is possible without a cluster manager, but you save many headaches using one anyway
-	  </q>
 	  <p>
 	    While SYS-V init replacements like systemd can provide
 	    deterministic recovery of a complex stack of services, the
@@ -116,6 +116,13 @@
 	  </ul>
 
 	  <h2>Components</h2>
+	  <blockquote class="pullquote">
+	  "The definitive open-source high-availability stack for the Linux
+	  platform builds upon the Pacemaker cluster resource manager."<br />
+	  -- <cite>LINUX Journal</cite>,
+	  <a href="http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack">"Ahead
+	  of the Pack: the Pacemaker High-Availability Stack"</a>
+	  </blockquote>
 	  <p>A Pacemaker stack is built on five core components:  
 	  <ul>
             <li>libQB - core services (logging, IPC, etc)</li>
@@ -141,6 +148,12 @@
 	    at <a href="http://www.linbit.com">LinBit</a> and the community in
 	    general.
 	  </p>
+	  <blockquote class="pullquote">
+	   "Pacemaker cluster stack is the state-of-the-art high availability
+	   and load balancing stack for the Linux platform."<br />
+	   -- <a href="http://docs.openstack.org/ha-guide/controller-ha-pacemaker.html"><cite>OpenStack
+	   documentation</cite></a>
+	  </blockquote>
 	  <p>
 	    Corosync also began life in <a href="https://www.ohloh.net/p/corosync/analyses/latest/languages_summary">2004</a>
 	    but was then part of the <a href="https://www.ohloh.net/p/openAIS">OpenAIS project</a>.
@@ -158,10 +171,10 @@
 	    The ClusterLabs stack ships with most modern enterprise
 	    distributions and has been deployed in many critical
 	    environments including Deutsche Flugsicherung GmbH
-	    (<a href="http://www.dfs.de/dfs/internet_2008/portal/english/start/index.html">DFS</a>)
-	    which uses Pacemaker with Heartbeat to ensure
+	    (<a href="http://www.dfs.de/dfs_homepage/en/">DFS</a>)
+	    which uses Pacemaker to ensure
 	    its <a href="http://www.novell.com/success/dfs.html">air
-	    traffic control systems</a> are always available
+	    traffic control systems</a> are always available.
 	  </p>
 	</section>	
 

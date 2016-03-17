@@ -104,6 +104,16 @@ body {
 	background-color: #2c4081;
 	}
 
+.pullquote {
+	padding: 2.6rem 2.2rem 2rem 3.6rem;
+	width: 30%; 
+	margin: 0 2rem 2rem 0;
+	float: right;
+	font-size: 2em;
+	font-family: Marvel;
+	font-style: italic;
+	color: white;
+}
 
 #banner {
     background-image: url(/img/gradiant.png);
