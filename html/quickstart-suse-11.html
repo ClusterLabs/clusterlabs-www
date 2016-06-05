@@ -14,19 +14,19 @@
 	<section id="main">
 	  <!--#include virtual="/quickstart-common.html" -->	
 
-	  <h1>SLES 12</h1>
+	  <h1>SLES 11</h1>
 	  <h2>Install</h2>
 	  <p>
 	    Pacemaker ships as part of the
 	    SUSE <a href="https://www.suse.com/products/highavailability/">High
 	    Availability Extension</a>. To install, follow the provided
         documentation. It is also available in openSUSE Leap and openSUSE
-        Tumbleweed.
+        Tumbleweed (for openSUSE, see the <a href="/quickstart-suse.html">SLES 12</a> Quickstart guide.
 	  </p>
 
 	  <h2>Create the Cluster</h2>
 	  <p>
-	    The supported stack on SLES12 is based on Corosync 2.x.
+	    The supported stack on SLES11 is based on Corosync/OpenAIS.
 	  </p>
 
 	  <p>
@@ -54,9 +54,7 @@
         These two steps create and start a basic cluster together with the
         <a href="https://hawk-ui.github.io/">HAWK</a> web interface. If given
         additional arguments, <tt>ha-cluster-init</tt> can also configure
-        STONITH, OCFS2 and an administration IP address as part of initial
-        configuration. It is also possible to choose whether to use multicast
-        or unicast for corosync communication.
+        STONITH and OCFS2 as part of initial configuration.
       </p>
 	  <p>
         For more details on <tt>ha-cluster-init</tt>, see the output of
@@ -79,14 +77,14 @@
 	    things easy.  Here's the command:
 	  </p>
 	  <p class="command">
-[ONE] # crm configure primitive my_first_svc Dummy op monitor interval=120s
+[ONE] # crm configure primitive my_first_svc ocf:pacemaker:Dummy op monitor interval=120s
 	  </p>
 	  <p>
 	    "<strong>my_first_svc</strong>" is the name the service
 	    will be known as.
 	  </p>
 	  <p>
-	    "<strong>Dummy</strong>" tells Pacemaker
+	    "<strong>ocf:pacemaker:Dummy</strong>" tells Pacemaker
 	    which script to use
 	    (<a href="https://github.com/ClusterLabs/pacemaker/blob/master/extra/resources/Dummy">Dummy</a>
 	    - an agent that's useful as a template and for guides like
