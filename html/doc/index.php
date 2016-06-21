@@ -23,6 +23,8 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
     place to start is the <b>Clusters from Scratch</b> guide.  This
     document walks you step-by-step through the installation and
     configuration of a High Availability cluster with Pacemaker.
+    It even makes the common configuration mistakes so that it can
+    demonstrate how to fix them.
 
 </p>
 
