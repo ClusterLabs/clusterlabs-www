@@ -12,19 +12,12 @@
 	<!--#include virtual="/banner.html" -->	
 
 	<section id="main">
-	  <h2>Source Code</h2>
-	  <p>
-	    <ul>
-	      <li><a href="http://clusterlabs.org/wiki/Contributing_Patches">Guide</a> to submitting patches</li>
-	      <li><a href="http://github.com/ClusterLabs/pacemaker">Development Branch</a></li>
-	      <li><a href="http://github.com/ClusterLabs/pacemaker/tree/1.1">1.1 Branch</a></li>
-	      <li><a href="http://github.com/ClusterLabs/pacemaker-1.0">1.0 Branch</a></li>
-	    </ul>
-	  </p>
-
 	  <h2>Developer Documentation</h2>
 	  <p>
 	    <ul>
+	      <li><cite>Pacemaker Development</cite> in the
+	          <a href="http://clusterlabs.org/doc/">Pacemaker documentation set</a> is the primary
+	          source of developer documentation</li>
 	      <li><a href="/components.html">Components</a></li>
 	      <li><a href="https://github.com/ClusterLabs/pacemaker/blob/master/TODO.markdown">TODO list</a></li>
 	      <li><a href="/global/pacemaker/">Indexed Source Code</a></li>
@@ -56,65 +49,6 @@
 
 	  <h2>Release History</h2>
 	<!--#include virtual="/versions.html" -->	
-
-	  <h2>Developer FAQ</h2>
-	  <p class="question">Q: What do the prefixes in Changelog mean?</p>
-	  <p class="answer">A: High, Med, Low: These all indicate how
-	  much the end-user/admin should care about the change.</p>
-	  <p class="answer">Dev: These are changes that fix bugs that
-	  don't exist in any released version of the project</p>
-	  <p class="answer">Examples:</p>
-	  <p class="answer">High - Preventing a segfault, implementing
-	  an important new feature or major changes to the behavior of
-	  a feature</p>
-	  <p class="answer">Med - Hard to trigger bugs, bugs with
-	  workarounds, minor functional changes</p>
-	  <p class="answer">Low - Non-functional changes, formatting
-	  or logging changes, changes to test code</p>
-
-	  <p class="question">Q: How do I test a cluster?</p>
-	  <p class="answer">Pacemaker comes with a Cluster Test Suite
-	    (CTS for short) which is an integral part of our release
-	    testing. Traditionally this had been hard to set up and
-	    use however a new tool has been written to simplify the
-	    process.  It can be found at:
-	    http://github.com/ClusterLabs/pacemaker/tree/master/cts/cluster_test
-	    Please give it a try and send feedback via the mailing
-	    list.
-	  </p>
-
-	  <p class="question">Q: What order do I build everything in?</p>
-	  <p class="answer">libqb, corosync, (cluster-glue if desired), pacemaker</p>
-
-	  <a id="license"> </a>
-	  <p class="question">Q: What Is Pacemaker's License?</p>
-	  <p class="answer">
-	    Pacemaker programs are licensed under the
-	    <a href="http://www.github.com/ClusterLabs/pacemaker/file/HEAD/COPYING">GPLv2+</a>
-	    ("version 2 or later" of the GPL) and its headers and
-	    libraries are under the less restrictive
-	    <a href="http://www.github.com/ClusterLabs/pacemaker/file/HEAD/COPYING.LIB">LGPLv2+</a>
-	    ("version 2 or later" of the LGPL) .
-	  </p>
-
-	  <p class="answer">
-	    The exception to this is a small number of files needed to
-	    create an OpenAIS/CoroSync plugin, these are additionally
-	    licensed under BSD.  If you find any deviations from this
-	    policy, or wish to inquire about alternate licensing
-	    arrangements, please contact the project:
-	    <a href="mailto:pacemaker@oss.clusterlabs.org">pacemaker@oss.clusterlabs.org</a>
-	  </p>
-
-	  <p class="answer">
-	    The contents of this site are published under the terms of
-	    the <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>
-	    unless otherwise indicated.
-	  </p>
-
-	  <p class="answer">
-	    Licensing issues are also discussed on <a href="/wiki/License">the wiki</a>.
-	  </p>
 
 	</section>
 
