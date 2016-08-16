@@ -30,7 +30,7 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
 
 <p>
 
-    On the otherhand, if you're looking for an exhasutive reference of
+    On the otherhand, if you're looking for an exhaustive reference of
     all Pacemaker's options and features, try <b>Pacemaker
     Explained</b>.  It's dry, but should have the answers you're
     looking for.
@@ -43,19 +43,6 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
     <a href="/wiki/Category:Help:Howto">howto guides</a> which
     the wider community is encouraged to update and add to.
 </p>
-
-<p>
-<h1>Which Documentation Set do I Need?</h1>
-<p>
-If the distribution you're using is:
-</p>
-<ul>
-<li>RHEL7: 1.1-pcs</li>
-<li>RHEL6: 1.1-plugin (look for CMAN in the index)</li>
-<li>Fedora 18 or later: 1.1-pcs</li>
-<li>Ubuntu: 1.1-plugin (look for CMAN in the index)</li>
-<li>SLES: 1.1-plugin</li>
-</ul>
 
 <h1>Unversioned documentation</h1>
 <section class="docset">
