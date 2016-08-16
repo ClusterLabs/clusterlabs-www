@@ -13,52 +13,81 @@
 
      <section id="main">
 <p>
-This page details the ABI compatability between the listed <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> versions.
-
-The reports are generated with the <a href="http://forge.ispras.ru/projects/abi-compliance-checker">ABI Compliance Checker</a> that ships with <a href="http://fedoraproject.org">Fedora</a>
+This page details the ABI compatability between the listed
+<a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> versions.
+The reports are generated with the
+<a href="http://forge.ispras.ru/projects/abi-compliance-checker">ABI Compliance
+Checker</a> that ships with <a href="http://fedoraproject.org">Fedora</a>
 </p>
-<?php
 
-  echo "<table align=center class=\"wikitable sortable\" style=\"width:75%;\" cellpadding=1>";
-  echo "<caption>";
-  echo "<a name=\"ABI_table\" id=\"ABI_table\"></a><h3><span class=\"mw-headline\"> ABI Compatability Table </span></h3>";
-  echo "<p></caption>";
-  echo " <tr>";
-  echo "  <th>Version</th>";
-  echo "  <th>Reference Version</th>";
-  echo "  <th>Status</th>";
-  echo "  <th>Report</th>";
-  echo " </tr>";
+<table align=center style="width:75%;" cellpadding=1>
+<caption>
+  <a name="ABI_table" id="ABI_table"></a><h3>ABI Compatability Table</h3>
+</caption>
+ <tr>
+  <th>Version</th>
+  <th>Reference Version</th>
+  <th>Status</th>
+  <th>Report</th>
+ </tr>
+
+<?php
+  function sorter($a, $b) {
+    return version_compare($b["from"], $a["from"]);
+  }
+
+  $i = 0;
+  $compat_reports = array();
 
   foreach (glob("*/compat_report.html") as $item) {
-     $report = dirname($item);
+    $report = dirname($item);
+    $v = explode("_", $report);
+    if ((count($v) != 3) || ($v[1] != "to")) {
+      continue;
+    }
 
-    $status = "<td> </td>";
-    $file_handle = fopen("$item", "r");
+    $compat_reports[$i] = array();
+    $compat_reports[$i]["filename"] = $item;
+    $compat_reports[$i]["report"] = $report;
+    $compat_reports[$i]["from"] = $v[0];
+    $compat_reports[$i]["to"] = $v[2];
+
+    $compat_reports[$i]["status"] = "unknown";
+    $file_handle = fopen($compat_reports[$i]["filename"], "r");
     while (!feof($file_handle)) {
 	$line = fgets($file_handle);
-	if(strstr($line, "Verdict")) {
-	    $status = preg_replace("/.*<td>/", "<td>", $line);
-	    $status = preg_replace("/<\/td>.*/", "</td>", $status);
+	if (strstr($line, "Verdict")) {
+	    $compat_reports[$i]["status"] = preg_replace("/.*<td>/", "", $line);
+	    $compat_reports[$i]["status"] = preg_replace("/<\/td>.*/", "", $compat_reports[$i]["status"]);
 	    break;
 	}
     }
     fclose($file_handle);    
 
-
-     $v = explode("_", $report);
-     if( count($v) == 3) {
-       echo " <tr align=center>";
-       echo "  <td> $v[2] </td>";
-       echo "  <td> $v[0] </td>";
-       echo "  $status";
-       echo "  <td><a href=$item>report</a></td>";
-       echo " </tr>";
-     }
+    ++$i;
   }
-  echo "</table>";
+
+  usort($compat_reports, "sorter");
+
+  foreach ($compat_reports as $item) {
+    $report = $item["report"];
+    $filename = $item["filename"];
+    $from = $item["from"];
+    $to = $item["to"];
+    $status = $item["status"];
+
+    echo " <tr align=center>";
+    echo "  <td> $to </td>";
+    echo "  <td> $from </td>";
+    echo "  <td> $status </td>";
+    echo "  <td><a href=\"$filename\">report</a></td>";
+    echo " </tr>";
+  }
 ?>
-     </section>	
+
+</table>
+
+     </section>  <!-- id="main" -->
      
 <?php include "../../footer.html" ?>
     </body>
