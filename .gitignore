@@ -4,6 +4,11 @@ html/coverity/pacemaker/*/
 html/doc/acls.*
 html/doc/build-1.1-*.txt
 html/doc/crm_fencing.*
+html/doc/en-US/
+html/doc/fr/
+html/doc/it-IT/
+html/doc/ro-RO/
+html/doc/zh-CN/
 html/doxygen/pacemaker/*/
 html/global/pacemaker/*/
 html/man/*.[78].html
@@ -13,9 +18,28 @@ html/coverity/matahari/*/
 html/doxygen/matahari/*/
 
 # provided by apache
+error/
 icons/
 
-# non-clusterlabs-related
-html/Pictures/
+# mediawiki
+mwiki/
+wiki
+
+# not version controlled
+*~
+html/doc/Two-Stacks.pdf
+html/images/
+
+# non-clusterlabs-related or obsolete
+git/
 html/beekhof.net/
+html/doc/Cluster_from_Scratch.pdf
+html/doc/foo
+html/ip.php
+html/man/pacemaker/
+html/pacemaker-new.png
+html/pacemaker-old.png
+html/Pictures/
 html/rpm-test*
+html/stylesheets/
+LocalSettings.php
