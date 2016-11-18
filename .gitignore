@@ -31,15 +31,8 @@ html/doc/Two-Stacks.pdf
 html/images/
 
 # non-clusterlabs-related or obsolete
-git/
 html/beekhof.net/
-html/doc/Cluster_from_Scratch.pdf
-html/doc/foo
-html/ip.php
 html/man/pacemaker/
-html/pacemaker-new.png
-html/pacemaker-old.png
 html/Pictures/
 html/rpm-test*
 html/stylesheets/
-LocalSettings.php
