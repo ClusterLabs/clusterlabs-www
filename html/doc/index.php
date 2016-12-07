@@ -13,7 +13,7 @@
 
 		<section id="main">
 <p>
-The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> documentation was generated from the upstream sources.
+The following <a href="http://wiki.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> documentation was generated from the upstream sources.
 </p>
      
 <h1>Where to Start</h1>
@@ -38,9 +38,9 @@ The following <a href="http://www.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> 
 </p>
 
 <p>
-    There is also a <a href="/wiki">project wiki</a> with plenty of
-    <a href="/wiki/Category:Help:Examples">examples</a> and 
-    <a href="/wiki/Category:Help:Howto">howto guides</a> which
+    There is also a <a href="http://wiki.clusterlabs.org/wiki">project wiki</a> with plenty of
+    <a href="http://wiki.clusterlabs.org/wiki/Category:Help:Examples">examples</a> and 
+    <a href="http://wiki.clusterlabs.org/wiki/Category:Help:Howto">howto guides</a> which
     the wider community is encouraged to update and add to.
 </p>
 
