@@ -5,14 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 <?php include "../../header.html" ?>
-        <title>Cluster Labs - Annotated Pacemaker Sources</title>
+        <title>ClusterLabs: Annotated Pacemaker Sources</title>
         <meta name="description" content="">
      </head>
      <body>
 <?php include "../../banner.html" ?>
 
      <section id="main">
-	<h2>Annotated Pacemaker Sources</h2>
+        <h2>Annotated Pacemaker Sources</h2>
         <?php
 
 echo "<ul>";
@@ -20,34 +20,27 @@ echo "<ul>";
 $runs = glob("*");
 array_multisort(array_map('filemtime', $runs), /*SORT_ASC*/SORT_DESC, $runs);
 
-$lpc = 0;
-/*$total = count($runs);*/
-
 foreach ($runs as $hash) {
-    if(strstr($hash, "index")) {
-	continue;
+    if (strstr($hash, "index")) {
+        continue;
     }
-    $total++;
-}
-
-foreach ($runs as $hash) {
-    if(strstr($hash, "index")) {
-	continue;
+    if (strstr($hash, "-")) {
+        $title = "Version";
+        $path = "releases/tag";
+    } else {
+        $title = "Commit";
+        $path = "commit";
     }
 
-    $run = $total - $lpc;
-    $when = date("F d Y, gA", filemtime($hash));
-
-    echo "<li>Run $run $hash ($when) ";
-    echo " [<a href=$hash/index.html>Results</a>]";
-    echo " [<a href=https://github.com/ClusterLabs/pacemaker/tree/$hash>Sources</a>]";
+    echo "<li>$title $hash";
+    echo " [<a href=$hash/index.html>Annotated</a>]";
+    echo " [<a href=https://github.com/ClusterLabs/pacemaker/$path/$hash>Download</a>]";
     echo "</li>";
-    $lpc++;
 }
 
 echo "</ul>";
-	?>
-     </section>	
+?>
+     </section>
      
 <?php include "../../footer.html" ?>
     </body>
