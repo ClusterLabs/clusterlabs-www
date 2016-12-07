@@ -166,6 +166,7 @@ function Timeline(paper, datesAndVersions) {
       {date:"06/24/2015", version:"1.1.13"},
       {date:"01/14/2016", version:"1.1.14"},
       {date:"06/21/2016", version:"1.1.15"},
+      {date:"11/30/2016", version:"1.1.16"},
     ]);
 
   });

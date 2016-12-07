@@ -37,7 +37,6 @@ keep_files:
   - 404.html
   - abi
   - banner.html
-  - beekhof.net
   - components.html
   - coverity
   - developers.html
