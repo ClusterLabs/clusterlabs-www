@@ -33,6 +33,7 @@ mediawiki123/
 *.swp
 html/doc/Two-Stacks.pdf
 html/images/
+include/wiki.clusterlabs.org/secrets.php
 
 # non-clusterlabs-related or obsolete
 beekhof.net/
