@@ -36,7 +36,6 @@ exclude:
 keep_files:
   - abi
   - banner.html
-  - components.html
   - coverity
   - developers.html
   - doc
@@ -48,7 +47,6 @@ keep_files:
   - humans.txt
   - images
   - man
-  - pacemaker.html
   - pacemaker.png
   - Pictures
   - polls
