@@ -34,7 +34,6 @@ exclude:
 # must be listed here, or jekyll will erase it when building the site.
 # Though not documented as such, the values here function as prefix matches.
 keep_files:
-  - 404.html
   - abi
   - banner.html
   - components.html
