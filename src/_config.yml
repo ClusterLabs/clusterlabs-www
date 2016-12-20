@@ -38,18 +38,14 @@ exclude:
 keep_files:
   - abi
   - banner.html
-  - coverity
   - doc
   - doxygen
   - footer.html
   - global
-  - humans.txt
   - images
   - man
   - pacemaker.png
   - Pictures
-  - robots.txt
   - rpm-test
   - rpm-test-next
   - rpm-test-rhel
-  - stylesheets

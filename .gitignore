@@ -8,6 +8,7 @@ html/faq.html
 html/help.html
 html/img/
 html/header.html
+html/humans.txt
 html/index.html
 html/js/
 html/pacemaker.html
@@ -18,6 +19,7 @@ html/quickstart-redhat.html
 html/quickstart-suse-11.html
 html/quickstart-suse.html
 html/quickstart-ubuntu.html
+html/robots.txt
 src/.asset-cache/
 src/.jekyll-metadata
 src/.sass-cache/
