@@ -26,6 +26,8 @@ theme: minima
 destination: ../html
 gems:
   - jekyll-assets
+include:
+  - polls
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -46,7 +48,6 @@ keep_files:
   - man
   - pacemaker.png
   - Pictures
-  - polls
   - robots.txt
   - rpm-test
   - rpm-test-next
