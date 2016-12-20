@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-<?php include "../../header.html" ?>
-        <title>ClusterLabs: Pacemaker API Documentation</title>
-        <meta name="description" content="">
-     </head>
-     <body>
-<?php include "../../banner.html" ?>
-
+---
+layout: pacemaker
+title: ClusterLabs - Pacemaker API Documentation
+---
      <section id="main">
         <h2>Pacemaker API Documentation</h2>
         <?php
@@ -42,7 +33,3 @@ foreach ($runs as $hash) {
 echo "</ul>";
 ?>
      </section>
-     
-<?php include "../../footer.html" ?>
-    </body>
-</html>

@@ -5,13 +5,16 @@ html/assets/
 html/components.html
 html/developers.html
 html/css/
+html/doc/index.php
+html/doxygen/pacemaker/index.php
 html/faq.html
+html/global/pacemaker/index.php
 html/help.html
 html/img/
-html/header.html
 html/humans.txt
 html/index.html
 html/js/
+html/man/pacemaker/index.php
 html/pacemaker.html
 html/polls/index.html
 html/quickstart.html

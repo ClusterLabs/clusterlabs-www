@@ -28,6 +28,10 @@ gems:
   - jekyll-assets
 include:
   - abi
+  - doc
+  - doxygen
+  - global
+  - man
   - polls
 exclude:
   - Gemfile
@@ -38,10 +42,8 @@ exclude:
 # Though not documented as such, the values here function as prefix matches.
 keep_files:
   - abi
-  - banner.html
   - doc
   - doxygen
-  - footer.html
   - global
   - images
   - man

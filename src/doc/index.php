@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <?php include "../header.html" ?>
-        <title>Cluster Labs - Pacemaker Documentation</title>
-        <meta name="description" content="">
-    </head>
-    <body>
-	<?php include "../banner.html" ?>
-
+---
+layout: pacemaker
+title: ClusterLabs - Pacemaker Documentation
+---
 		<section id="main">
 <p>
 The following <a href="http://wiki.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> documentation was generated from the upstream sources.
@@ -172,6 +163,3 @@ foreach(get_versions(".") as $v) {
   </table>
 </section>
 		</section>	
-	<?php include "../footer.html" ?>
-    </body>
-</html>
