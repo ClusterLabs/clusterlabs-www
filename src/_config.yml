@@ -26,6 +26,9 @@ theme: minima
 destination: ../html
 gems:
   - jekyll-assets
+include:
+  - abi
+  - polls
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -34,35 +37,16 @@ exclude:
 # must be listed here, or jekyll will erase it when building the site.
 # Though not documented as such, the values here function as prefix matches.
 keep_files:
-  - 404.html
   - abi
   - banner.html
-  - components.html
-  - coverity
-  - developers.html
   - doc
   - doxygen
-  - faq.html
   - footer.html
   - global
-  - help.html
-  - humans.txt
   - images
   - man
-  - pacemaker.html
   - pacemaker.png
   - Pictures
-  - polls
-  - quickstart-common.html
-  - quickstart.html
-  - quickstart-redhat-6.html
-  - quickstart-redhat.html
-  - quickstart-suse-11.html
-  - quickstart-suse.html
-  - quickstart-ubuntu.html
-  - robots.txt
   - rpm-test
   - rpm-test-next
   - rpm-test-rhel
-  - stylesheets
-  - versions.html

@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-	<!--#include virtual="/header.html" -->
-        <title>Cluster Labs - The Home of Pacemaker</title>
-        <meta name="description" content="">
-    </head>
-    <body>
-	<!--#include virtual="/banner.html" -->
-
+---
+layout: pacemaker
+title: ClusterLabs - RHEL 6 Quickstart
+---
 	<section id="main">
-	  <!--#include virtual="/quickstart-common.html" -->
+	  {% include quickstart-common.html %}
 
-	  <h1>RHEL 7</h1>
+	  <h1>RHEL 6.4 onwards</h1>
 	  <h2>Install</h2>
 	  <p>
 	    Pacemaker ships as part of the Red
@@ -25,8 +16,8 @@
 	    If you are already running CentOS or Scientific Linux, you can skip this step.  Otherwise, to teach the machine where to find the CentOS packages, run:
 	  </p>
 	  <p class="command">
-[ALL] # cat <<EOF > /etc/yum.repos.d/centos.repo
-[centos-7-base]
+[ALL] # cat <<EOF > /etc/yum.repo.d/centos.repo
+[centos-6-base]
 name=CentOS-$releasever - Base
 mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
 #baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
@@ -38,35 +29,75 @@ EOF
 	    necessary packages we will need:
 	  </p>
 	  <p class="command">
-[ALL] # yum install pacemaker pcs resource-agents
+[ALL] # yum install pacemaker cman pcs ccs resource-agents
 	  </p>
 
-	  <h2>Create the Cluster</h2>
+	  <h2>Configure Cluster Membership and Messaging</h2>
 	  <p>
-	    The supported stack on RHEL7 is based on Corosync 2, so thats
+	    The supported stack on RHEL6 is based on CMAN, so thats
 	    what Pacemaker uses too.
 	  </p>
 
 	  <p>
-	    First we set up the authentication needed for <strong>pcs</strong>.
+	    We now create a CMAN cluster and populate it with some
+	    nodes.  Note that the name cannot exceed 15 characters
+	    (we'll use 'pacemaker1').
 	  </p>
 	  <p class="command">
-[ALL] # echo CHANGEME | passwd --stdin hacluster
-[ONE] # pcs cluster auth node1 node2 -u hacluster -p CHANGEME --force
+[ONE] # ccs -f /etc/cluster/cluster.conf --createcluster pacemaker1
+
+[ONE] # ccs -f /etc/cluster/cluster.conf --addnode node1
+[ONE] # ccs -f /etc/cluster/cluster.conf --addnode node2
 	  </p>
 
 	  <p>
-	    We now create a cluster and populate it with some nodes.
-	    Note that the name cannot exceed 15 characters (we'll use
-	    'pacemaker1').
+	    Next we need to teach CMAN how to send it's fencing
+	    requests to Pacemaker.  We do this regardless of whether
+	    or not fencing is enabled within Pacemaker.
 	  </p>
 	  <p class="command">
-[ONE] # pcs cluster setup --force --name pacemaker1 node1 node2
+[ONE] # ccs -f /etc/cluster/cluster.conf --addfencedev pcmk agent=fence_pcmk
+
+[ONE] # ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect node1
+[ONE] # ccs -f /etc/cluster/cluster.conf --addmethod pcmk-redirect node2
+
+[ONE] # ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk node1 pcmk-redirect port=node1
+[ONE] # ccs -f /etc/cluster/cluster.conf --addfenceinst pcmk node2 pcmk-redirect port=node2
+	  </p>
+	  <p>
+	    Now copy <strong>/etc/cluster/cluster.conf</strong> to all
+	    the other nodes that will be part of the cluster.
 	  </p>
 
 	  <h2>Start the Cluster</h2>
+	  <p>
+	    CMAN was originally written for rgmanager and assumes the
+	    cluster should not start until the node has
+	    <a href="http://en.wikipedia.org/wiki/Quorum">quorum</a>,
+	    so before we try to start the cluster, we need to disable
+	    this behavior:
+	  </p>
           <p class="command">
-[ONE] # pcs cluster start --all
+[ALL] # echo "CMAN_QUORUM_TIMEOUT=0" >> /etc/sysconfig/cman
+	  </p>
+	  <p>
+	    Now, on each machine, run:
+	  </p>
+	  <p class="command">
+[ALL] # service cman start
+[ALL] # service pacemaker start
+	  </p>
+
+	  <h2>A note for users of prior RHEL versions</h2>
+
+	  <p>
+	    The original cluster shell (crmsh)
+	    is <a href="http://blog.clusterlabs.org/blog/2013/pacemaker-on-rhel6-dot-4/">no
+	    longer available</a> on RHEL.  To help people make the
+	    transition there is
+	    a <a href="https://github.com/ClusterLabs/pacemaker/blob/master/doc/pcs-crmsh-quick-ref.md">
+	    quick reference guide</a> for those wanting to know what
+	    the pcs equivalent is for various crmsh commands.
 	  </p>
 
 	  <h2>Set Cluster Options</h2>
@@ -147,7 +178,7 @@ EOF
 	  <p>
 	    If you now run <strong>crm_mon</strong> in interactive
 	    mode (the default), you should see (within the monitor
-	    interval of 2 minutes) the cluster notice
+	    interval - 2 minutes) the cluster notice
 	    that <strong>my_first_svc</strong> failed and move it to
 	    another node.
 	  </p>
@@ -163,9 +194,4 @@ EOF
 	    </ul>
 	  </p>
 
-
 	</section>
-
-	<!--#include virtual="/footer.html" -->
-    </body>
-</html>

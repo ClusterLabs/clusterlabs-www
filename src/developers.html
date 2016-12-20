@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-	<!--#include virtual="/header.html" -->
-        <title>Cluster Labs - Developers</title>
-        <meta name="description" content="">
-    </head>
-    <body>
-	<!--#include virtual="/banner.html" -->	
-
+---
+layout: pacemaker
+title: ClusterLabs - Components
+---
 	<section id="main">
 	  <h2>Developer Documentation</h2>
 	  <p>
 	    <ul>
 	      <li><cite>Pacemaker Development</cite> in the
-	          <a href="http://clusterlabs.org/doc/">Pacemaker documentation set</a> is the primary
+	          <a href="/doc/">Pacemaker documentation set</a> is the primary
 	          source of developer documentation</li>
 	      <li><a href="/components.html">Components</a></li>
 	      <li><a href="/global/pacemaker/">Indexed Source Code</a></li>
@@ -46,10 +37,8 @@
 	  </p>
 
 	  <h2>Release History</h2>
-	<!--#include virtual="/versions.html" -->	
+	  <div id='history-graph'></div>
+	  <script type="text/javascript" src="/js/lib.js"></script>
+	  <script type="text/javascript" src="/js/versions.js"></script>
 
 	</section>
-
-	<!--#include virtual="/footer.html" -->
-    </body>
-</html>

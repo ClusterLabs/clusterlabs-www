@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-	<!--#include virtual="/header.html" -->
-        <title>Cluster Labs - Frequently Asked Questions</title>
-        <meta name="description" content="">
-    </head>
-    <body>
-
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-	<!-- Logo is SVG to look nice on Retina displays. Here's how you do that with a PNG fallback for IE8 -->
-	<!--#include virtual="/banner.html" -->	
-
+---
+layout: pacemaker
+title: ClusterLabs - FAQ
+---
 	<section id="main">
 
-	  <h2>FAQ</h2>
+	  <h2>Frequently Asked Questions</h2>
 	  <p class="question">Q: Where can I get Pacemaker?</p>
 	  <p class="answer">A: Pacemaker ships as part of most modern
 	    distributions, so you can usually just launch your
@@ -77,7 +62,7 @@
 	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_linux_standard_base.html">LSB</a>,
 	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>, 
 	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_systemd.html">Systemd</a>,
-	    or <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
+	    or <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
 	  </p>
 
 	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
@@ -93,20 +78,20 @@
 	  that have traditionally shipped and/or supported the RHCS
 	  cluster stack instead of Pacemaker.  This is particularly
 	  relevant for those looking to use GFS2 or OCFS2. See
-	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
+	  the <a href="/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
 	  for more details</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
 	  <p class="answer">A: Yes. You will need to configure
 	  <a href="http://corosync.org">Corosync</a> to load Pacemaker's custom plugin to provide the
 	  membership and quorum information we require. See
-	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
+	  the <a href="/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
 	  <p class="answer">A: Yes. Pacemaker can obtain the
 	  membership and quorum information it requires directly from
 	  <a href="http://corosync.org">Corosync</a> in this configuration. See
-	  the <a href="http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
+	  the <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Do I need a fencing device?</p>
 	  <p class="answer">A: Yes.  Fencing is the only 100% reliable
@@ -152,8 +137,3 @@
 	      <p class="answer">A: </p-->
 
 	</section>	
-
-	<!--#include virtual="/footer.html" -->
-
-    </body>
-</html>
