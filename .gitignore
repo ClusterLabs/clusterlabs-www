@@ -11,6 +11,12 @@ html/header.html
 html/index.html
 html/js/
 html/pacemaker.html
+html/quickstart.html
+html/quickstart-redhat-6.html
+html/quickstart-redhat.html
+html/quickstart-suse-11.html
+html/quickstart-suse.html
+html/quickstart-ubuntu.html
 src/.asset-cache/
 src/.jekyll-metadata
 src/.sass-cache/
