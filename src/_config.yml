@@ -37,13 +37,10 @@ keep_files:
   - abi
   - banner.html
   - coverity
-  - developers.html
   - doc
   - doxygen
-  - faq.html
   - footer.html
   - global
-  - help.html
   - humans.txt
   - images
   - man
@@ -62,4 +59,3 @@ keep_files:
   - rpm-test-next
   - rpm-test-rhel
   - stylesheets
-  - versions.html
