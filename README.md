@@ -34,6 +34,7 @@ We use the jekyll-assets plugin to manage "assets" such as images, stylesheets,
 and JavaScript. One advantage is that digest hashes are automatically added to
 the generated filenames when in production mode. This allows "cache busting"
 when an asset changes, so we can use long cache times on the server end.
+Another advantage is that sources are minified when in production mode.
 
 How CSS is managed:
 * +src/\_assets/css/main.scss+ is just a list of imports
@@ -42,9 +43,12 @@ How CSS is managed:
   combination of all imports
 * web pages can reference the stylesheet via +{% css main %}+
 
-JavaScript is not managed this way yet, but will be:
-* +src/\_assets/js/\*.js+ are the JavaScript source
+JavaScript is managed similarly:
+* +src/\_assets/js/main.js+ is just a list of requires
+* +src/\_assets/js/\*.js+ contain the JavaScript to be required by main.js
 * jekyll will copy these to html/assets
-* web pages can reference them via +{% js _BASENAME_ %}+
+* jekyll will generate html/assets/main.js (or main-_HASH_.js) as the
+  combination of all JavaScript
+* web pages can reference the script via +{% js main %}+
 
-Images are also not managed this way yet, but will be.
+Images are not managed this way yet, but will be.
