@@ -4,7 +4,6 @@ html/*.txt
 html/*/*/index.php
 html/assets/
 html/doc/index.php
-html/img/
 html/polls/index.html
 src/.*-cache/
 src/.jekyll-metadata
