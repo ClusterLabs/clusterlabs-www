@@ -20,7 +20,7 @@ body {
 }
 
 #banner {
-	background-image: url(/img/gradiant.png);
+	background-image: url(asset_path("gradient.png"));
 	background-color: white;
 	background-repeat: repeat-x;
 	height: 62px;
@@ -30,7 +30,7 @@ body {
 }
 
 #logo {
-	background-image: url(/img/GetPacemakerBanner.svg);
+	background-image: url(asset_path("GetPacemakerBanner.svg"));
 	background-color: transparent;
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -43,7 +43,7 @@ body {
 }
 
 .lt-ie9 #logo {
-	background-image: url(/img/GetPacemakerBanner.png);
+	background-image: url(asset_path("GetPacemakerBanner.png"));
 	margin-top: 0px;	
 }
 

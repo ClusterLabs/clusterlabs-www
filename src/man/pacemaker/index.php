@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-<?php include "../../header.html" ?>
-        <title>Cluster Labs - Command Line Tools</title>
-        <meta name="description" content="">
-     </head>
-     <body>
-<?php include "../../banner.html" ?>
-
+---
+layout: pacemaker
+title: ClusterLabs - Pacemaker Manual Pages
+---
      <section id="main">
      <h1>Pacemaker Command Line Tools</h1>
      <h2>Tool Summary</h2>
@@ -237,7 +228,3 @@ foreach ($mans as $m) {
        </dl>
      </div>
      </section>	
-     
-<?php include "../../footer.html" ?>
-    </body>
-</html>

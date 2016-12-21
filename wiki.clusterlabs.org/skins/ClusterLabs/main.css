@@ -27,7 +27,7 @@
 body {
   font: x-small sans-serif;
 #  background: #2c4081 url(headbg.png) 0 0 no-repeat;
-  background: #2c4081 url(http://www.clusterlabs.org/images/wiki-banner-blue.png) 0 0 no-repeat;
+  background: #2c4081 url(/wiki-banner-blue.png) 0 0 no-repeat;
   color: #1a006d;
   margin: 0;
   padding: 0;
