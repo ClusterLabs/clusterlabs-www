@@ -26,7 +26,6 @@
 }
 body {
   font: x-small sans-serif;
-#  background: #2c4081 url(headbg.png) 0 0 no-repeat;
   background: #2c4081 url(/wiki-banner-blue.png) 0 0 no-repeat;
   color: #1a006d;
   margin: 0;
@@ -689,35 +688,25 @@ table.rimage {
   margin: 0;
 }
 #p-logo {
-  top: -10px;
-  left: 230px;
+  top: 6px;
+  left: 200px;
   position: absolute;
   z-index: 3;
-  height: 130px;
-  width: 256px;
-  #height: 125px;
-  #width: 11.5em;
+  height: 115px;
+  width: 115px;
   overflow: visible;
-  #background: white;
-  #border: 2px solid #0076d6;
   border: none;
-  #-webkit-border-radius: 20px;
-  #-moz-border-radius: 20px;
-  #border-radius: 20px;
 }
 #p-logo h5 { display: none; }
 #p-logo a {
   display: block;
-  height: 130px;
-  #width: 11.7em;
+  height: 115px;
   background-repeat: no-repeat;
   background-position: 35% 50% !important;
   text-decoration: none;
 }
 #p-logo a:hover {
   display: block;
-  #height: 125px;
-  #width: 11.7em;
   background-repeat: no-repeat;
   background-position: 35% 50% !important;
   text-decoration: none;

@@ -47,7 +47,6 @@ keep_files:
   - global
   - images
   - man
-  - pacemaker.png
   - Pictures
   - rpm-test
   - rpm-test-next

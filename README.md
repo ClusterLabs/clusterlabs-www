@@ -51,4 +51,43 @@ JavaScript is managed similarly:
   combination of all JavaScript
 * web pages can reference the script via +{% js main %}+
 
-Images are not managed this way yet, but will be.
+How images are managed:
+* +src/\_assets/images/\*+ are our images
+* web pages can add an img tag using +{% img _NAME_._EXT_ %}+
+* web pages can reference a path to an image (e.g. in a link's href)
+  using +{% asset\_path _NAME_._EXT_ %}+
+* CSS can reference a path to an image using
+  +url(asset\_path("_NAME_._EXT_"))+
+* only images that are referenced in one of these ways will be deployed
+  to the website, so \_assets may contain image sources such as SVGs
+  that do not need to be deployed
+* Tip: http://compresspng.com/ can often compress PNGs extremely well
+
+## Site icons
+
+Site icons used to be easy, right? favicon.ico seems downright traditional.
+
+Unfortunately, site icons have become an ugly mess of incompatible proprietary
+extensions. Even favicon.ico is just a proprietary extension (and obsolete, as
+well). Now, there are also apple-touch-icon[-NxN][-precomposed].png (with at
+least _12_ different sizes!), browserconfig.xml, manifest.json,
+link tags with rel=(icon|shortcut icon|apple-touch-icon-\*), and Windows Phone
+tile overlay divs.
+
+If you want to be discouraged and confused, see:
+
+   http://stackoverflow.com/questions/23849377/html-5-favicon-support
+
+   https://mathiasbynens.be/notes/touch-icons
+
+   https://css-tricks.com/favicon-quiz/
+
+There is no way to handle the mess universally. In particular, some devices do
+much better when different icon sizes are provided and listed in the HTML as
+link tags, and will pick the size needed, whereas other devices will download
+every single icon listed in those link tags, crippling page performance -- not
+to mention the overhead that listing two dozen icon sizes adds to the HTML.
+
+We've chosen a simple approach: provide two site icons, a 16x16 favicon.ico,
+and a 180x180 apple-touch-icon.png, both listed in link tags in the HTML.
+Most browsers/devices will choose one of these and scale it as needed.
