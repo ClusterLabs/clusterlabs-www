@@ -128,7 +128,7 @@ a.new:visited {
 	color: #a04016;
 }
 #p-personal a.new {
-	color: #E3E0D6;
+	color: #e3e0d6;
 }
 #p-personal a.new:visited {
 	color: #a04016;
@@ -468,6 +468,7 @@ input.searchButton {
 #p-personal h5 {
 	display: none;
 }
+
 #p-personal .portlet,
 #p-personal .pBody {
 	z-index: 0;
@@ -750,13 +751,20 @@ div#footer li {
 #preftoc li {
 	margin: 1px -2px 1px 2px;
 	float: left;
-	padding: 2px 0 3px 0;
 	/* CL */
 	/*
+	padding: 2px 0 3px 0;
 	border: 1px solid #fff;
 	border-right-color: #716f64;
 	*/
+	padding: 4px 4px 4px 4px;
 	border: 1px solid #1a006d;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 
 	border-bottom: 0;
 	position: relative;
