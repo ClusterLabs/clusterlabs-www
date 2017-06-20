@@ -31,17 +31,22 @@ div#column-content {
 	width: 100%;
 	float: right;
 	/* CL */ /* margin: 0 0 .6em -12.2em; */
-	margin: 97px 0 0.6em -12.2em;
+	margin: 130px 0 0.6em -12.2em;
 	padding: 0;
 }
 div#content {
-	margin: 2.8em 0 0 12.2em;
+	/* CL */
+	/* margin: 2.8em 0 0 12.2em; */
+	margin: 0 0 0 12.2em;
+
 	padding: 1em;
 	position: relative;
 	z-index: 2;
 }
 div#column-one {
-	padding-top: 160px;
+	/* CL */
+	/* padding-top: 160px; */
+	padding-top: 140px; /* header height + 10px */
 }
 /* Hide, but keep accessible for screen-readers */
 #column-one h2 {
@@ -84,6 +89,7 @@ body {
 	background: #f9f9f9 url(headbg.jpg) 0 0 no-repeat;
 	color: black;
 	*/
+	/* 1773 x 130 px */
 	background: #2c4081 url(/wiki-banner-blue.png) 0 0 no-repeat;
 	color: #1a006d;
 
@@ -545,7 +551,7 @@ li#pt-anonuserpage {
 	top: 1.3em;
 	left: 11.5em;
 	*/
-	top: 6em;
+	top: 130px;
 	left: 15em;
 
 	margin: 0;
@@ -561,6 +567,10 @@ li#pt-anonuserpage {
 #p-cactions ul {
 	list-style-type: none;
 	list-style-image: none;
+
+	/* CL */
+	position: relative;
+	margin-top: -1.5em;
 }
 #p-cactions li {
 	display: inline;
