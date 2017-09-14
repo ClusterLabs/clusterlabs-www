@@ -26,6 +26,7 @@ theme: minima
 destination: ../html
 gems:
   - jekyll-assets
+  - font-awesome-sass
 include:
   - abi
   - doc

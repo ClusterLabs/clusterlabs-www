@@ -1,114 +1,16 @@
-body {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 10px;
-	width: 100%;
-/*	max-width: 1280px; */
-	margin: 0px auto;
-	padding: 0;
-	background-color: #2c4081;
-}
 
 .pullquote {
 	padding: 2.6rem 2.2rem 2rem 3.6rem;
 	width: 30%; 
 	margin: 0 2rem 2rem 0;
 	float: right;
-	font-size: 2em;
-	font-family: Marvel;
-	font-style: italic;
-	color: white;
+	font-family: _font(family-heading);
+    font-size: 1.1em;
 }
 
-#banner {
-	background-image: url(asset_path("gradient.png"));
-	background-color: white;
-	background-repeat: repeat-x;
-	height: 62px;
-	border: 3px solid #732F2F;
-	border-left: none; border-right: none;
-	overflow: hidden;
-}
 
-#logo {
-	background-image: url(asset_path("GetPacemakerBanner.svg"));
-	background-color: transparent;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	display: block;
-	float: left;
-	overflow: hidden;
-	height: 60px;
-	width: 600px;
-	margin: 1px;
-}
-
-.lt-ie9 #logo {
-	background-image: url(asset_path("GetPacemakerBanner.png"));
-	margin-top: 0px;	
-}
-
-nav {
-	width: 100%;
-	border: 3px solid #732F2F;
-	border-left: none; border-right: none;
-	font-size: 2em;
-	line-height: 1em;
-	color: #cec9c2;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-family: Marvel, sans-serif;
-	text-align: center;
-	margin: 5px 0 5px 0;
-	float: right;
-	padding: 5px;
-}
-
-nav a, nav a:visited {color: #cec9c2; text-decoration: none; display: inline-block; margin: 3px; }
-nav a:hover {text-decoration: underline;}
-
-/*
-nav a:first-child {margin-left: 0;}
-nav a:last-child {margin-right: 0;}
-*/
-
-h1, h2, h3, footer {font-family: Marvel, sans-serif; }
-
-#main h1, #main h2, #main h3 {color: white; }
-
-h1 {font-size: 2.9em;}
-h2 {font-size: 2.4em;}
-h3 {font-size: 1.6em;}
 
 #boxes h3 {text-align: center;}
-
-#main {
-	float: left;
-	position: relative;
-	width: 97%;
-	padding: 0 1.5%;
-	color: #cec9c2;
-}
-
-#main ul {width: 90%; font-size: 1.3em; }
-
-#main p {width: 100%; font-size: 1.3em; }
-
-#main a { color: white; }
-
-#main q {
-	display: none;
-	position: absolute;
-	top: 15%; right: 0%;
-	font-size: 2em;
-	font-family: Marvel;
-	font-style: italic;
-	width: 30%;
-	color: white;
-}
-
-#boxes {float: left; padding-left: 2%; padding-right: 2%}
-
-figure img, aside img {border: 1px solid #cccccc; width: 100%; max-width: 800px; background-color: #fffef9;}
 
 aside h2 { text-align: center; }
 
@@ -119,20 +21,17 @@ figcaption {
 }
 
 aside {
-	display: inline-table;
-	font-size: 1.2em;
+    display: inline-block;
 	padding: 2%;
 	margin: 2% .5%;
-	background-color: #fef9f2;
-	border: 3px solid #732F2F;
-	border-top-left-radius: 26px;
-	border-top-right-radius: 26px;
-	border-bottom-left-radius: 26px;
-	border-bottom-right-radius: 26px;
-	height: 410px;
+    background-color: #fafafa;
+	border: 1px solid #dcdcdc;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
 
-#main p.command { width: 90%; }
 
 #main .docset a {
     color: black;
@@ -168,83 +67,23 @@ aside {
     color: black;
     padding-left: 15px;
     padding-bottom: 15px;
-    font-family: 'Oxygen Mono', monospace;
+    font-family: _font(family-fixed);
     white-space: pre-line; 
-    background-color: #fef9f2;
-    border: 3px solid #732F2F;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background-color: #fafafa;
 }
 .question { font-style: italic; font-weight: bold; }
 .answer { font-weight: lighter; }
 
-footer {
-    width: 100%;
-    float: left;
-    margin-top: 50px;
-    text-align: center;
-    font-style: italic;
-    font-size: 1em;
-    line-height: 2em;
-
-    color: black;
-    background-color: white;
-    border-top: 3px solid #732F2F;
-    border-bottom: 3px solid #732F2F;
+#history-graph {
+    padding: 15px;
+    background-color: #9f9f9f;
 }
 
-footer a, footer a:visited {color: #732F2F; text-decoration: none;}
-footer a:hover {text-decoration: underline;}
-
-nav:after {
-	content: "";
-	display: table;
-	clear: both;
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-/* ==========================================================================
-   HTML error pages
-   ========================================================================== */
-
-div.container {
-	color: #737373;
-	background: #fcfcfc;
-
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-
-	max-width: 400px;
-	_width: 380px;
-	margin: 30px auto;
-	padding: 20px 60px;
-	border: 1px solid #b3b3b3;
-	border-radius: 6px;
-	box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-}
-
-div.container > * {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	line-height: 1.4;
-}
-
-div.container > h1 {
-	font-size: 50px;
-	text-align: center;
-}
-
-div.container > h1 span {
-	color: #bbb;
-}
-
-/*
-input::-moz-focus-inner {
-	padding: 0;
-	border: 0;
-}
-*/
 
 /* ==========================================================================
    Google Search
@@ -312,124 +151,3 @@ input::-moz-focus-inner {
 	color: #222;
 }
 
-/* ==========================================================================
-   Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles.
-   ========================================================================== */
-
-@media only screen and (min-width: 600px) {
-
-.ohloh {
-	position: absolute;
-	top: 5%; right: 0%;
-	width: 30%;
-}
-	
-	#content {padding: 0 2%;}
-
-	#main p {width: 66%;}
-	
-	#main q {display: inline;}
-
-	nav a {display: inline; margin: 0 3%; line-height: 1em;}
-	
-	footer {font-size: 1.6em;}
-
-	#banner {
-	    height: 86px;
-	}
-
-	#logo {
-		height: 80px;
-		width: 800px;
-		margin: 3px;
-	}
-
-	#main {
-		min-height: 230px;
-		float: left;
-		width: 90%;
-		padding: 0 2% 0 0;
-		margin-left: 5%;
-	}
-
-	#boxes {
-		margin-left: 5%;
-	}
-
-	aside {
-		width: 29%;
-		padding: 1%;
-		margin: .5%;
-	}	
-}
-
-@media only screen and (min-width: 800px) {
-    #logo {
-	    width: 1000px;
-	    height: 100px;
-	    margin: 5px;
-    }
-
-    #banner {
-	width: 100%;
-	height: 110px;
-    }
-
-    aside {
-	height: 440px;
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-
-	#main {
-		width: 50%;
-	}
-	
-	#main q { width: 35%; }
-
-	#boxes {
-	    width: 25%;
-	    margin: 0%;
-	    max-width: 300px;
-	}
-
-	aside {
- 		display: block;
-		padding: 2% 5%;
-		margin: 5%;
-		width: 100%;
-		height: 415px;
-	}
-
-	
-}
-
-/*
- * Image replacement
- */
-
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
-}
-
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 100%;
-}
-
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-
-.clearfix {
-    *zoom: 1;
-}
