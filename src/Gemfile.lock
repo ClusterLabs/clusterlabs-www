@@ -9,6 +9,8 @@ GEM
     fastimage (2.0.1)
       addressable (~> 2)
     ffi (1.9.14)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     forwardable-extended (2.6.0)
     jekyll (3.3.0)
       addressable (~> 2.4)
@@ -57,7 +59,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  font-awesome-sass
   jekyll (= 3.3.0)
   jekyll-assets
   json
   minima (~> 2.0)
+
+RUBY VERSION
+   ruby 2.4.1p111
+
+BUNDLED WITH
+   1.15.0

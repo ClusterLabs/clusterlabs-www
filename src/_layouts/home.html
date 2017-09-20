@@ -1,12 +1,32 @@
 ---
-layout: pacemaker
-title: ClusterLabs - Pacemaker
+layout: clusterlabs
 ---
 
- <section id="boxes">
-   <aside>
-     <h2>Deploy</h2>
-     <a href="{% asset_path Deploy.png %}">{% img Deploy-small.png %}</a>
+<!-- Banner -->
+<section id="banner">
+  <div class="content">
+	<header>
+	  <h1>ClusterLabs</h1>
+	  <p>Open&nbsp;Source <strong>High&nbsp;Availability</strong> Cluster&nbsp;Stack</p>
+	</header>
+	<p>The ClusterLabs stack unifies a large group of Open Source projects related to <strong>High Availability</strong> into a cluster offering suitable for both small and large deployments. Together, <a href="corosync.html">Corosync</a>, <a href="pacemaker.html">Pacemaker</a>, <a href="https://linbit.com">DRBD</a>, <a href="https://www.alteeve.com/w/ScanCore">ScanCore</a> and many other projects have been enabling detection and recovery of machine and application-level failures in production clusters since 1999. The ClusterLabs stack supports practically any redundancy configuration imaginable.</p>
+	<ul class="actions">
+	  <li><a href="#content" class="button big">Learn More</a></li>
+	</ul>
+  </div>
+  <span class="image object">
+    {% img clusterlabs3.svg %}
+  </span>
+</section>
+
+<section>
+    <header class="major">
+      <h2>Quick Overview</h2>
+    </header>
+  <div class="boxes">
+   <article>
+     <a href="{% asset_path Deploy.png %}" class="image">{% img Deploy-small.png %}</a>
+     <h3>Deploy</h3>
      <p>
        We support many deployment scenarios, from the simplest
        2-node standby cluster to a 32-node active/active
@@ -16,11 +36,11 @@ title: ClusterLabs - Pacemaker
        several active/passive clusters to be combined and share a common
        backup node.
      </p>
-   </aside>
+   </article>
 
-   <aside>
-     <h2>Monitor</h2>
-     <a href="{% asset_path Monitor.png %}">{% img Monitor-small.png %}</a>
+   <article>
+     <a href="{% asset_path Monitor.png %}" class="image">{% img Monitor-small.png %}</a>
+     <h3>Monitor</h3>
      <p>
        We monitor the system for both hardware and software failures.
 
@@ -28,23 +48,26 @@ title: ClusterLabs - Pacemaker
        your application and make sure it is available from one
        of the remaning machines in the cluster.
      </p>
-   </aside>
+   </article>
    
-   <aside>
-     <h2>Recover</h2>
-     <a href="{% asset_path Recover.png %}">{% img Recover-small.png %}</a>
+   <article>
+     <a href="{% asset_path Recover.png %}" class="image">{% img Recover-small.png %}</a>
+     <h3>Recover</h3>
      <p>
        After a failure, we use advanced algorithms to quickly
        determine the optimum locations for services based on
        relative node preferences and/or requirements to run with
        other cluster services (we call these "constraints").
      </p>
-   </aside>
+   </article>
+   </div>
  </section>
 
-  <section id="main">
-    <a id="why"> </a>
-    
+  <section>
+    <header class="major">
+      <h2 id="why">Why clusters</h2>
+    </header>
+
     <p>
       At its core, a cluster is a distributed finite state
       machine capable of co-ordinating the startup and recovery
@@ -73,9 +96,13 @@ title: ClusterLabs - Pacemaker
       failure, clean startup or recovery after a total site
       failure.
     </p>
+  </section>
 
-    <a id="features"> </a>
-    <h2>Features</h2>
+  <section>
+    <header class="major">
+      <h2 id="features">Features</h2>
+    </header>
+
     <p>
       The ClusterLabs stack, incorporating <a href="">Corosync</a>
       and <a href="/pacemaker.html">Pacemaker</a> defines
@@ -99,7 +126,13 @@ title: ClusterLabs - Pacemaker
       </li>
     </ul>
 
-    <h2>Components</h2>
+  </section>
+
+  <section>
+    <header class="major">
+      <h2 id="components">Components</h2>
+    </header>
+  
     <blockquote class="pullquote">
     "The definitive open-source high-availability stack for the Linux
     platform builds upon the Pacemaker cluster resource manager."<br />
@@ -121,7 +154,13 @@ title: ClusterLabs - Pacemaker
       We describe each of these in <a href="/components.html">more detail</a> as well as other optional components such as CLIs and GUIs.
     </p>
 
-    <h2>Background</h2>
+  </section>
+
+  <section>
+    <header class="major">
+      <h2 id="background">Background</h2>
+    </header>
+
     <p>
       Pacemaker has been around
       since <a href="https://www.ohloh.net/p/pacemaker/analyses/latest/languages_summary">2004</a>

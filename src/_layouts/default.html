@@ -2,7 +2,29 @@
 <html>
 {% include head.html %}
 <body>
-  {{ content }}
-{% include footer.html %}
+<!-- Wrapper -->
+<div id="wrapper">    
+<!-- Main -->
+<div id="main">
+<div class="inner">
+
+{% include header.html %}
+
+  {{ content }} 
+
+</div>
+</div>
+
+{% include sidebar.html %}
+
+			</div>
+
+
+<!-- Scripts -->
+{% js jquery.min %}
+{% js skel.min %}
+{% js util %}
+{% js main %}
+
 </body>
 </html>

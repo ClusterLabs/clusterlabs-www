@@ -24,4 +24,5 @@ gem "json"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "jekyll-assets"
+   gem "font-awesome-sass"
 end

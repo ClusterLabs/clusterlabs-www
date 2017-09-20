@@ -26,6 +26,7 @@ theme: minima
 destination: ../html
 gems:
   - jekyll-assets
+  - font-awesome-sass
 include:
   - abi
   - doc
@@ -36,6 +37,7 @@ include:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - LICENSE.theme
 
 # All content generated outside of jekyll, or not yet converted to jekyll,
 # must be listed here, or jekyll will erase it when building the site.
