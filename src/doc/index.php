@@ -1,6 +1,6 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Pacemaker Documentation
+title: Documentation
 ---
 		<section id="main">
 <p>

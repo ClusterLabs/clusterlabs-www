@@ -1,6 +1,6 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Pacemaker API Documentation
+title: Pacemaker API Documentation
 ---
      <section id="main">
         <h2>Pacemaker API Documentation</h2>

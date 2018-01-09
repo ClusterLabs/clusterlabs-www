@@ -1,6 +1,6 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Pacemaker Manual Pages
+title: Pacemaker Manual Pages
 ---
      <section id="main">
      <h1>Pacemaker Command Line Tools</h1>

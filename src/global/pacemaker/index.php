@@ -1,6 +1,6 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Annotated Pacemaker Sources
+title: Annotated Pacemaker Sources
 ---
 
      <section id="main">

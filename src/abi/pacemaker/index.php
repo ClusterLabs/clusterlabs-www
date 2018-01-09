@@ -1,6 +1,6 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Pacemaker ABI Compatibility
+title: Pacemaker ABI Compatibility
 ---
 
      <section id="main">
