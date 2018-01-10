@@ -37,7 +37,7 @@ title: FAQ
 	  <p class="answer">A: Often basic questions can be answered
 	    on <a href="irc://irc.freenode.org#clusterlabs">irc</a>,
 	    but sending them to the
-	    <a href="http://wiki.clusterlabs.org/wiki/Mailing_lists">mailing list</a> is
+	    <a href="https://wiki.clusterlabs.org/wiki/Mailing_lists">mailing list</a> is
 	      always a good idea so that everyone can benefit from the
 	      answer.
 	  </p>
@@ -49,11 +49,11 @@ title: FAQ
 
 	  <p class="question">Q: Which cluster filesystems does Pacemaker support?</p>
 	  <p class="answer">A: Pacemaker supports the
-	    popular <a href="http://oss.oracle.com/projects/ocfs2/">OCFS2</a>
-	    and <a href="http://www.redhat.com/gfs/">GFS2</a>
+	    popular <a href="https://en.wikipedia.org/wiki/OCFS2">OCFS2</a>
+	    and <a href="https://en.wikipedia.org/wiki/GFS2">GFS2</a>
 	    filesystems.  As you'd expect, you can use them on top of
 	    real disks or network block devices
-	    like <a href="http://www.linbit.com/en/products-services/drbd/">DRBD</a>.
+	    like <a href="https://en.wikipedia.org/wiki/Distributed_Replicated_Block_Device">DRBD</a>.
 	  </p>
 
 	  <p class="question">Q: What kind of applications can I manage with Pacemaker?</p>
@@ -61,10 +61,10 @@ title: FAQ
 	    anything that can be scripted can be made highly available
 	    - provided the script conforms to one of the supported
 	    standards:
-	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_linux_standard_base.html">LSB</a>,
-	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>, 
-	    <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_systemd.html">Systemd</a>,
-	    or <a href="/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
+	    <a href="/pacemaker/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_linux_standard_base.html">LSB</a>,
+	    <a href="/pacemaker/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/s-resource-supported.html#_open_cluster_framework">OCF</a>, 
+	    <a href="/pacemaker/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_systemd.html">Systemd</a>,
+	    or <a href="/pacemaker/doc/en-US/Pacemaker/1.1-crmsh/html/Pacemaker_Explained/_upstart.html">Upstart</a>.
 	  </p>
 
 	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
@@ -80,20 +80,20 @@ title: FAQ
 	  that have traditionally shipped and/or supported the RHCS
 	  cluster stack instead of Pacemaker.  This is particularly
 	  relevant for those looking to use GFS2 or OCFS2. See
-	  the <a href="/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
+	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
 	  for more details</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
 	  <p class="answer">A: Yes. You will need to configure
 	  <a href="http://corosync.org">Corosync</a> to load Pacemaker's custom plugin to provide the
 	  membership and quorum information we require. See
-	  the <a href="/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
+	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
 	  <p class="answer">A: Yes. Pacemaker can obtain the
 	  membership and quorum information it requires directly from
 	  <a href="http://corosync.org">Corosync</a> in this configuration. See
-	  the <a href="/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
+	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
 
 	  <p class="question">Q: Do I need a fencing device?</p>
 	  <p class="answer">A: Yes.  Fencing is the only 100% reliable

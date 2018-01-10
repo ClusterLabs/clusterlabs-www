@@ -1,15 +1,14 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Pacemaker ABI Compatibility
+title: Pacemaker ABI Compatibility
 ---
 
      <section id="main">
 <p>
-This page details the ABI compatability between the listed
-<a href="http://wiki.clusterlabs.org/wiki/Pacemaker">Pacemaker</a> versions.
-The reports are generated with the
-<a href="http://forge.ispras.ru/projects/abi-compliance-checker">ABI Compliance
-Checker</a> that ships with <a href="http://fedoraproject.org">Fedora</a>
+  This page details ABI compatibility between the listed
+  <a href="/pacemaker/">Pacemaker</a> versions. Reports are generated using the
+  <a href="https://lvc.github.io/abi-compliance-checker/">ABI Compliance Checker</a>
+  that ships with <a href="https://fedoraproject.org/">Fedora</a>.
 </p>
 
 <table align=center style="width:75%;" cellpadding=1>

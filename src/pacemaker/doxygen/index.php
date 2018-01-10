@@ -1,10 +1,9 @@
 ---
 layout: pacemaker
-title: ClusterLabs - Annotated Pacemaker Sources
+title: Pacemaker API Documentation
 ---
-
      <section id="main">
-        <h2>Annotated Pacemaker Sources</h2>
+        <h2>Pacemaker API Documentation</h2>
         <?php
 
 echo "<ul>";
@@ -25,8 +24,9 @@ foreach ($runs as $hash) {
     }
 
     echo "<li>$title $hash";
-    echo " [<a href=$hash/index.html>Annotated</a>]";
-    echo " [<a href=https://github.com/ClusterLabs/pacemaker/$path/$hash>Download</a>]";
+    echo " [<a href=$hash/index.html>Main Page</a>]";
+    echo " [<a href=$hash/modules.html>API List</a>]";
+    echo " [<a href=https://github.com/ClusterLabs/pacemaker/$path/$hash>Source</a>]";
     echo "</li>";
 }
 
