@@ -3,6 +3,7 @@ html/*.html
 html/*.txt
 html/assets/
 html/doc/
+html/pacemaker/index.html
 html/pacemaker/*/index.php
 html/polls/index.html
 src/.*-cache/
