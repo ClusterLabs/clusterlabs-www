@@ -142,7 +142,7 @@ title: Pacemaker Documentation
   }
 
 
-  echo "<header class="major">\n<h2>Versioned documentation</h2>\n</header>";
+  echo "<header class='major'>\n<h2>Versioned documentation</h2>\n</header>";
   foreach(get_versions(".") as $v) {
     docs_for_version(".", $v);
   }
