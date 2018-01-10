@@ -192,22 +192,6 @@ foreach ($mans as $m) {
 	     command syntax.</p>
 	 </dd>
 	 <dt>
-	   <span class="term">Generate and Retrieve Node UUIDs</span>
-	 </dt>
-	 <dd>
-	   <p>UUIDs are used to identify cluster nodes to ensure that
-	     they can always be uniquely identified. The command
-	       <strong class="inline-command">crm_uuid</strong> displays the
-	     UUID of the node on which it is run. In very rare
-	     circumstances, it may be necessary to set a node's UUID
-	     to a known value.  This can also be achieved with
-	       <strong class="inline-command">crm_uuid</strong> , but you
-	     should use this command with extreme caution. For more
-	     information, refer to <a href="crm_uuid.8.html"
-	     title="crm_uuid">
-	       <span class="refentrytitle">crm_uuid</span>(8)</a>.</p>
-	 </dd>
-	 <dt>
 	   <span class="term">Managing a Node's Standby Status</span>
 	 </dt>
 	 <dd>
