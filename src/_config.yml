@@ -41,6 +41,7 @@ exclude:
 # Though not documented as such, the values here function as prefix matches.
 keep_files:
   - images
+  - doc/Two-Stacks.pdf
   - pacemaker/abi
   - pacemaker/doc
   - pacemaker/doxygen
