@@ -41,13 +41,11 @@ title: Pacemaker Documentation
     <table class="publican-doc">
       <tr>
         <td>Ordering Explained</td>
-        <td>[<a class="doclink" href="Ordering_Explained.pdf">pdf</a>]</td>
-        <td>[<a class="doclink" href="Ordering_Explained_White.pdf">print</a>]</td>
+        <td>[<a class="doclink" href="https://wiki.clusterlabs.org/w/images/a/ae/Ordering_Explained_-_White.pdf">pdf</a>]</td>
       </tr>
       <tr>
         <td>Colocation Explained</td>
-        <td>[<a class="doclink" href="Colocation_Explained.pdf">pdf</a>]</td>
-        <td>[<a class="doclink" href="Colocation_Explained_White.pdf">print</a>]</td>
+        <td>[<a class="doclink" href="https://wiki.clusterlabs.org/w/images/8/8a/Colocation_Explained_-_White.pdf">pdf</a>]</td>
       </tr>
       <tr>
         <td>Configuring Fencing with crmsh</td>
