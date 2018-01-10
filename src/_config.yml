@@ -28,11 +28,8 @@ gems:
   - jekyll-assets
   - font-awesome-sass
 include:
-  - abi
   - doc
-  - doxygen
-  - global
-  - man
+  - pacemaker
   - polls
 exclude:
   - Gemfile
@@ -43,12 +40,12 @@ exclude:
 # must be listed here, or jekyll will erase it when building the site.
 # Though not documented as such, the values here function as prefix matches.
 keep_files:
-  - abi
-  - doc
-  - doxygen
-  - global
   - images
-  - man
+  - pacemaker/abi
+  - pacemaker/doc
+  - pacemaker/doxygen
+  - pacemaker/global
+  - pacemaker/man
   - Pictures
   - rpm-test
   - rpm-test-next

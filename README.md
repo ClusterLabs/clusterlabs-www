@@ -91,3 +91,8 @@ to mention the overhead that listing two dozen icon sizes adds to the HTML.
 We've chosen a simple approach: provide two site icons, a 16x16 `favicon.ico`,
 and a 180x180 `apple-touch-icon.png`, both listed in link tags in the HTML.
 Most browsers/devices will choose one of these and scale it as needed.
+
+## Web server configuration
+
+The clusterlabs.org web server is configured to redirect certain old URLs to
+their new locations, so be careful about renaming files.
