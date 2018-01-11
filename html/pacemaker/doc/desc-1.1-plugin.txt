@@ -1,1 +1,0 @@
-The last version featuring <b>Corosync 1.x</b>, the Pacemaker plugins and <b>CMAN</b>

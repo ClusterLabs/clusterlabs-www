@@ -1,0 +1,1 @@
+Clusters from Scratch demonstrates Pacemaker 1.1 with Corosync 1.x, its Pacemaker plugin and CMAN

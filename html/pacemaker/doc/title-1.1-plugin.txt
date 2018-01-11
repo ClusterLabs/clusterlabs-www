@@ -1,1 +1,0 @@
-Pacemaker 1.1 for CMAN or Corosync 1.x

@@ -66,31 +66,24 @@ title: Pacemaker Documentation
         if ($item != '.' && $item != '..' && is_dir($item) && !is_link($item))
            $versions[] = basename($item);
 
-     return array_unique($versions);
+     return array_reverse(array_unique($versions));
    }
 
-   function docs_for_version($base, $version) {
+   function docs_for_version($base, $version, $langs) {
      echo "<section class='docset'>";
      echo "<h3 class='docversion'>";
-     foreach (glob("title-$version.txt") as $filename) {
+     foreach (glob("$base/title-$version.txt") as $filename) {
         readfile($filename);
      }
      echo "</h3>";
-     foreach (glob("desc-$version.txt") as $filename) {
+     foreach (glob("$base/desc-$version.txt") as $filename) {
         readfile($filename);
      }
      echo "<br/>";
-     foreach (glob("build-$version.txt") as $filename) {
+     foreach (glob("$base/build-$version.txt") as $filename) {
         readfile($filename);
      }
      echo "<br/>";
-
-     $langs = array();
-     // for now, show only US English; other translations haven't been maintained
-     //foreach (glob("$base/*/Pacemaker/$version") as $item) {
-     //    $langs[] = basename(dirname(dirname($item)));
-     //}
-     $langs[] = "en-US";
 
      $books = array();
      foreach (glob("$base/en-US/Pacemaker/$version/pdf/*") as $filename) {
@@ -127,41 +120,24 @@ title: Pacemaker Documentation
      echo "</section>";
    }
 
-  $docs = array();
-
-  foreach (glob("*.html") as $file) {
-    $fields = explode(".", $file, -1);
-    $docs[] = implode(".", $fields);
-  }
-
-  foreach (glob("*.pdf") as $file) {
-    $fields = explode(".", $file, -1);
-    $docs[] = implode(".", $fields);
-  }
-
-
   echo "<header class='major'>\n<h2>Versioned documentation</h2>\n</header>";
+  $langs = array();
+  // for now, show only US English; other translations haven't been maintained
+  $langs[] = "en-US";
+
   foreach(get_versions(".") as $v) {
-    docs_for_version(".", $v);
+    docs_for_version(".", $v, $langs);
+  }
+
+  echo "<header class='major'>\n<h2>Deprecated documentation</h2>\n</header>";
+  foreach(get_versions("deprecated") as $v) {
+    $langs = array();
+    foreach (glob("deprecated/*/Pacemaker/$v") as $item) {
+      $langs[] = basename(dirname(dirname($item)));
+    }
+    docs_for_version("deprecated", $v, $langs);
   }
 
   ?>
-
-  <header class="major">
-    <h2>Deprecated Documentation</h2>
-  </header>
-  <section class="docset">
-    <h3 class="docversion">Pacemaker 1.0 with OpenAIS</h3>
-    <table class="publican-doc">
-      <tr>
-        <td>Clusters from Scratch - Pacemaker 1.0 &amp; GFS2</td>
-        <td>[<a class="doclink" href="Clusters_from_Scratch-1.0-GFS2.pdf">pdf</a>]</td>
-      </tr>
-      <tr>
-        <td>Clusters from Scratch - Pacemaker 1.0 &amp; OCFS2</td>
-        <td>[<a class="doclink" href="Clusters_from_Scratch-1.0-OCFS2.pdf">pdf</a>]</td>
-      </tr>
-    </table>
-  </section>
 
 </section>	
