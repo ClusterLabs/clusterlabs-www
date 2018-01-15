@@ -1,2 +1,2 @@
-Requires <b>Corosync 2.x</b><br/>
+Requires <b>Corosync 2.x or greater</b><br/>
 Generated on Tue Jul 10 20:30:09 EST 2012 from version: 7201d5d  (HEAD, master)
