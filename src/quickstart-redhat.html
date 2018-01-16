@@ -41,7 +41,15 @@ EOF
 	  </p>
 
 	  <p>
-	    First we set up the authentication needed for <strong>pcs</strong>.
+	    First make sure that <strong>pcs daemon</strong> is running on every node:
+	  </p>
+	  <p class="command">
+	    [ALL] # systemctl start pcsd.service
+	    [ALL] # systemctl enable pcsd.service
+	  </p>
+
+	  <p>
+	    Then we set up the authentication needed for <strong>pcs</strong>.
 	  </p>
 	  <p class="command">
 [ALL] # echo CHANGEME | passwd --stdin hacluster
