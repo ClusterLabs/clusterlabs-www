@@ -68,32 +68,24 @@ title: FAQ
 	  </p>
 
 	  <p class="question">Q: Can I use Pacemaker with Heartbeat?</p>
-	  <p class="answer">A: Yes. Pacemaker started off life as part
-	  of the <a href="http://linux-ha.org">Heartbeat</a> project and continues to support it as an
-	  alternative to Corosync. See
-	  this <a href="http://www.linux-ha.org/wiki/Configuration">documentation</a> for more details</p>
-
+          <p class="answer">A: Only Pacemaker versions less than 2.0.0. See
+          this <a href="http://www.linux-ha.org/wiki/Configuration">documentation</a> for details.</p>
 	  <p class="question">Q: Can I use Pacemaker with CMAN?</p>
-	  <p class="answer">A: Yes. Pacemaker added support
-	  for <a href="https://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/High_Availability_Add-On_Overview/ch-cman.html">CMAN
-	  v3</a> in version 1.1.5 to better integrate with distros
-	  that have traditionally shipped and/or supported the RHCS
-	  cluster stack instead of Pacemaker.  This is particularly
-	  relevant for those looking to use GFS2 or OCFS2. See
+          <p class="answer">A: Only Pacemaker versions greater than or equal to
+          1.1.5 and less than 2.0.0. See
 	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/ch08s02.html">documentation</a>
-	  for more details</p>
+	  for details</p>
 
 	  <p class="question">Q: Can I use Pacemaker with Corosync 1.x?</p>
-	  <p class="answer">A: Yes. You will need to configure
-	  <a href="http://corosync.org">Corosync</a> to load Pacemaker's custom plugin to provide the
-	  membership and quorum information we require. See
-	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for more details.</p>
+          <p class="answer">A: Only Pacemaker versions less than 2.0.0. You will need to configure
+          <a href="http://corosync.org">Corosync</a> to load Pacemaker's custom plugin. See
+          the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-plugin/html/Clusters_from_Scratch/s-configure-corosync.html">documentation</a> for details.</p>
 
-	  <p class="question">Q: Can I use Pacemaker with Corosync 2.x?</p>
-	  <p class="answer">A: Yes. Pacemaker can obtain the
-	  membership and quorum information it requires directly from
-	  <a href="http://corosync.org">Corosync</a> in this configuration. See
-	  the <a href="/pacemaker/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a> for more details.</p>
+          <p class="question">Q: Can I use Pacemaker with Corosync 2.x or greater?</p>
+	  <p class="answer">A: Yes. This is the only option supported by
+	  Pacemaker 2.0.0 and greater. See the <a
+	  href="/pacemaker/doc/en-US/Pacemaker/1.1-pcs/html/Clusters_from_Scratch/_cluster_software_installation.html">documentation</a>
+          for details.</p>
 
 	  <p class="question">Q: Do I need a fencing device?</p>
 	  <p class="answer">A: Yes.  Fencing is the only 100% reliable

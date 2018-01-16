@@ -33,17 +33,15 @@ title: Quickstart
 	  </p>
 	  <h2>Why Does Each Distribution Have its Own Quickstart?</h2>
 	  <p>
-	    Instead of re-inventing the wheel, Pacemaker makes use of
-	    the messaging, membership and quorum capabilities of other
-	    projects (such as Heartbeat or Corosync).
+            Now that all distributions have standardized on Corosync 2 or
+            greater as the underlying cluster layer, the differences are
+            minimal.
 	  </p>
 	  <p>
-	    Pacemaker is fully functional with all three current
-	    Corosync release series (1.2.x, 1.4.x and 2.0.x) as well
-	    as Heartbeat.  However this has been a source of confusion
-	    because Pacemaker needs to be set up differently depending
-	    on what each distribution ships.  We call each combination
-	    of Pacemaker + Corosync (or Heartbeat) a "stack".
+            However, in the past, Pacemaker also supported Corosync 1 (with or
+            without CMAN) as well as Heartbeat. Different distributions
+            supported different cluster layers, requiring different set-up.
+            We call each combination of Pacemaker and cluster layer a "stack".
 	  </p>
 	  <p>
 	    For example, on RHEL6 the supported stack is based on CMAN
@@ -64,20 +62,6 @@ title: Quickstart
 	    To confuse things further, SLES users start Corosync with
 	    the openAIS init script because it used to be part of that
 	    project.
-	  </p>
-	  <p>
-	    Eventually everyone will move to Corosync 2 which removes
-	    support for CMAN and custom plugins BUT natively includes
-	    the APIs Pacemaker needs for quorum and membership.  In
-	    this case, users would configure corosync.conf and use the
-	    Pacemaker init-script to start up after Corosync.
-	  </p>
-	  <p>
-	    There are some architectural differences between the
-	    different stacks, and some are more elegant than others,
-	    but the most important thing by far is that everyone is
-	    getting membership and quorum information from the same
-	    place.
 	  </p>
 	  <p>
 	    See <a href="http://theclusterguy.clusterlabs.org/post/34604901720/pacemaker-and-cluster-filesystems">this

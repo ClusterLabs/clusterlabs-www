@@ -1,1 +1,1 @@
-Requires Corosync 2.x and optimized for the <a href="https://savannah.nongnu.org/projects/crmsh/">crmsh</a> CLI
+Requires Corosync 2.x or greater; optimized for the <a href="https://savannah.nongnu.org/projects/crmsh/">crmsh</a> CLI
