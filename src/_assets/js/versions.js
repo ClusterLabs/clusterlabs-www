@@ -66,6 +66,7 @@ function Timeline(paper, datesAndVersions) {
       {date: (new Date(2015, 0, 1)), version: "2015"},
       {date: (new Date(2016, 0, 1)), version: "2016"},
       {date: (new Date(2017, 0, 1)), version: "2017"},
+      {date: (new Date(2018, 0, 1)), version: "2018"},
     ], this.drawYear, graphWidth, startTime, timeRange, radius);
   };
 
@@ -170,6 +171,7 @@ function Timeline(paper, datesAndVersions) {
       {date:"11/30/2016", version:"1.1.16"},
       {date:"07/06/2017", version:"1.1.17"},
       {date:"11/14/2017", version:"1.1.18"},
+      {date:"06/07/2018", version:"2.0.0"},
     ]);
 
   });
