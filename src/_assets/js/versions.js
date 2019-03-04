@@ -67,6 +67,7 @@ function Timeline(paper, datesAndVersions) {
       {date: (new Date(2016, 0, 1)), version: "2016"},
       {date: (new Date(2017, 0, 1)), version: "2017"},
       {date: (new Date(2018, 0, 1)), version: "2018"},
+      {date: (new Date(2019, 0, 1)), version: "2019"},
     ], this.drawYear, graphWidth, startTime, timeRange, radius);
   };
 
@@ -82,7 +83,7 @@ function Timeline(paper, datesAndVersions) {
   }
 
   this.drawDotAndLabel = function (obj, xOffset, radius) {
-      var dot, label, yOffset, xSeries, ySeries;
+      var dot, label, yOffset, xSeries, ySeries, components, displayVersion;
       xSeries = obj.version.match(/^\d/);
       ySeries = obj.version.match(/^\d\.\d/) - xSeries;
       yOffset = 20 + radius + xSeries * 60;
@@ -96,11 +97,16 @@ function Timeline(paper, datesAndVersions) {
       fill: "#cccccc",
       "fill-opacity": 1.0
     });
+    // Display x.y.z version only for first and last in x.y series, otherwise just .z
     if (obj.version.match(/^\d\.\d\.0/)) {
       dot.attr({ fill: "#732F2F", r: radius });
+      displayVersion = obj.version;
+    } else {
+      components = obj.version.split(".");
+      displayVersion = "." + components[components.length - 1];
     }
 
-    label = paper.text(xOffset, yOffset, obj.version);
+    label = paper.text(xOffset, yOffset, displayVersion);
     label.attr({
       fill: "#ffffff",
       "font-size": 20,
@@ -138,29 +144,29 @@ function Timeline(paper, datesAndVersions) {
       {date:"06/19/2008", version:"0.6.5"},
       {date:"08/24/2008", version:"0.6.6"},
       {date:"12/15/2008", version:"0.6.7"},
-      {date:"11/18/2008", version:"1.0.1"},
       {date:"10/09/2008", version:"1.0.0"},
+      {date:"11/18/2008", version:"1.0.1"},
       {date:"02/16/2009", version:"1.0.2"},
       {date:"04/07/2009", version:"1.0.3"},
       {date:"06/05/2009", version:"1.0.4"},
       {date:"08/10/2009", version:"1.0.5"},
       {date:"11/02/2009", version:"1.0.6"},
       {date:"01/18/2010", version:"1.0.7"},
-      {date:"03/05/2010", version:"1.1.1"},
-      {date:"01/15/2010", version:"1.1.0"},
-      {date:"05/12/2010", version:"1.1.2"},
       {date:"03/15/2010", version:"1.0.8"},
       {date:"06/23/2010", version:"1.0.9"},
+      {date:"11/12/2010", version:"1.0.10"},
+      {date:"04/29/2011", version:"1.0.11"},
+      {date:"11/24/2011", version:"1.0.12"},
+      {date:"02/13/2013", version:"1.0.13"},
+      {date:"01/15/2010", version:"1.1.0"},
+      {date:"03/05/2010", version:"1.1.1"},
+      {date:"05/12/2010", version:"1.1.2"},
       {date:"09/21/2010", version:"1.1.3"},
       {date:"10/20/2010", version:"1.1.4"},
-      {date:"11/12/2010", version:"1.0.10"},
       {date:"02/10/2011", version:"1.1.5"},
-      {date:"04/29/2011", version:"1.0.11"},
       {date:"08/31/2011", version:"1.1.6"},
-      {date:"11/24/2011", version:"1.0.12"},
       {date:"03/29/2012", version:"1.1.7"},
       {date:"11/20/2012", version:"1.1.8"},
-      {date:"02/13/2013", version:"1.0.13"},
       {date:"03/08/2013", version:"1.1.9"},
       {date:"07/26/2013", version:"1.1.10"},
       {date:"02/13/2014", version:"1.1.11"},
@@ -171,7 +177,10 @@ function Timeline(paper, datesAndVersions) {
       {date:"11/30/2016", version:"1.1.16"},
       {date:"07/06/2017", version:"1.1.17"},
       {date:"11/14/2017", version:"1.1.18"},
+      {date:"07/11/2018", version:"1.1.19"},
+      {date:"03/04/2019", version:"1.1.20"},
       {date:"06/07/2018", version:"2.0.0"},
+      {date:"03/04/2019", version:"2.0.1"},
     ]);
 
   });
