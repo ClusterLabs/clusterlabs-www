@@ -1,0 +1,41 @@
+{
+	"name": "ClusterLabs",
+	"author": [
+		"..."
+	],
+	"url": "https://github.com/ClusterLabs/clusterlabs-www/tree/master/wiki.clusterlabs.org/skins/ClusterLabs",
+	"descriptionmsg": "clusterlabs-desc",
+	"namemsg": "skinname-clusterlabs",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
+	"ValidSkinNames": {
+		"clusterlabs": "ClusterLabs"
+	},
+	"SkinOOUIThemes": {
+		"clusterlabs": "Apex"
+	},
+	"MessagesDirs": {
+		"ClusterLabs": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.clusterlabs.styles": {
+			"position": "top",
+			"styles": {
+				"main.css": {
+					"media": "screen"
+				}
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "ClusterLabs"
+	},
+	"AutoloadClasses": {
+		"SkinClusterLabs": "SkinClusterLabs.php",
+		"ClusterLabsTemplate": "ClusterLabsTemplate.php"
+	},
+	"manifest_version": 1
+}

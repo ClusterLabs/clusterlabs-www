@@ -34,7 +34,8 @@ div#column-content {
 	margin: 130px 0 0.6em -12.2em;
 	padding: 0;
 }
-div#content {
+
+.mw-body {
 	/* CL */
 	/* margin: 2.8em 0 0 12.2em; */
 	margin: 0 0 0 12.2em;
@@ -42,24 +43,14 @@ div#content {
 	padding: 1em;
 	position: relative;
 	z-index: 2;
-}
-div#column-one {
-	/* CL */
-	/* padding-top: 160px; */
-	padding-top: 140px; /* header height + 10px */
-}
-/* Hide, but keep accessible for screen-readers */
-#column-one h2 {
-	position: absolute;
-	top: -9999px;
-}
-div#content {
 	/* CL */
 	/*
 	background: white;
 	color: black;
 	border: 1px solid #aaa;
 	*/
+	border-right: none;
+	line-height: 1.5em;
 	background: #e3e0d6;
 	color: #1a006d;
 	border: 2px solid #732f2f;
@@ -69,10 +60,20 @@ div#content {
 	-moz-border-radius-bottomleft: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
-
-	border-right: none;
-	line-height: 1.5em;
 }
+
+div#column-one {
+	/* CL */
+	/* padding-top: 160px; */
+	padding-top: 140px; /* header height + 10px */
+}
+
+/* Hide, but keep accessible for screen-readers */
+#column-one h2 {
+	position: absolute;
+	top: -9999px;
+}
+
 /* the left column width is specified in class .portlet */
 
 /* Font size:
@@ -105,6 +106,8 @@ div#globalWrapper {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	position: relative;
+	z-index: 0;
 }
 
 /* general styles */
@@ -116,6 +119,7 @@ a {
 	font-weight: bold;
 	text-decoration: none;
 }
+
 a:visited {
 	color: #5a3696;
 }
@@ -155,21 +159,28 @@ ul {
 	list-style-image: url(bullet.gif);
 }
 
-input.historysubmit {
-	padding: 0 .3em .3em .3em !important;
-	font-size: 94%;
-	cursor: pointer;
-	height: 1.7em !important;
-	margin-left: 1.6em;
-}
-
 pre, .mw-code {
 	line-height: 1.1em;
 }
 
 #firstHeading {
 	padding-top: 0;
+	overflow: visible;
 }
+
+.mw-indicators {
+	float: right;
+	line-height: 1.5em;
+	font-size: 95%;
+}
+
+.mw-indicator {
+	display: -moz-inline-block;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
 /*
 ** the main content area
 */
@@ -178,9 +189,11 @@ pre, .mw-code {
 	font-size: 95%;
 	padding: 0 0.9em;
 }
+
 #localNotice {
 	margin: 0;
 }
+
 #siteNotice p {
 	margin: 0;
 	padding: 0;
@@ -218,89 +231,6 @@ table.bordered {
 }
 
 /*
-** keep the whitespace in front of the ^=, hides rule from konqueror
-** this is css3, the validator doesn't like it when validating as css2
-*/
-#bodyContent a.external {
-	/* @embed */
-	background: url(external-ltr.png) center right no-repeat;
-	padding-right: 13px;
-}
-#bodyContent a.external[href ^="https://"],
-.link-https {
-	/* @embed */
-	background: url(lock_icon.gif) center right no-repeat;
-	padding-right: 16px;
-}
-#bodyContent a.external[href ^="mailto:"],
-.link-mailto {
-	/* @embed */
-	background: url(mail_icon.gif) center right no-repeat;
-	padding-right: 18px;
-}
-#bodyContent a.external[href ^="news:"] {
-	/* @embed */
-	background: url(news_icon.png) center right no-repeat;
-	padding-right: 18px;
-}
-#bodyContent a.external[href ^="ftp://"],
-.link-ftp {
-	/* @embed */
-	background: url(file_icon.gif) center right no-repeat;
-	padding-right: 18px;
-}
-#bodyContent a.external[href ^="irc://"],
-#bodyContent a.external[href ^="ircs://"],
-.link-irc {
-	/* @embed */
-	background: url(discussionitem_icon.gif) center right no-repeat;
-	padding-right: 18px;
-}
-#bodyContent a.external[href $=".ogg"], #bodyContent a.external[href $=".OGG"],
-#bodyContent a.external[href $=".mid"], #bodyContent a.external[href $=".MID"],
-#bodyContent a.external[href $=".midi"], #bodyContent a.external[href $=".MIDI"],
-#bodyContent a.external[href $=".mp3"], #bodyContent a.external[href $=".MP3"],
-#bodyContent a.external[href $=".wav"], #bodyContent a.external[href $=".WAV"],
-#bodyContent a.external[href $=".wma"], #bodyContent a.external[href $=".WMA"],
-.link-audio {
-	/* @embed */
-	background: url(audio.png) center right no-repeat;
-	padding-right: 13px;
-}
-#bodyContent a.external[href $=".ogm"], #bodyContent a.external[href $=".OGM"],
-#bodyContent a.external[href $=".avi"], #bodyContent a.external[href $=".AVI"],
-#bodyContent a.external[href $=".mpeg"], #bodyContent a.external[href $=".MPEG"],
-#bodyContent a.external[href $=".mpg"], #bodyContent a.external[href $=".MPG"],
-.link-video {
-	/* @embed */
-	background: url(video.png) center right no-repeat;
-	padding-right: 13px;
-}
-#bodyContent a.external[href $=".pdf"], #bodyContent a.external[href $=".PDF"],
-#bodyContent a.external[href *=".pdf#"], #bodyContent a.external[href *=".PDF#"],
-#bodyContent a.external[href *=".pdf?"], #bodyContent a.external[href *=".PDF?"],
-.link-document {
-	/* @embed */
-	background: url(document.png) center right no-repeat;
-	padding-right: 12px;
-}
-
-/* Interwiki Styling */
-#bodyContent a.extiw,
-#bodyContent a.extiw:active {
-	/* CL */
-	/* color: #36b; */
-	color: #006bc2;
-}
-
-/* External links */
-#bodyContent a.external {
-	/* CL */
-	/* color: #36b; */
-	color: #006bc2;
-}
-
-/*
 ** Structural Elements
 */
 
@@ -315,6 +245,7 @@ table.bordered {
 	width: 11.6em;
 	overflow: hidden;
 }
+
 /* CL */
 /*
 .portlet h3 {
@@ -328,6 +259,7 @@ table.bordered {
 	white-space: nowrap;
 }
 */
+
 .portlet h3, h5 {
 	background: transparent;
 	padding: 0 1em 0 .5em;
@@ -352,20 +284,24 @@ table.bordered {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
+
 /* allows .pBody styles to wrap around content added via BaseTemplateAfterPortlet hook */
 .pBody:after {
 	content: '';
 	clear: both;
 	display: block;
 }
+
 .portlet ul {
 	line-height: 1.5em;
 	font-size: 95%;
 }
+
 .portlet li {
 	padding: 0;
 	margin: 0;
 }
+
 /* CL */
 .portlet li a {
 	color: #0076d6;
@@ -399,6 +335,7 @@ table.bordered {
 
 	overflow: visible;
 }
+
 #p-logo h3 {
 	display: none;
 }
@@ -426,28 +363,34 @@ table.bordered {
 	position: relative;
 	z-index: 3;
 }
+
 input.searchButton {
 	margin-top: 1px;
 	font-size: 95%;
 }
+
 #searchGoButton {
 	padding-left: .5em;
 	padding-right: .5em;
 	font-weight: bold;
 }
+
 #searchInput {
 	width: 10.9em;
 	margin: 0;
 	font-size: 95%;
 }
+
 #p-search .pBody {
 	padding: .5em .4em .4em .4em;
 	text-align: center;
 }
+
 #p-search #searchform div div {
 	margin-top: .4em;
 	font-size: 95%;
 }
+
 /*
 ** the personal toolbar
 */
@@ -457,6 +400,7 @@ input.searchButton {
 	top: 0;
 	z-index: 3;
 }
+
 #p-personal {
 	width: 100%;
 	white-space: nowrap;
@@ -467,9 +411,11 @@ input.searchButton {
 	overflow: visible;
 	line-height: 1.2em;
 }
+
 #p-personal h3 {
 	display: none;
 }
+
 /* CL */
 #p-personal h5 {
 	display: none;
@@ -484,12 +430,16 @@ input.searchButton {
 	overflow: visible;
 	background: none;
 }
+
 /* this is the ul contained in the portlet */
 #p-personal ul {
 	border: none;
 	line-height: 1.4em;
 	color: #2f6fab;
-	padding: 0 2em 0 3em;
+	padding: 0;
+	padding-right: 2em;
+	/* Avoid overlap with the logo. */
+	padding-left: 14em;
 	margin: 0;
 	text-align: right;
 	list-style-type: none;
@@ -498,6 +448,7 @@ input.searchButton {
 	background: none;
 	cursor: default;
 }
+
 #p-personal li {
 	z-index: 0;
 	border: none;
@@ -508,20 +459,22 @@ input.searchButton {
 	line-height: 1.2em;
 	background: none;
 }
+
 #p-personal li a {
 	text-decoration: none;
 	color: #005896;
 	padding-bottom: .2em;
-	background: none;
 }
+
 #p-personal li a:hover {
 	background-color: white;
-	padding-bottom: .2em;
 	text-decoration: none;
 }
+
 #p-personal li.active a:hover {
 	background-color: transparent;
 }
+
 /* The icon in front of the username / login link */
 li#pt-userpage,
 li#pt-anonuserpage,
@@ -530,17 +483,21 @@ li#pt-login {
 	background: url(user.gif) top left no-repeat;
 	padding-left: 20px;
 }
+
 #p-personal ul {
 	text-transform: lowercase;
 }
+
 /* Don't lowercase username or IP addresses (IPv6) */
 li#pt-userpage,
 li#pt-anonuserpage {
 	text-transform: none;
 }
+
 #p-personal li.active {
 	font-weight: bold;
 }
+
 /*
 ** the page-related actions- page/talk, edit etc
 */
@@ -564,6 +521,7 @@ li#pt-anonuserpage {
 	padding-left: 1em;
 	font-size: 95%;
 }
+
 #p-cactions ul {
 	list-style-type: none;
 	list-style-image: none;
@@ -572,6 +530,7 @@ li#pt-anonuserpage {
 	position: relative;
 	margin-top: -1.5em;
 }
+
 #p-cactions li {
 	display: inline;
 	/* CL */
@@ -594,6 +553,7 @@ li#pt-anonuserpage {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 }
+
 #p-cactions li.selected {
 	/* CL */
 	/*
@@ -603,6 +563,7 @@ li#pt-anonuserpage {
 	background-color: #732f2f;
 	border: 2px solid #732f2f;
 }
+
 #p-cactions li a {
 	/* CL */
 	/*
@@ -625,6 +586,7 @@ li#pt-anonuserpage {
 	margin: 0;
 	text-decoration: none;
 }
+
 #p-cactions li.selected a {
 	z-index: 3;
 	/* CL */
@@ -634,9 +596,11 @@ li#pt-anonuserpage {
 	color: #e3e0d6;
 	background-color: #732f2f;
 }
+
 #p-cactions .new a {
 	color: #ba0000;
 }
+
 #p-cactions li a:hover {
 	z-index: 3;
 	text-decoration: none;
@@ -645,9 +609,11 @@ li#pt-anonuserpage {
 	color: #e3e0d6;
 	background-color: #ac4646;
 }
+
 #p-cactions h3 {
 	display: none;
 }
+
 /* CL */
 #p-cactions h5 {
 	display: none;
@@ -656,23 +622,28 @@ li#pt-anonuserpage {
 #p-cactions li.istalk {
 	margin-right: 0;
 }
+
 #p-cactions li.istalk a {
 	padding-right: .5em;
 }
+
 #p-cactions #ca-addsection a {
 	padding-left: .4em;
 	padding-right: .4em;
 }
+
 /* offsets to distinguish the tab groups */
 li#ca-talk {
 	margin-right: 1.6em;
 }
+
 li#ca-watch,
 li#ca-unwatch,
 li#ca-varlang-0,
 li#ca-print {
 	margin-left: 1.6em;
 }
+
 #p-cactions .pBody {
 	font-size: 1em;
 	background-color: transparent;
@@ -681,6 +652,7 @@ li#ca-print {
 	border: 0;
 	padding: 0;
 }
+
 #p-cactions li a {
 	text-transform: lowercase;
 }
@@ -703,6 +675,7 @@ li#ca-print {
 #t-ispermalink, #t-iscite {
 	color: #999;
 }
+
 /*
 ** footer
 */
@@ -722,19 +695,23 @@ div#footer {
 	text-align: center;
 	font-size: 90%;
 }
+
 div#footer li {
 	display: inline;
 	margin: 0 1.3em;
 }
+
 #f-poweredbyico, #f-copyrightico {
 	margin: 0 8px;
 	position: relative;
 	top: -2px; /* Bump it up just a tad */
 }
+
 #f-poweredbyico {
 	float: right;
 	height: 1%;
 }
+
 #f-copyrightico {
 	float: left;
 	height: 1%;
@@ -754,10 +731,12 @@ div#footer li {
 	width: 100%;
 	clear: both;
 }
+
 #preftoc li {
 	background-color: #f0f0f0;
 	color: #000;
 }
+
 #preftoc li {
 	margin: 1px -2px 1px 2px;
 	float: left;
@@ -783,6 +762,7 @@ div#footer li {
 	list-style-image: none;
 	z-index: 3;
 }
+
 #preftoc li.selected {
 	font-weight: bold;
 	/* CL */
@@ -799,9 +779,11 @@ div#footer li {
 	padding-top: 2px;
 	margin-right: -3px;
 }
+
 #preftoc > li.selected {
 	top: 2px;
 }
+
 #preftoc a,
 #preftoc a:active {
 	display: block;
@@ -810,10 +792,12 @@ div#footer li {
 	position: relative;
 	text-decoration: none;
 }
+
 #preftoc li.selected a {
 	cursor: default;
 	text-decoration: none;
 }
+
 #preferences {
 	margin: 0;
 	/* CL */ /* border: 1px solid #aaa; */
@@ -823,6 +807,7 @@ div#footer li {
 	border: 1px solid #1a006d;
 	background-color: #e3e0d6;
 }
+
 .prefsection {
 	border: none;
 	padding: 0;
@@ -832,14 +817,17 @@ div#footer li {
 .prefsection legend {
 	font-weight: bold;
 }
+
 .prefsection table, .prefsection legend {
 	/* CL */
 	/* background-color: #F9F9F9; */
 	background-color: #e3e0d6;
 }
+
 .mainLegend {
 	display: none;
 }
+
 td.htmlform-tip {
 	font-size: x-small;
 	padding: .2em 2em;
@@ -914,6 +902,7 @@ span.updatedmarker {
 	font-size: small;
 	text-align: center;
 }
+
 .editExternallyHelp {
 	font-style: italic;
 	color: gray;
@@ -1020,10 +1009,12 @@ div.mw-lag-warn-high {
 	text-align: center;
 	margin: 3px auto;
 }
+
 div.mw-lag-warn-normal {
 	border: 1px solid #FFCC66;
 	background-color: #FFFFCC;
 }
+
 div.mw-lag-warn-high {
 	font-weight: bold;
 	border: 2px solid #FF0033;
@@ -1034,15 +1025,11 @@ div.mw-lag-warn-high {
 	background-color: #ccc;
 	padding: 0.1em;
 }
+
 .MediaTransformError td {
 	text-align: center;
 	vertical-align: middle;
 	font-size: 90%;
-}
-
-/* God-damned hack for the crappy layout */
-.os-suggest {
-	font-size: 127%;
 }
 
 /* Sometimes people don't want personal tools to be lowercase! */
@@ -1057,6 +1044,5 @@ div.mw-lag-warn-high {
 
 /* mediawiki.notification */
 .skin-monobook .mw-notification {
-	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.125);
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.125);
 }

@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"skinname-clusterlabs": "ClusterLabs",
+	"clusterlabs-desc": "ClusterLabs mediawiki skin",
+	"clusterlabs.css": "/* CSS placed here will affect users of the ClusterLabs skin */",
+	"clusterlabs.js": "/* Any JavaScript here will be loaded for users using the ClusterLabs skin */"
+}
