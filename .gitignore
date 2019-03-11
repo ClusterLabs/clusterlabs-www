@@ -19,17 +19,16 @@ html/pacemaker/doxygen/*/
 html/pacemaker/global/*/
 html/pacemaker/man/*.[78].html
 
-# provided by mediawiki
-mediawiki123/
+# bugzilla and mediawiki source
+bugzilla
+bugzilla*/
+mediawiki
+mediawiki*/
 
 # not version-controlled
 *~
 *.swp
+build.clusterlabs.org
 html/doc/Two-Stacks.pdf
 html/images/
 include/wiki.clusterlabs.org/secrets.php
-
-# not ClusterLabs-related
-beekhof.net/
-html/Pictures/
-html/rpm-test*
