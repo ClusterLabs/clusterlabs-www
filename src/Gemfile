@@ -15,7 +15,15 @@ gem "jekyll", "3.3.0"
 gem "minima", "~> 2.0"
 
 # Needed by jekyll-assets
-gem "json"
+# (Force versions compatible with ruby 2.0)
+group :jekyll_assets_deps do
+   gem "public_suffix", "< 3.0"
+   gem "ruby_dep", "< 1.4"
+   gem "rb-inotify", "< 0.10"
+   gem "listen", "< 3.1"
+   gem "jekyll-watch", "< 1.5.1"
+   gem "json"
+end
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
