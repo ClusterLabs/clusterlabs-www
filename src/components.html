@@ -9,21 +9,20 @@ title: Components
   </header>
 
   <h3><a href="/pacemaker/">Pacemaker</a></h3>
-	  <p>
-	    At its core, Pacemaker is a distributed finite state
-	    machine capable of co-ordinating the startup and recovery
-	    of inter-related services across a set of machines.
+	  <p>Pacemaker is a high-availability cluster resource manager.
+	    At its core, Pacemaker is a distributed finite state machine
+	    capable of co-ordinating the startup and recovery of inter-related
+	    services across a set of machines.
 	  </p>
-	  <p>
-	    Pacemaker understands many different resource types (OCF,
-	    SYSV, systemd) and can accurately model the relationships
-	    between them (colocation, ordering).
+	  <p>Pacemaker supports a number of resource agent standards (LSB init
+	    scripts, OCF resource agents, systemd unit files, etc.) to manage
+	    any service, and can model complex relationships among them
+	    (colocation, ordering, etc.).
 	  </p>
-	  <p>
-	    It can even use technology such
-	    as <a href="https://www.docker.com">Docker</a> to
-	    automatically isolate the resources managed by the
-	    cluster.
+	  <p>Pacemaker supports advanced service configurations such as groups
+	    of dependent resources, cloned resources that must be active on
+	    multiple machines, resources that can switch between two different
+	    roles, and containerized services.
 	  </p>
 	  
 	  <h3><a href="https://corosync.github.io/corosync/">Corosync</a></h3>
@@ -31,18 +30,14 @@ title: Components
 	    Corosync APIs provide membership (a list of peers),
 	    messaging (the ability to talk to processes on those
 	    peers), and quorum (do we have a majority) capabilities to
-	    projects such as Apache Qpid and Pacemaker.
+	    projects such as Pacemaker that need to be cluster-aware.
 	  </p>
 
 	  <h3><a href="https://clusterlabs.github.io/libqb/">libQB</a></h3>
 	  <p>
 	    libqb is a library with the primary purpose of providing
-	    high performance client server reusable features. It
-	    provides high performance logging, tracing, ipc, and poll.
-	  </p>
-	  <p>
-	    The initial features of libqb come from the parts of
-	    corosync that were thought to useful to other projects.
+	    high-performance, reusable features for client/server applications,
+	    including high-performance logging, tracing, IPC, and polling.
 	  </p>
 
 	  <h3><a href="https://github.com/ClusterLabs/resource-agents/">Resource Agents</a></h3>
@@ -63,63 +58,36 @@ title: Components
 	  <h3><a href="https://github.com/ClusterLabs/fence-agents/">Fence Agents</a></h3>
 	  <p>
 	    Fence agents are the abstraction that allows Pacemaker to
-	    isolate badly behaving nodes.  They achieve this by either
-	    powering off the node or disabling its access to the
-	    network and/or shared storage.
-	  </p>
-	  <p>
-	    Many types of network power switches exist and you will
-	    want to choose the one(s) that match your hardware.
-	    Please be aware that some (ones that don't loose power
-	    when the machine goes down) are better than others.
-	  </p>
-	  <p>
-	    Agents are generally expected to expose OCF-compliant
-	    metadata.
+	    isolate badly behaving nodes, by either powering off the node or
+	    disabling its access to common resources. The fence-agents project
+	    provides fence agents for commonly used fence devices, including
+	    intelligent power and network switches, IPMI, popular cloud
+	    services, virtualization hosts, and shared storage access.
 	  </p>
 
 	  <h3><a href="https://github.com/ClusterLabs/OCF-spec/">OCF specification</a></h3>
-	  <p>
-	    The original documentation that sparked a lot of this
-	    work.  Mostly we only use the "RA" specification. Efforts
-	    are underway to revive the process for updating and
-	    modernizing the spec.
+	  <p>The Open Cluster Framework specification is a set of standards for
+	    cluster components. Currently, only the resource agent standard is
+	    in use.
 	  </p>
 
-	  <a id="addons"> </a>
-	  <h1>Configuration Tools</h1>
+	  <h1><a id="addons">Configuration Tools</a></h1>
 	  <p>
 	    Pacemaker's internal configuration format is XML, which is
 	    great for machines but terrible for humans.
 	  </p>
 	  <p>
-	    The community's best minds have created GUIs and Shells to
-	    hide the XML and allow the configuration to be viewed and
-	    updated in a more human friendly format.
+	    The community's best minds have created command-line and graphical
+	    interfaces to hide the XML and allow the configuration to be viewed
+	    and updated in a more human-friendly format.
 	  </p>
-	  <h2>Command Line Interfaces (Shells)</h2>
-	  <h3><a href="https://crmsh.github.io/">crmsh</a></h3>
+	  <h3><a href="https://crmsh.github.io/">crm shell</a></h3>
 	  <p>
 	    The original configuration shell for Pacemaker. Written
 	    and actively maintained by SUSE, it may be used either as an
 	    interactive shell with tab completion, for single commands
-	    directly on the shell's command line or as batch mode
-	    scripting tool. Documentation for crmsh can be
-	    found <a href="https://crmsh.github.io/documentation/">here</a>.
-	  </p>
-	  <h3><a href="https://github.com/feist/pcs">pcs</a></h3>
-	  <p>
-	    An alternate vision for a full cluster lifecycle
-	    configuration shell and web based GUI. Handles everything
-	    from cluster installation through to resource
-	    configuration and status.
-	  </p>
-
-	  <h2>GUI Tools</h2>
-	  <h3><a href="https://github.com/ClusterLabs/pacemaker-mgmt">pygui</a></h3>
-	  <p>
-	    The original GUI for Pacemaker written in Python by IBM
-	    China.  Mostly deprecated on SLES in favor of Hawk
+	    directly on the shell's command line, or as a batch mode
+	    scripting tool.
 	  </p>
 	  <h3><a href="https://hawk-ui.github.io/">Hawk</a></h3>
 	  <p>
@@ -136,17 +104,21 @@ title: Components
 	  <h3><a href="http://lcmc.sf.net">LCMC</a></h3>
 	  <p>
 	    The Linux Cluster Management Console (LCMC) is a GUI with
-	    an inovative approach for representing the status of and
+	    an innovative approach for representing the status of and
 	    relationships between cluster services.  It uses SSH to
-	    let you install, configure and manage clusters from your
+	    let you install, configure, and manage clusters from your
 	    desktop.
 	  </p>
-	  <h3><a href="https://github.com/feist/pcs">pcs</a></h3> 
+	  <h3><a href="https://github.com/ClusterLabs/pcs">pcs</a></h3>
 	  <p>
-	    An alternate vision for a full cluster lifecycle
-	    configuration shell and web based GUI. Handles everything
-	    from cluster installation through to resource
-	    configuration and status.
+	    pcs provides both a command-line tool and Web-based GUI for
+	    managing the complete life cycle of all cluster components,
+	    including Pacemaker, Corosync, QDevice, SBD, and Booth.
+	  </p>
+	  <h3><a href="https://github.com/ClusterLabs/pacemaker-mgmt">pygui</a></h3>
+	  <p>
+	    The original GUI for Pacemaker, written in Python by IBM
+	    China. It is no longer actively developed.
 	  </p>
 	  <h3><a href="https://github.com/ClusterLabs/striker">Striker</a></h3>
 	  <p>
