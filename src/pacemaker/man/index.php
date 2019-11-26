@@ -7,40 +7,40 @@ title: Pacemaker Manual Pages
      <h2>Tool Summary</h2>
 
 <?php
-     function get_desc($man) 
+function get_desc($man) 
 {
-    
-$file_handle = fopen($man, "r");
-$done = 0;
+    $file_handle = fopen($man, "r");
+    $done = 0;
 
-while (!feof($file_handle)) {
-    $line = fgets($file_handle);
-    if(strstr($line, 'h2>DESCRIPTION')) {
-	$line = fgets($file_handle);
-	$line = fgets($file_handle);
-	while (!feof($file_handle)) {
-	    $line = fgets($file_handle);
-	    if(strstr($line, 'OPTIONS')) {
-		$done = 1;
-		break;
-		
-	    } else {
-		echo $line;
-	    }
-	}
-	if($done) {
-	    break;
-	}
+    /* Show everything in the description section (which ends with the next
+       second-level heading or some magic strings for specific nonstandard
+       man pages).
+     */
+    while (!feof($file_handle) && !$done) {
+        $line = fgets($file_handle);
+        if (strstr($line, 'h2>DESCRIPTION')) {
+            $line = fgets($file_handle);
+            $line = fgets($file_handle);
+            while (!feof($file_handle) && !$done) {
+                $line = fgets($file_handle);
+                if (strstr($line, '<h2>')
+                    || strstr($line, 'usage:')
+                    || strstr($line, '<b>Common')
+                   ) {
+                    $done = 1;
+                } else {
+                    echo $line;
+                }
+            }
+        }
     }
-}
-fclose($file_handle);
+    fclose($file_handle);
 }
 
- $mans = glob("*.8.html");
+$mans = glob("*.8.html");
 foreach ($mans as $m) {
     $fields = explode(".", $m, 3);
     $base = $fields[0];
-    
     echo '<dt>';
     echo '<span class="refentrytitle">';
     echo "<a href=$m>$base</a>";
@@ -55,45 +55,35 @@ foreach ($mans as $m) {
 
      <h2>The Right Tool for the Job</h2>
      <p>
-     Pacemaker ships with a comprehensive set of tools that assist you
-     in managing your cluster from the command line. Here we introduce
-     the tools needed for managing the cluster configuration in the
-     CIB and the cluster resources.
-     </p>
-     <p>
-       The following list presents several tasks related to cluster
-       management and briefly introduces the tools to use to
-       accomplish these tasks:
+     Pacemaker ships with a set of command-line tools to assist you
+     in managing your cluster. Their manual pages are all linked
+     above. Here are more details about the most important tools:
      </p>
      <div class="variablelist">
        <dl>
-	 <dt>
-	   <span class="term">Monitoring the Cluster's Status</span>
-	 </dt>
-	 <dd>
-	   <p>The <strong class="inline-command">crm_mon</strong> command
-	      allows you to monitor your cluster's status and
-	      configuration. Its output includes the number of nodes,
-	      uname, uuid, status, the resources configured in your
-	      cluster, and the current status of each. The output of
-	     
-	     <strong class="inline-command">crm_mon</strong> 
-
-	     can be displayed at the console or printed into an HTML
-	     file. When provided with a cluster configuration file
-	     without the status section,
-
-	     <strong class="inline-command">crm_mon</strong>
-	     
-	     creates an overview of nodes and resources as specified
-	     in the file. See <a href="crm_mon.8.html"
-	     title="crm_mon"><span class="refentrytitle">crm_mon</span>(8)</a>
-	     for a detailed introduction to this tool's usage and
-	     command syntax.
-	   </p>
-	 </dd>
-	 <dt>
-	   <span class="term">Managing the CIB</span>
+         <dt>
+           <span class="term">Monitoring Cluster Status</span>
+         </dt>
+         <dd>
+           <p>The <strong class="inline-command">crm_mon</strong> command
+              allows you to monitor your cluster's status and
+              configuration. Its output includes the number of nodes,
+              uname, uuid, status, the resources configured in your
+              cluster, and the current status of each. The output of
+             <strong class="inline-command">crm_mon</strong> 
+             can be displayed at the console or printed into an XML or HTML
+             file. When provided with a cluster configuration file
+             without the status section,
+             <strong class="inline-command">crm_mon</strong>
+             creates an overview of nodes and resources as specified
+             in the file. See <a href="crm_mon.8.html"
+             title="crm_mon"><span class="refentrytitle">crm_mon</span>(8)</a>
+             for a detailed introduction to this tool's usage and
+             command syntax.
+           </p>
+         </dd>
+         <dt>
+	   <span class="term">Managing the Cluster Configuration</span>
 	 </dt>
 	 <dd>
 	   <p>The <strong class="inline-command">cibadmin</strong> command is
@@ -107,11 +97,6 @@ foreach ($mans as $m) {
 	     detailed introduction
 	     to this tool's usage and command syntax.
 	   </p>
-	 </dd>
-	 <dt>
-	   <span class="term">Managing Configuration Changes</span>
-	 </dt>
-	 <dd>
 	   <p>The <strong class="inline-command">crm_diff</strong> command
 	      assists you in creating and applying XML patches.  This
 	      can be useful for visualizing the changes between two
@@ -124,23 +109,6 @@ foreach ($mans as $m) {
 	     detailed introduction to this tool's usage and command
 	     syntax.
 	   </p>
-	 </dd>
-	 <dt>
-	   <span class="term">Manipulating CIB Attributes</span>
-	 </dt>
-	 <dd>
-	   <p>The <strong class="inline-command">crm_attribute</strong>
-	      command lets you query and manipulate node attributes
-	      and cluster configuration options that are used in the
-	      CIB. See <a href="crm_attribute.8.html"
-	      title="crm_attribute"> <span class="refentrytitle">crm_attribute</span>(8)</a>
-	      for a detailed introduction to this tool's usage and
-	      command syntax.</p>
-	 </dd>
-	 <dt>
-	   <span class="term">Validating the Cluster Configuration</span>
-	 </dt>
-	 <dd>
 	   <p>The <strong class="inline-command">crm_verify</strong> command
 	      checks the configuration database (CIB) for consistency
 	      and other problems. It can check a file containing the
@@ -162,7 +130,19 @@ foreach ($mans as $m) {
 	   </p>
 	 </dd>
 	 <dt>
-	   <span class="term">Managing Resource Configurations</span>
+	   <span class="term">Manipulating Attributes</span>
+	 </dt>
+	 <dd>
+	   <p>The <strong class="inline-command">crm_attribute</strong>
+	      command lets you query and manipulate node attributes
+	      and cluster configuration options that are used in the
+	      CIB. See <a href="crm_attribute.8.html"
+	      title="crm_attribute"> <span class="refentrytitle">crm_attribute</span>(8)</a>
+	      for a detailed introduction to this tool's usage and
+	      command syntax.</p>
+	 </dd>
+	 <dt>
+	   <span class="term">Managing Resources</span>
 	 </dt>
 	 <dd>
 	   <p>The <strong class="inline-command">crm_resource</strong>
@@ -192,7 +172,7 @@ foreach ($mans as $m) {
 	     command syntax.</p>
 	 </dd>
 	 <dt>
-	   <span class="term">Managing a Node's Standby Status</span>
+	   <span class="term">Managing Nodes</span>
 	 </dt>
 	 <dd>
 	   <p>The <strong class="inline-command">crm_standby</strong> command
