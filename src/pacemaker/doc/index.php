@@ -51,10 +51,6 @@ title: Pacemaker Documentation
         <td>Configuring Fencing with crmsh</td>
         <td>[<a class="doclink" href="crm_fencing.html">html</a>]</td>
       </tr>
-      <tr>
-        <td>ACL Guide</td>
-        <td>[<a class="doclink" href="acls.html">html</a>]</td>
-      </tr>
     </table>
   </section>
 
