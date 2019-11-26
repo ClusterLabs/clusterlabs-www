@@ -13,7 +13,7 @@ title: Pacemaker ABI Compatibility
 
 <table align=center style="width:75%;" cellpadding=1>
 <caption>
-  <a name="ABI_table" id="ABI_table"></a><h3>ABI Compatability Table</h3>
+  <a name="ABI_table" id="ABI_table"></a><h3>ABI Compatibility Table</h3>
 </caption>
  <tr>
   <th>Version</th>
