@@ -180,9 +180,11 @@ function Timeline(paper, datesAndVersions) {
       {date:"07/11/2018", version:"1.1.19"},
       {date:"03/04/2019", version:"1.1.20"},
       {date:"06/06/2019", version:"1.1.21"},
+      {date:"11/26/2019", version:"1.1.22"},
       {date:"06/07/2018", version:"2.0.0"},
       {date:"03/04/2019", version:"2.0.1"},
       {date:"06/06/2019", version:"2.0.2"},
+      {date:"11/25/2019", version:"2.0.3"},
     ]);
 
   });
