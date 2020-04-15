@@ -37,23 +37,26 @@ when an asset changes, so we can use long cache times on the server end.
 Another advantage is that sources are minified when in production mode.
 
 How CSS is managed:
-* `src/_assets/css/main.scss` is just a list of imports
-* `src/_assets/css/_*.scss` contain the CSS to be imported by `main.scss`
+* CSS is generated from SASS sources
+* `src/_assets/stylesheets/main.scss` is just a list of imports
+* all other *.scss files beneath `src/_assets/stylesheets` contain the SASS to
+  be imported by `main.scss`
 * jekyll will generate `html/assets/main.css` (or `main-_HASH_.css`) as the
   combination of all imports
-* web pages can reference the stylesheet via `{% css main %}`
+* web pages can reference the stylesheet via `{% stylesheet main %}`
 
 JavaScript is managed similarly:
-* `src/_assets/js/main.js` is just a list of requires
-* `src/_assets/js/*.js` contain the JavaScript to be required by `main.js`
+* `src/_assets/javascripts/main.js` is just a list of requires
+* `src/_assets/javascripts/*.js` contain the JavaScript to be required by
+  `main.js`
 * jekyll will copy these to `html/assets`
 * jekyll will generate `html/assets/main.js` (or `main-_HASH_.js`) as the
   combination of all JavaScript
-* web pages can reference the script via `{% js main %}`
+* web pages can reference the script via `{% javascript main %}`
 
 How images are managed:
 * `src/_assets/images/*` are our images
-* web pages can add an img tag using `{% img _NAME_._EXT_ %}`
+* web pages can add an img tag using `{% image _NAME_._EXT_ %}`
 * web pages can reference a path to an image (e.g. in a link's href)
   using `{% asset_path _NAME_._EXT_ %}`
 * CSS can reference a path to an image using

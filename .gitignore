@@ -3,6 +3,7 @@
 /html/*.txt
 /html/assets/
 /html/doc/
+/html/feed.xml
 /html/pacemaker/index.html
 /html/pacemaker/*/index.php
 /html/polls/index.html
