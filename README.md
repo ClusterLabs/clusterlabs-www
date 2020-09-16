@@ -23,8 +23,8 @@ To generate content in a checkout for development and testing, change to the
 `src` directory and run `bundle exec jekyll build` (to merely generate content)
 or `bundle exec jekyll serve` (to generate and test via a local server).
 To generate content on the production site, run
-`JEKYLL_ENV=production jekyll build` (which will enable such things as site
-analytics and asset digests).
+`JEKYLL_ENV=production jekyll build` (which will enable such things as asset
+digests).
     
 If `src/Gemfile` changes, re-run `bundle install` afterward.
 

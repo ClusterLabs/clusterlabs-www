@@ -19,7 +19,6 @@ email: users@clusterlabs.org
 description: Community hub for open-source high-availability software
 
 url: https://www.clusterlabs.org/
-google_analytics: UA-8156370-1
 
 # Build settings
 theme: minima
