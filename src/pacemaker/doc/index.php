@@ -56,9 +56,9 @@ title: Pacemaker Documentation
 
   <?php
 
-   function get_versions($base) {
+   function get_versions($pattern) {
      $versions = array();
-     foreach (glob("$base/*/Pacemaker/*") as $item)
+     foreach (glob($pattern) as $item)
         if ($item != '.' && $item != '..' && is_dir($item) && !is_link($item))
            $versions[] = basename($item);
 
@@ -79,6 +79,35 @@ title: Pacemaker Documentation
      if (!empty($build)) {
        echo "    <p>$build    </p>\n";
      }
+   }
+
+   function sphinx_docs_for_version($base, $version) {
+     echo "  <section class='docset'>\n";
+     doc_version_heading($base, $version);
+
+     /* poor choice of name for style ... */
+     echo "    <table class=\"publican-doc\">\n";
+     foreach (glob("$base/$version/*") as $filename) {
+       $book = basename($filename);
+       $formats = glob("$base/$version/$book/*");
+       if (!empty($formats)) {
+           echo "      <tr>\n";
+           echo "        <td>" . str_replace("_", " ", $book) . "</td>\n";
+           echo "        <td>";
+           foreach ($formats as $format) {
+               if (basename($format) == "pdf") {
+                   $link = "$format/$book.pdf";
+               } else {
+                   $link = "$format/";
+               }
+               echo " [<a class='doclink' href='$link'>" . basename($format) . "</a>]";
+           }
+           echo "</td>\n";
+           echo "      </tr>\n";
+       }
+     }
+     echo "    </table>\n";
+     echo "  </section>\n";
    }
 
    function publican_docs_for_version($base, $version, $langs) {
@@ -125,12 +154,15 @@ title: Pacemaker Documentation
   // for now, show only US English; other translations haven't been maintained
   $langs[] = "en-US";
 
-  foreach(get_versions(".") as $v) {
+  foreach (get_versions("./[0-9]*.*") as $v) {
+    sphinx_docs_for_version(".", $v);
+  }
+  foreach (get_versions("./*/Pacemaker/*") as $v) {
     publican_docs_for_version(".", $v, $langs);
   }
 
   echo "<header class='major'>\n<h2>Deprecated documentation</h2>\n</header>";
-  foreach(get_versions("deprecated") as $v) {
+  foreach(get_versions("deprecated/*/Pacemaker/*") as $v) {
     $langs = array();
     foreach (glob("deprecated/*/Pacemaker/$v") as $item) {
       $langs[] = basename(dirname(dirname($item)));
