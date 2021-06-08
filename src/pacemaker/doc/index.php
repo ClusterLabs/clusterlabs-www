@@ -157,9 +157,6 @@ title: Pacemaker Documentation
   foreach (get_versions("./[0-9]*.*") as $v) {
     sphinx_docs_for_version(".", $v);
   }
-  foreach (get_versions("./*/Pacemaker/*") as $v) {
-    publican_docs_for_version(".", $v, $langs);
-  }
 
   echo "<header class='major'>\n<h2>Deprecated documentation</h2>\n</header>";
   foreach(get_versions("deprecated/*/Pacemaker/*") as $v) {
