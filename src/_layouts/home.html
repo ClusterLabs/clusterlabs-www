@@ -127,13 +127,13 @@ layout: clusterlabs
       <li>Detection and recovery of machine and application-level failures</li>
       <li>Supports practically any <a href="https://wiki.clusterlabs.org/wiki/ClusterTypes">redundancy configuration</a></li>
       <li>Supports both <a href="https://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorate</a> and <a href="https://web.archive.org/web/20110727185030/http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
-      <li>Configurable <a href="/pacemaker/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-cluster-options.html#id36137161">strategies</a> for dealing with <a href="https://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple machines fail)</li>
-      <li>Supports application <a href="/pacemaker/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-ordering.html">startup/shutdown ordering</a>, regardless of which machine(s) the applications are on</li>
-      <li>Supports applications that must/must-not run on the <a href="/pacemaker/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-colocation.html">same machine</a></li>
-      <li>Supports applications which need to be active on <a href="/pacemaker/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-clone.html">multiple machines</a></li>
-      <li>Supports applications with dual roles (<a href="/pacemaker/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/s-resource-multistate.html">promoted and unpromoted</a>)<br/><br/></li>
-      <li>Provably correct response to any failure or cluster state.<br/>
-  The cluster's response to any stimuli can be tested offline <strong><i>before</i></strong> the condition exists
+      <li>Configurable <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/options.html#cluster-options">strategies</a> for dealing with <a href="https://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple machines fail)</li>
+      <li>Supports application <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#specifying-the-order-in-which-resources-should-start-stop">startup/shutdown ordering</a>, without requiring the applications to run on the same node</li>
+      <li>Supports applications that must or must not run on the <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#placing-resources-relative-to-other-resources">same node</a></li>
+      <li>Supports applications which need to be active on <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#clones-resources-that-can-have-multiple-active-instances">multiple nodes</a></li>
+      <li>Supports applications with dual roles (<a href="https://clusterlabs.org/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#promotable-clones">promoted and unpromoted</a>)<br/><br/></li>
+      <li>Provably correct response to any failure or cluster state. The cluster's
+          response to any stimuli can be tested offline <i>before</i> the condition exists
       </li>
     </ul>
 
