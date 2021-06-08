@@ -1,1 +1,1 @@
-Pacemaker 1.1 for Corosync 1.x
+Pacemaker 1.1 for Corosync 1
