@@ -65,21 +65,25 @@ title: Pacemaker Documentation
      return array_reverse(array_unique($versions));
    }
 
-   function docs_for_version($base, $version, $langs) {
-     echo "<section class='docset'>";
-     echo "<h3 class='docversion'>";
-     foreach (glob("$base/title-$version.txt") as $filename) {
-        readfile($filename);
+   function doc_version_heading($base, $version) {
+     $title = file_get_contents("$base/title-$version.txt");
+     if (empty($title)) {
+       $title = $version;
      }
-     echo "</h3>";
-     foreach (glob("$base/desc-$version.txt") as $filename) {
-        readfile($filename);
+     echo "    <h3 class='docversion'>$title    </h3>\n";
+     $desc = file_get_contents("$base/desc-$version.txt");
+     if (!empty($desc)) {
+       echo "    <p>$desc    </p>\n";
      }
-     echo "<br/>";
-     foreach (glob("$base/build-$version.txt") as $filename) {
-        readfile($filename);
+     $build = file_get_contents("$base/build-$version.txt");
+     if (!empty($build)) {
+       echo "    <p>$build    </p>\n";
      }
-     echo "<br/>";
+   }
+
+   function publican_docs_for_version($base, $version, $langs) {
+     echo "  <section class='docset'>\n";
+     doc_version_heading($base, $version);
 
      $books = array();
      foreach (glob("$base/en-US/Pacemaker/$version/pdf/*") as $filename) {
@@ -122,7 +126,7 @@ title: Pacemaker Documentation
   $langs[] = "en-US";
 
   foreach(get_versions(".") as $v) {
-    docs_for_version(".", $v, $langs);
+    publican_docs_for_version(".", $v, $langs);
   }
 
   echo "<header class='major'>\n<h2>Deprecated documentation</h2>\n</header>";
@@ -131,7 +135,7 @@ title: Pacemaker Documentation
     foreach (glob("deprecated/*/Pacemaker/$v") as $item) {
       $langs[] = basename(dirname(dirname($item)));
     }
-    docs_for_version("deprecated", $v, $langs);
+    publican_docs_for_version("deprecated", $v, $langs);
   }
 
   ?>
