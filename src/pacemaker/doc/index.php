@@ -33,7 +33,7 @@ title: Pacemaker Documentation
   </p>
 
   <header class="major">
-    <h2>Unversioned documentation</h2>
+    <h2>Unversioned documentation (somewhat outdated)</h2>
   </header>
 
   <section class="docset">
