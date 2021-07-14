@@ -47,12 +47,13 @@ Update one gem and dependencies (will update Gemfile.lock, which must be committ
    bundle update $GEM
 
 If a gem can't update due to not supporting the local Ruby version or
-installable versions of other gems, you can edit Gemfile or Gemfile.lock to add
-a version restriction like:
+installable versions of other gems, or you need to raise a dependency version
+to fix a security issue, you can edit Gemfile to add a version restriction
+like:
 
-    gem-name (2.7.0)		-> exact version
-    gem-name (>= 2.0.2, < 5.0)	-> version within range
-    gem-name.rb (~> 0.6.0)	-> last number may increase
+    gem "gem-name", "2.7.0"		-> exact version
+    gem "gem-name", ">= 2.0.2, < 5.0"	-> version within range
+    gem "gem-name.rb", "~> 0.6.0"	-> last number may increase
 
 ## Images, stylesheets and JavaScripts
 
