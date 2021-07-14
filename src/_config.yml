@@ -46,7 +46,3 @@ keep_files:
   - pacemaker/doxygen
   - pacemaker/global
   - pacemaker/man
-  - Pictures
-  - rpm-test
-  - rpm-test-next
-  - rpm-test-rhel
