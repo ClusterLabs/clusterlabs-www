@@ -23,10 +23,36 @@ To generate content in a checkout for development and testing, change to the
 `src` directory and run `bundle exec jekyll build` (to merely generate content)
 or `bundle exec jekyll serve` (to generate and test via a local server).
 To generate content on the production site, run
-`JEKYLL_ENV=production jekyll build` (which will enable such things as asset
-digests).
+`JEKYLL_ENV=production bundle exec jekyll build` (which will enable such things
+as asset digests).
     
 If `src/Gemfile` changes, re-run `bundle install` afterward.
+
+### Updating Ruby gems
+
+Display Ruby dependencies, with their current version:
+
+   bundle list
+
+Show available updates:
+
+   bundle outdated
+
+Show where a gem comes from:
+
+   bundle info $GEM
+
+Update one gem and dependencies (will update Gemfile.lock, which must be committed):
+
+   bundle update $GEM
+
+If a gem can't update due to not supporting the local Ruby version or
+installable versions of other gems, you can edit Gemfile or Gemfile.lock to add
+a version restriction like:
+
+    gem-name (2.7.0)		-> exact version
+    gem-name (>= 2.0.2, < 5.0)	-> version within range
+    gem-name.rb (~> 0.6.0)	-> last number may increase
 
 ## Images, stylesheets and JavaScripts
 

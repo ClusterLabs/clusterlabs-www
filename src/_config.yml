@@ -23,7 +23,7 @@ url: https://www.clusterlabs.org/
 # Build settings
 theme: minima
 destination: ../html
-gems:
+plugins:
   - jekyll-assets
   - font-awesome-sass
 include:
