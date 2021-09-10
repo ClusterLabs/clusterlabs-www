@@ -1,1 +1,1 @@
-Clusters From Scratch demonstrates Pacemaker 2.0 (not yet updated for 2.1) with Corosync 3
+Clusters From Scratch demonstrates Pacemaker 2.1 with Corosync 3
