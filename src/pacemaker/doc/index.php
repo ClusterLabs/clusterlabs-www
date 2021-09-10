@@ -94,13 +94,17 @@ title: Pacemaker Documentation
            echo "      <tr>\n";
            echo "        <td>" . str_replace("_", " ", $book) . "</td>\n";
            echo "        <td>";
+
            foreach ($formats as $format) {
-               if (basename($format) == "pdf") {
-                   $link = "$format/$book.pdf";
-               } else {
-                   $link = "$format/";
+               $format_name = basename($format);
+               if (strncmp($format_name, "build-", 6) !== 0) {
+                   if ($format_name == "pdf") {
+                       $link = "$format/$book.pdf";
+                   } else {
+                       $link = "$format/";
+                   }
+                   echo " [<a class='doclink' href='$link'>" . $format_name . "</a>]";
                }
-               echo " [<a class='doclink' href='$link'>" . basename($format) . "</a>]";
            }
            echo "</td>\n";
            echo "      </tr>\n";
@@ -169,4 +173,4 @@ title: Pacemaker Documentation
 
   ?>
 
-</section>	
+</section>
