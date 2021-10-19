@@ -33,11 +33,21 @@ title: Pacemaker Documentation
   </p>
 
   <header class="major">
-    <h2>Unversioned documentation (somewhat outdated)</h2>
+    <h2>Unversioned documentation</h2>
   </header>
 
   <section class="docset">
-    <h3 class="docversion">General Concepts</h3>
+    <h3 class="docversion">Command-line tools</h3>
+    <table class="publican-doc">
+      <tr>
+        <td>man(1) pages</td>
+        <td>[<a class="doclink" href="/pacemaker/man/">html</a>]</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="docset">
+    <h3 class="docversion">General Concepts (somewhat outdated)</h3>
     <table class="publican-doc">
       <tr>
         <td>Ordering Explained</td>
