@@ -19,8 +19,8 @@ gem "minima", "~> 2.0"
 # not sure why jekyll doesn't generate this dependency automatically
 gem "kramdown-parser-gfm"
 
-# Raise rack dependency version to avoid security issue
-gem "rack", ">= 2.1.4"
+# Raise rack dependency version to avoid security issues
+gem "rack", ">= 2.2.3.1"
 
 # Needed by jekyll-assets
 group :jekyll_assets_deps do
