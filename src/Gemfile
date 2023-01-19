@@ -24,7 +24,7 @@ gem "rack", ">= 2.2.3.1"
 
 # Needed by jekyll-assets
 group :jekyll_assets_deps do
-   gem "public_suffix"
+   gem "public_suffix", "< 5.0.0"
    gem "ruby_dep"
    gem "rb-inotify"
    gem "listen"
