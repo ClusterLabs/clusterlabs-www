@@ -20,11 +20,9 @@
 /html/pacemaker/global/*/
 /html/pacemaker/man/*.[78].html
 
-# bugzilla, mediawiki, and phabricator source
+# bugzilla and phorge source
 /bugzilla
 /bugzilla*/
-/mediawiki
-/mediawiki*/
 /projects
 
 # not version-controlled
