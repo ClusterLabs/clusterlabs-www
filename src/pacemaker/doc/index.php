@@ -27,7 +27,7 @@ title: Pacemaker Documentation
   </p>
 
   <p>
-    There is also a <a href="https://wiki.clusterlabs.org/wiki">project wiki</a> 
+    There is also a <a href="https://wiki.clusterlabs.org/wiki">project wiki</a>
     with examples, how-to guides, and other information that doesn't make it 
     into the manuals.
   </p>
