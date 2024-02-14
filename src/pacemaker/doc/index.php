@@ -27,7 +27,7 @@ title: Pacemaker Documentation
   </p>
 
   <p>
-    There is also a <a href="https://wiki.clusterlabs.org/wiki">project wiki</a> 
+    There is also a <a href="https://projects.clusterlabs.org/w/">project wiki</a>
     with examples, how-to guides, and other information that doesn't make it 
     into the manuals.
   </p>
@@ -49,14 +49,6 @@ title: Pacemaker Documentation
   <section class="docset">
     <h3 class="docversion">General Concepts (somewhat outdated)</h3>
     <table class="publican-doc">
-      <tr>
-        <td>Ordering Explained</td>
-        <td>[<a class="doclink" href="https://wiki.clusterlabs.org/w/images/a/ae/Ordering_Explained_-_White.pdf">pdf</a>]</td>
-      </tr>
-      <tr>
-        <td>Colocation Explained</td>
-        <td>[<a class="doclink" href="https://wiki.clusterlabs.org/w/images/8/8a/Colocation_Explained_-_White.pdf">pdf</a>]</td>
-      </tr>
       <tr>
         <td>Configuring Fencing with crmsh</td>
         <td>[<a class="doclink" href="crm_fencing.html">html</a>]</td>

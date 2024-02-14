@@ -6,77 +6,75 @@ title: Pacemaker
 <!-- Banner -->
 <section id="banner">
   <div class="content">
-	<header>
-	  <h1>Pacemaker</h1>
-	  <p>Cluster Resource Manager</p>
-	</header>
-	  <p>
-	    <b>Pacemaker</b> is an <a href="https://en.wikipedia.org/wiki/Open-source_model">open source</a>,
-	    <a href="https://en.wikipedia.org/wiki/High_availability">high availability</a>
-	    resource manager suitable for both small and large
-	    <a href="https://en.wikipedia.org/wiki/Computer_cluster">clusters</a>.
-	  </p>
-      </div>
+    <header>
+      <h1>Pacemaker</h1>
+      <p>Cluster Resource Manager</p>
+    </header>
+    <p>
+      <b>Pacemaker</b> is an <a href="https://en.wikipedia.org/wiki/Open-source_model">open source</a>,
+      <a href="https://en.wikipedia.org/wiki/High_availability">high availability</a>
+      resource manager suitable for both small and large
+      <a href="https://en.wikipedia.org/wiki/Computer_cluster">clusters</a>.
+    </p>
+  </div>
   <span class="image object">
     {% image pacemaker-notext.svg %}
   </span>
 </section>
 
+<section id="main">
+  <a id="info"> </a>
+  <blockquote class="pullquote">
+    "The definitive open-source high-availability stack for the Linux
+    platform builds upon the Pacemaker cluster resource manager."
+    -- <cite>LINUX Journal</cite>,
+    <a href="http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack">"Ahead
+    of the Pack: the Pacemaker High-Availability Stack"</a>
+  </blockquote>
 
-	<section id="main">
-	  <a id="info"> </a>
-	  
+  <a id="features"> </a>
+  <h2>Features</h2>
+  <ul>
+    <li>Detection and recovery of machine and application-level failures</li>
+    <li>Supports practically any <a
+      href="https://en.wikipedia.org/wiki/High-availability_cluster#Node_configurations">redundancy configuration</a></li>
+    <li>Supports both <a href="https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29">quorate</a> and <a href="https://web.archive.org/web/20110727185030/http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
+    <li>Configurable <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/options.html#cluster-options">strategies</a> for dealing with <a href="https://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple nodes fail)</li>
+    <li>Supports application <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#specifying-the-order-in-which-resources-should-start-stop">startup/shutdown ordering</a>, without requiring the applications to run on the same node</li>
+    <li>Supports applications that must or must not run on the <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#placing-resources-relative-to-other-resources">same node</a></li>
+    <li>Supports applications which need to be active on <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#clones-resources-that-can-have-multiple-active-instances">multiple nodes</a></li>
+    <li>Supports applications with dual roles (<a href="https://clusterlabs.org/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#promotable-clones">promoted and unpromoted</a>)</li>
+    <li>Provably correct response to any failure or cluster state. The cluster's
+        response to any stimuli can be tested offline <i>before</i> the condition exists
+    </li>
+  </ul>
 
-	  <blockquote class="pullquote">
-	  "The definitive open-source high-availability stack for the Linux
-	  platform builds upon the Pacemaker cluster resource manager."
-	  -- <cite>LINUX Journal</cite>,
-	  <a href="http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack">"Ahead
-	  of the Pack: the Pacemaker High-Availability Stack"</a>
-	  </blockquote>
-
-	  <a id="features"> </a>
-	  <h2>Features</h2>
-	  <ul>
-            <li>Detection and recovery of machine and application-level failures</li>
-	    <li>Supports practically any <a href="https://wiki.clusterlabs.org/wiki/ClusterTypes">redundancy configuration</a></li>
-            <li>Supports both <a href="https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29">quorate</a> and <a href="https://web.archive.org/web/20110727185030/http://devresources.linux-foundation.org/dev/clusters/docs/ResourceDrivenClusters.pdf">resource-driven</a> clusters</li>
-      <li>Configurable <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/options.html#cluster-options">strategies</a> for dealing with <a href="https://en.wikipedia.org/wiki/Quorum_%28Distributed_Systems%29">quorum</a> loss (when multiple nodes fail)</li>
-      <li>Supports application <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#specifying-the-order-in-which-resources-should-start-stop">startup/shutdown ordering</a>, without requiring the applications to run on the same node</li>
-      <li>Supports applications that must or must not run on the <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/constraints.html#placing-resources-relative-to-other-resources">same node</a></li>
-      <li>Supports applications which need to be active on <a href="/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#clones-resources-that-can-have-multiple-active-instances">multiple nodes</a></li>
-      <li>Supports applications with dual roles (<a href="https://clusterlabs.org/pacemaker/doc/2.1/Pacemaker_Explained/html/advanced-resources.html#promotable-clones">promoted and unpromoted</a>)<br/><br/></li>
-      <li>Provably correct response to any failure or cluster state. The cluster's
-          response to any stimuli can be tested offline <i>before</i> the condition exists
-      </li>
-	  </ul>
-
-	  <h2>Background</h2>
-	  <a class="ohloh" href="https://www.openhub.net/p/pacemaker?ref=sample">
-	    <img alt="Black Duck Open Hub project report for pacemaker"
-	    border="0"
-	    src="https://www.openhub.net/p/pacemaker/widgets/project_partner_badge.gif">
-	  </a>
-	  <p>
-	    Pacemaker has been around since
-	    <a href="https://www.openhub.net/p/pacemaker/analyses/latest/languages_summary">2004</a>
-	    and is a collaborative effort by the ClusterLabs community, including
-	    full-time developers with
-	    <a href="https://www.redhat.com/">Red Hat</a>
-	    and <a href="https://www.suse.com/">SuSE</a>.
-	  </p>
-	  <p>
-	    Pacemaker ships with most modern Linux distributions and has been
-	    deployed in many critical environments including Deutsche
-	    Flugsicherung GmbH
-	    (<a href="http://www.dfs.de/dfs_homepage/de/">DFS</a>)
-	    which uses Pacemaker to ensure
-	    its <a href="http://www.novell.com/success/dfs.html">air traffic
-	      control systems</a> are always available.
-	  </p>
-	  <p>
-	    <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a> was
-	    Pacemaker's original author and long-time project lead. The current
-	    project lead is <a href="mailto:kgaillot@redhat.com">Ken Gaillot</a>.
-	  </p>
-	</section>
+  <h2>Background</h2>
+  <a class="ohloh" href="https://www.openhub.net/p/pacemaker?ref=sample">
+    <img alt="Black Duck Open Hub project report for pacemaker"
+      border="0"
+      src="https://www.openhub.net/p/pacemaker/widgets/project_partner_badge.gif">
+  </a>
+  <p>
+    Pacemaker has been around since
+    <a href="https://www.openhub.net/p/pacemaker/analyses/latest/languages_summary">2004</a>
+    and is a collaborative effort by the ClusterLabs community, including
+    full-time developers with
+    <a href="https://www.redhat.com/">Red Hat</a>
+    and <a href="https://www.suse.com/">SuSE</a>.
+  </p>
+  <p>
+    Pacemaker ships with most modern Linux distributions and has been
+    deployed in many critical environments including Deutsche
+    Flugsicherung GmbH
+    (<a href="http://www.dfs.de/dfs_homepage/de/">DFS</a>)
+    which uses Pacemaker to ensure
+    its <a href="http://www.novell.com/success/dfs.html">air traffic
+    control systems</a> are always available.
+  </p>
+  <p>
+    <a href="mailto:andrew@beekhof.net">Andrew Beekhof</a> was
+    Pacemaker's original author and long-time project lead. The current
+    project lead is <a href="mailto:kgaillot@redhat.com">Ken Gaillot</a>.
+  </p>
+</section>
