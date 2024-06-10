@@ -10,7 +10,6 @@ ruby RUBY_VERSION
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-# jekyll-assets does not support jekyll 4 yet
 gem "jekyll"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
