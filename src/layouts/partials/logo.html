@@ -1,0 +1,17 @@
+    <a href="{{ "" | relLangURL }}" class="mr-2">
+      <!-- prettier-ignore-attribute -->
+      <img
+        src="/assets/images/clusterlabs-logo.svg"
+	width="55" height="66"
+        class="max-h-[10rem] max-w-[10rem] object-scale-down object-left"
+        alt="{{ .Site.Title }}"
+      />
+    </a>
+{{- if .Site.Params.header.showTitle | default true }}
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="{{ "" | relLangURL }}"
+    >{{ .Site.Title | markdownify | emojify }}</a
+  >
+{{- end }}
