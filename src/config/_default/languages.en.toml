@@ -1,0 +1,10 @@
+languageCode = "en-us"
+languageName = "English"
+languageDirection = "ltr"
+weight = 1
+
+title = "ClusterLabs"
+
+[params]
+  # This particular date must be used in this parameter!
+  dateFormat = "2 January 2006"

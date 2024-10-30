@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible for this site
+
+# TEAM
+
+    Ken Gaillot, site maintainer
+    Grace Chin, site maintainer
+
+# THANKS
+
+... to all who have contributed to the development, maintenance, or hosting of
+this site, including but not limited to:
+
+    Andrew Beekhof
+    Fabio DiNitto
+    Kristoffer Grönlund
+    Lon Hohberger
+    Madison Kelly
+    Chris Kowalczyk
+    David Vossel
