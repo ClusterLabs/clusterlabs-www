@@ -43,7 +43,7 @@ older documentation below.
          $books[] = basename($filename);
      }
 
-     echo '<table>\n';
+     echo "<table>\n";
      foreach ($books as $b) {
          foreach ($langs as $lang) {
              if (glob("$base/$lang/Pacemaker/$version/pdf/$b/*-$lang.pdf")) {
