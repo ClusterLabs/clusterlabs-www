@@ -46,6 +46,6 @@ GmbH](http://www.dfs.de/dfs_homepage/de/), which used Pacemaker to ensure
 systems](http://web.archive.org/web/20090201115037/http://www.novell.com:80/success/dfs.html)
 are always available.
 
-[Andrew Beekhof](https://www.beekhof.net/) was Pacemaker's original author and
-led the project until late 2015. Since then, [Ken
-Gaillot](mailto:kgaillot@redhat.com) has been the project lead.
+Pacemaker's original author [Andrew Beekhof](https://www.beekhof.net/) led the
+project until late 2015, followed by Ken Gaillot through 2024. Chris Lumens now
+leads it.
